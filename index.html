@@ -1,7 +1,8 @@
-<html lang="zh-CN"><head>
+<html lang="zh-Hant">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>币友圈2025 (BYB) - 真实资产链上生态平台</title>
+    <title>幣友圈2025 (BYB) - 真實資產鏈上生態平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
@@ -14,12 +15,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F3460',
-                        secondary: '#E6B325',
-                        accent: '#1A73E8',
-                        dark: '#1A1A2E',
-                        light: '#F5F5F7',
-                        neutral: '#2C394B'
+                        primary: '#0A7E51', // 主绿色
+                        secondary: '#36D399', // 亮绿色
+                        accent: '#059669', // 强调绿
+                        dark: '#0F172A', // 深色背景
+                        light: '#F8FAFC', // 浅色背景
+                        neutral: '#1E293B' // 中性色
                     },
                     fontFamily: {
                         inter: ['Inter', 'sans-serif'],
@@ -52,6 +53,32 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
             }
+            .nav-glow {
+                box-shadow: 0 0 15px rgba(54, 211, 153, 0.5);
+            }
+            .nav-item-hover {
+                position: relative;
+                overflow: hidden;
+            }
+            .nav-item-hover::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: #36D399;
+                transition: width 0.3s ease;
+            }
+            .nav-item-hover:hover::after {
+                width: 100%;
+            }
+            .tech-grid {
+                background-size: 40px 40px;
+                background-image: 
+                    linear-gradient(to right, rgba(54, 211, 153, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(54, 211, 153, 0.05) 1px, transparent 1px);
+            }
         }
     </style>
     
@@ -65,7 +92,7 @@
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #0F3460 0%, #1A1A2E 100%);
+            background: linear-gradient(135deg, #0F172A 0%, #0A4C36 100%);
         }
         
         .card-hover {
@@ -74,11 +101,12 @@
         
         .card-hover:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(54, 211, 153, 0.15);
         }
         
         .nav-scrolled {
-            background-color: rgba(15, 52, 96, 0.95);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         
         .animate-float {
@@ -96,14 +124,39 @@
             top: 0;
             left: 0;
             height: 3px;
-            background-color: #E6B325;
+            background-color: #36D399;
             z-index: 100;
             transition: width 0.2s ease;
+        }
+        
+        .language-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover, .language-btn.active {
+            background-color: #36D399;
+            color: #0F172A;
+        }
+        
+        .tech-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(54, 211, 153, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(54, 211, 153, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(54, 211, 153, 0);
+            }
         }
     </style>
 </head>
 
-<body class="bg-light font-inter text-dark">
+<body class="bg-light font-inter text-dark tech-grid">
     <!-- 进度条 -->
     <div class="progress-bar" id="progressBar"></div>
 
@@ -111,22 +164,29 @@
     <nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center space-x-2">
-                    <div class="bg-secondary text-primary p-2 rounded-lg">
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="bg-secondary text-dark p-2 rounded-lg transform transition-transform group-hover:rotate-12">
                         <span class="font-bold text-xl">BYB</span>
                     </div>
-                    <span class="text-white font-bold text-xl">币友圈2025</span>
+                    <span class="text-white font-bold text-xl group-hover:text-secondary transition-colors">幣友圈2025</span>
                 </a>
+                
+                <!-- 语言切换 -->
+                <div class="hidden md:flex items-center space-x-2 mr-4">
+                    <button class="language-btn active px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="zh-Hant">繁</button>
+                    <button class="language-btn px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="zh-CN">简</button>
+                    <button class="language-btn px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="en">En</button>
+                </div>
                 
                 <!-- 桌面导航 -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="text-white hover:text-secondary transition-colors">关于我们</a>
-                    <a href="#market" class="text-white hover:text-secondary transition-colors">市场分析</a>
-                    <a href="#solution" class="text-white hover:text-secondary transition-colors">解决方案</a>
-                    <a href="#assets" class="text-white hover:text-secondary transition-colors">资产展示</a>
-                    <a href="#token" class="text-white hover:text-secondary transition-colors">代币模型</a>
-                    <a href="#roadmap" class="text-white hover:text-secondary transition-colors">路线图</a>
-                    <a href="#contact" class="bg-secondary text-primary px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all">联系我们</a>
+                    <a href="#about" class="text-white hover:text-secondary transition-colors nav-item-hover">關於我們</a>
+                    <a href="#market" class="text-white hover:text-secondary transition-colors nav-item-hover">市場分析</a>
+                    <a href="#solution" class="text-white hover:text-secondary transition-colors nav-item-hover">解決方案</a>
+                    <a href="#assets" class="text-white hover:text-secondary transition-colors nav-item-hover">資產展示</a>
+                    <a href="#token" class="text-white hover:text-secondary transition-colors nav-item-hover">代幣模型</a>
+                    <a href="#roadmap" class="text-white hover:text-secondary transition-colors nav-item-hover">路線圖</a>
+                    <a href="#contact" class="bg-secondary text-dark px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:-translate-y-1 tech-pulse">聯繫我們</a>
                 </div>
                 
                 <!-- 移动端菜单按钮 -->
@@ -137,15 +197,22 @@
         </div>
         
         <!-- 移动端导航菜单 -->
-        <div id="mobileMenu" class="md:hidden hidden bg-primary bg-opacity-95 bg-blur mt-4">
+        <div id="mobileMenu" class="md:hidden hidden bg-dark bg-opacity-95 bg-blur mt-4">
             <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-                <a href="#about" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">关于我们</a>
-                <a href="#market" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">市场分析</a>
-                <a href="#solution" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">解决方案</a>
-                <a href="#assets" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">资产展示</a>
-                <a href="#token" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">代币模型</a>
-                <a href="#roadmap" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">路线图</a>
-                <a href="#contact" class="bg-secondary text-primary px-6 py-3 rounded-full font-medium text-center hover:bg-opacity-90 transition-all">联系我们</a>
+                <!-- 移动端语言切换 -->
+                <div class="flex items-center space-x-2 mb-2">
+                    <button class="language-btn active px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="zh-Hant">繁</button>
+                    <button class="language-btn px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="zh-CN">简</button>
+                    <button class="language-btn px-3 py-1 rounded text-sm font-medium bg-dark border border-secondary text-white" data-lang="en">En</button>
+                </div>
+                
+                <a href="#about" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">關於我們</a>
+                <a href="#market" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">市場分析</a>
+                <a href="#solution" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">解決方案</a>
+                <a href="#assets" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">資產展示</a>
+                <a href="#token" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">代幣模型</a>
+                <a href="#roadmap" class="text-white hover:text-secondary transition-colors py-2 border-b border-gray-700">路線圖</a>
+                <a href="#contact" class="bg-secondary text-dark px-6 py-3 rounded-full font-medium text-center hover:bg-opacity-90 transition-all">聯繫我們</a>
             </div>
         </div>
     </nav>
@@ -155,33 +222,33 @@
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h5 class="text-secondary font-semibold mb-4 animate-fade-in">币友圈2025</h5>
+                    <h5 class="text-secondary font-semibold mb-4" data-i18n="hero.subtitle">幣友圈2025</h5>
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight mb-6">
-                        真实资产链上<br>
-                        <span class="text-secondary">生态平台</span>
+                        <span data-i18n="hero.title1">真實資產鏈上</span><br>
+                        <span class="text-secondary" data-i18n="hero.title2">生態平台</span>
                     </h1>
-                    <p class="text-gray-300 text-lg mb-8 max-w-lg">
-                        以文化产业真实世界资产（RWA）为锚定的多元化 Web3 数字应用生态，整合 NFT、DAO 治理、链游、社交积分。
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg" data-i18n="hero.description">
+                        以文化產業真實世界資產（RWA）為錨定的多元化 Web3 數字應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#solution" class="bg-secondary text-primary px-8 py-3 rounded-full font-semibold text-center hover:bg-opacity-90 transition-all transform hover:-translate-y-1">
-                            了解解决方案
+                        <a href="#solution" class="bg-secondary text-dark px-8 py-3 rounded-full font-semibold text-center hover:bg-opacity-90 transition-all transform hover:-translate-y-1">
+                            <span data-i18n="hero.btn1">了解解決方案</span>
                         </a>
-                        <a href="#token" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-center hover:bg-white hover:bg-opacity-10 transition-all transform hover:-translate-y-1">
-                            代币经济模型
+                        <a href="#token" class="border-2 border-secondary text-secondary px-8 py-3 rounded-full font-semibold text-center hover:bg-secondary hover:bg-opacity-10 transition-all transform hover:-translate-y-1">
+                            <span data-i18n="hero.btn2">代幣經濟模型</span>
                         </a>
                     </div>
                 </div>
                 <div class="md:w-1/2 relative">
                     <div class="relative z-10 animate-float">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5c20613c12224c23bd0bc830b04b9270~tplv-a9rns2rl98-image.image?rcl=20250802010253AEB044F2E961EF80E3E6&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754672574&amp;x-signature=YaraRrv2xMv%2BhhDzbHC5g22gfEo%3D" alt="区块链与真实资产融合图示" class="rounded-2xl shadow-2xl">
-                        <div class="absolute -bottom-6 -left-6 bg-secondary text-primary p-4 rounded-lg shadow-lg">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/5c20613c12224c23bd0bc830b04b9270~tplv-a9rns2rl98-image.image?rcl=20250802010253AEB044F2E961EF80E3E6&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754672574&amp;x-signature=YaraRrv2xMv%2BhhDzbHC5g22gfEo%3D" alt="區塊鏈與真實資產融合圖示" class="rounded-2xl shadow-2xl border border-secondary/30">
+                        <div class="absolute -bottom-6 -left-6 bg-secondary text-dark p-4 rounded-lg shadow-lg">
                             <p class="font-bold">BYB</p>
-                            <p class="text-sm">真实资产链上生态</p>
+                            <p class="text-sm">真實資產鏈上生態</p>
                         </div>
-                        <div class="absolute -top-6 -right-6 bg-primary border-2 border-secondary p-4 rounded-lg shadow-lg">
+                        <div class="absolute -top-6 -right-6 bg-dark border-2 border-secondary p-4 rounded-lg shadow-lg">
                             <p class="text-white font-bold">RWA + Web3</p>
-                            <p class="text-white text-sm">创新融合模式</p>
+                            <p class="text-white text-sm">創新融合模式</p>
                         </div>
                     </div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-secondary rounded-full filter blur-3xl opacity-20 -z-10"></div>
@@ -190,28 +257,28 @@
             
             <!-- 核心优势 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
-                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-20 transform transition-all hover:-translate-y-2">
+                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-secondary border-opacity-20 transform transition-all hover:-translate-y-2 hover:border-secondary/50">
                     <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-shield text-primary text-xl"></i>
+                        <i class="fa fa-shield text-dark text-xl"></i>
                     </div>
-                    <h3 class="text-white text-xl font-semibold mb-2">真实资产锚定</h3>
-                    <p class="text-gray-300">以文化产业真实世界资产(RWA)为价值支撑，确保生态稳定发展。</p>
+                    <h3 class="text-white text-xl font-semibold mb-2" data-i18n="advantages.title1">真實資產錨定</h3>
+                    <p class="text-gray-300" data-i18n="advantages.desc1">以文化產業真實世界資產(RWA)為價值支撐，確保生態穩定發展。</p>
                 </div>
                 
-                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-20 transform transition-all hover:-translate-y-2">
+                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-secondary border-opacity-20 transform transition-all hover:-translate-y-2 hover:border-secondary/50">
                     <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-cubes text-primary text-xl"></i>
+                        <i class="fa fa-cubes text-dark text-xl"></i>
                     </div>
-                    <h3 class="text-white text-xl font-semibold mb-2">多元生态融合</h3>
-                    <p class="text-gray-300">整合NFT、DAO治理、链游、社交积分，构建完整Web3应用生态。</p>
+                    <h3 class="text-white text-xl font-semibold mb-2" data-i18n="advantages.title2">多元生態融合</h3>
+                    <p class="text-gray-300" data-i18n="advantages.desc2">整合NFT、DAO治理、鏈遊、社交積分，構建完整Web3應用生態。</p>
                 </div>
                 
-                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-20 transform transition-all hover:-translate-y-2">
+                <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-secondary border-opacity-20 transform transition-all hover:-translate-y-2 hover:border-secondary/50">
                     <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
-                        <i class="fa fa-line-chart text-primary text-xl"></i>
+                        <i class="fa fa-line-chart text-dark text-xl"></i>
                     </div>
-                    <h3 class="text-white text-xl font-semibold mb-2">产业运营标杆</h3>
-                    <p class="text-gray-300">通过自有产业成功运营树立标杆，输出专业行业孵化赋能解决方案。</p>
+                    <h3 class="text-white text-xl font-semibold mb-2" data-i18n="advantages.title3">產業運營標桿</h3>
+                    <p class="text-gray-300" data-i18n="advantages.desc3">通過自有產業成功運營樹立標桿，輸出專業行業孵化賦能解決方案。</p>
                 </div>
             </div>
         </div>
@@ -221,24 +288,24 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">关于币友圈BYB</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="about.title">關於幣友圈BYB</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
             </div>
             
             <div class="flex flex-col md:flex-row gap-12 items-center">
                 <div class="md:w-1/2">
-                    <img src="https://picsum.photos/id/20/600/400" alt="币友圈办公环境或团队照片" class="rounded-2xl shadow-xl w-full">
+                    <img src="https://picsum.photos/id/20/600/400" alt="幣友圈辦公環境或團隊照片" class="rounded-2xl shadow-xl w-full border border-gray-100">
                 </div>
                 <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold text-primary mb-6">币友圈系敦华集团旗下品牌</h3>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        敦华集团是一家以文化创意产业为发展方向的投融资机构，总部位于香港屯门。公司在影视出品、演艺制作、康旅研学、文创商贸等领域全力拓展，成功投资主办和承办了数百场大型演出，创立"东江泉"品牌并出品多部院线电影和投资运营朱坊文旅康养小镇。
+                    <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="about.subtitle">幣友圈系敦華集團旗下品牌</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about.p1">
+                        敦華集團是一家以文化創意產業為發展方向的投融資機構，總部位於香港屯門。公司在影視出品、演藝製作、康旅研學、文創商貿等領域全力拓展，成功投資主辦和承辦了數百場大型演出，創立"東江泉"品牌並出品多部院線電影和投資運營朱坊文旅康養小鎮。
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        BYB 是一个链接现实世界资产（RWA）与 Web3 应用场景的多功能数字资产生态。通过平台通证 BYB、功能型 NFT与文娱文创两大板块，构建一个透明治理、可持续运营、合法合规的数字资产平台。
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="about.p2">
+                        BYB 是一個鏈接現實世界資產（RWA）與 Web3 應用場景的多功能數字資產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數字資產平台。
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
-                        数字货币与区块链技术快速发展背景下，"币友圈" 凭借香港金融中心及独特定位与创新理念脱颖而出，未来品牌价值潜力巨大。
+                    <p class="text-gray-700 leading-relaxed" data-i18n="about.p3">
+                        數字貨幣與區塊鏈技術快速發展背景下，"幣友圈" 憑藉香港金融中心及獨特定位與創新理念脫穎而出，未來品牌價值潛力巨大。
                     </p>
                 </div>
             </div>
@@ -249,57 +316,57 @@
     <section id="market" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">市场分析与行业背景</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="market.title">市場分析與行業背景</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">全球数字资产市场正在经历快速变革，真实资产链上化成为新的发展趋势</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="market.subtitle">全球數字資產市場正在經歷快速變革，真實資產鏈上化成為新的發展趨勢</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
-                    <h3 class="text-2xl font-bold text-primary mb-6">全球数字资产规模</h3>
-                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6">
+                    <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="market.chartTitle">全球數字資產規模</h3>
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 border border-gray-100">
                         <canvas id="marketChart" height="300"></canvas>
                     </div>
-                    <p class="text-gray-600 text-sm italic">数据来源：行业研究报告，2025年预测</p>
+                    <p class="text-gray-600 text-sm italic" data-i18n="market.dataSource">數據來源：行業研究報告，2025年預測</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-2xl font-bold text-primary mb-6">市场机遇与需求</h3>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        纯加密原生资产的现状反映出市场对真实资产链上化的迫切需求尚未得到充分满足。在此背景下，BYB 专案凭借独特的业务模式与创新理念应运而生。
+                    <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="market.opportunityTitle">市場機遇與需求</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="market.p1">
+                        純加密原生資產的現狀反映出市場對真實資產鏈上化的迫切需求尚未得到充分滿足。在此背景下，BYB 專案憑藉獨特的業務模式與創新理念應運而生。
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        通过将真实世界资产与区块链技术深度融合，同时积极回应监管要求，为专案的长远发展创造了有利条件。
+                    <p class="text-gray-700 mb-6 leading-relaxed" data-i18n="market.p2">
+                        通過將真實世界資產與區塊鏈技術深度融合，同時積極回應監管要求，為專案的長遠發展創造了有利條件。
                     </p>
                     
                     <div class="space-y-4 mt-8">
                         <div class="flex items-start">
-                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                            <div class="bg-secondary text-dark p-2 rounded-full mr-4 mt-1">
                                 <i class="fa fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">填补市场空白</h4>
-                                <p class="text-gray-600">BYB融合了文娱强IP粉丝粘性、文创高频消费及稳定的品牌收入，填补了市场中"真实收益支撑的链上数字生态"空白。</p>
+                                <h4 class="font-semibold text-primary" data-i18n="market.advantage1.title">填補市場空白</h4>
+                                <p class="text-gray-600" data-i18n="market.advantage1.desc">BYB融合了文娛強IP粉絲粘性、文創高頻消費及穩定的品牌收入，填補了市場中"真實收益支撐的鏈上數字生態"空白。</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                            <div class="bg-secondary text-dark p-2 rounded-full mr-4 mt-1">
                                 <i class="fa fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">精准切入痛点</h4>
-                                <p class="text-gray-600">满足了用户对真实资产链上化的迫切需求，顺应了NFT功能多元化转型趋势。</p>
+                                <h4 class="font-semibold text-primary" data-i18n="market.advantage2.title">精准切入痛點</h4>
+                                <p class="text-gray-600" data-i18n="market.advantage2.desc">滿足了用戶對真實資產鏈上化的迫切需求，順應了NFT功能多元化轉型趨勢。</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-secondary text-primary p-2 rounded-full mr-4 mt-1">
+                            <div class="bg-secondary text-dark p-2 rounded-full mr-4 mt-1">
                                 <i class="fa fa-check"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">合规创新并行</h4>
-                                <p class="text-gray-600">在合规框架内推动创新，平衡监管要求与市场需求，为行业树立新标准。</p>
+                                <h4 class="font-semibold text-primary" data-i18n="market.advantage3.title">合規創新並行</h4>
+                                <p class="text-gray-600" data-i18n="market.advantage3.desc">在合規框架內推動創新，平衡監管要求與市場需求，為行業樹立新標準。</p>
                             </div>
                         </div>
                     </div>
@@ -312,23 +379,23 @@
     <section class="py-20 bg-primary text-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
-                    <div class="w-16 h-16 bg-secondary text-primary rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm border border-secondary/20 transform transition-all hover:border-secondary/40">
+                    <div class="w-16 h-16 bg-secondary text-dark rounded-full flex items-center justify-center mb-6">
                         <i class="fa fa-compass text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6">我们的使命</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        借助区块链技术实现真实资产权益上链，让用户从单纯消费者转变为共治者与收益共享者。重塑用户与资产的关系，构建基于区块链技术的新型价值分配体系。
+                    <h3 class="text-2xl font-bold mb-6" data-i18n="missionVision.mission">我們的使命</h3>
+                    <p class="text-gray-300 leading-relaxed" data-i18n="missionVision.missionDesc">
+                        借助區塊鏈技術實現真實資產權益上鏈，讓用戶從單純消費者轉變為共治者與收益共享者。重塑用戶與資產的關係，構建基於區塊鏈技術的新型價值分配體系。
                     </p>
                 </div>
                 
-                <div class="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm">
-                    <div class="w-16 h-16 bg-secondary text-primary rounded-full flex items-center justify-center mb-6">
+                <div class="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm border border-secondary/20 transform transition-all hover:border-secondary/40">
+                    <div class="w-16 h-16 bg-secondary text-dark rounded-full flex items-center justify-center mb-6">
                         <i class="fa fa-lightbulb-o text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6">我们的愿景</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        成为全球领先的真实资产链上化（RWA）+NFT+DAO +GameFi+SocialFi平台，推動文娛、文創消費等更多場景數字化，並輸出專業的行業孵化服務。
+                    <h3 class="text-2xl font-bold mb-6" data-i18n="missionVision.vision">我們的願景</h3>
+                    <p class="text-gray-300 leading-relaxed" data-i18n="missionVision.visionDesc">
+                        成為全球領先的真實資產鏈上化（RWA）+NFT+DAO +GameFi+SocialFi平台，推動文娛、文創消費等更多場景數字化，並輸出專業的行業孵化服務。
                     </p>
                 </div>
             </div>
@@ -339,74 +406,74 @@
     <section id="solution" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">解决方案概述</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="solution.title">解決方案概述</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">BYB构建多元化业务模块，打造覆盖线上线下的完整生态闭环</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="solution.subtitle">BYB構建多元化業務模塊，打造覆蓋線上線下的完整生態閉環</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover">
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fa fa-film text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">文娱领域</h3>
-                    <p class="text-gray-600">
-                        与头部演唱会、电影、短剧、音乐竞技等项目合作，将票房收益与NFT权益深度绑定，为粉丝创造更多价值。
+                    <h3 class="text-xl font-bold text-primary mb-4" data-i18n="solution.entertainment.title">文娛領域</h3>
+                    <p class="text-gray-600" data-i18n="solution.entertainment.desc">
+                        與頭部演唱會、電影、短劇、音樂競技等項目合作，將票房收益與NFT權益深度綁定，為粉絲創造更多價值。
                     </p>
                 </div>
                 
-                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover">
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fa fa-shopping-bag text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">文创板块</h3>
-                    <p class="text-gray-600">
-                        以东江泉品牌为起点，延伸至康养小镇、影视基地等实体产业，构建虚实结合的价值网络，实现资产数字化。
+                    <h3 class="text-xl font-bold text-primary mb-4" data-i18n="solution.cultural.title">文創板塊</h3>
+                    <p class="text-gray-600" data-i18n="solution.cultural.desc">
+                        以東江泉品牌為起點，延伸至康養小鎮、影視基地等實體產業，構建虛實結合的價值網絡，實現資產數字化。
                     </p>
                 </div>
                 
-                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover">
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm card-hover border border-gray-100">
                     <div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center mb-6">
                         <i class="fa fa-cubes text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">多元化业务模块</h3>
-                    <p class="text-gray-600">
-                        整合 NFT、DAO 治理、链游（GameFi）、社交积分（SocialFi）及未来企业 RWA 孵化服务，构建完整生态。
+                    <h3 class="text-xl font-bold text-primary mb-4" data-i18n="solution.diversified.title">多元化業務模塊</h3>
+                    <p class="text-gray-600" data-i18n="solution.diversified.desc">
+                        整合 NFT、DAO 治理、鏈遊（GameFi）、社交積分（SocialFi）及未來企業 RWA 孵化服務，構建完整生態。
                     </p>
                 </div>
             </div>
             
             <div class="bg-primary bg-opacity-5 rounded-2xl p-8 md:p-12">
-                <h3 class="text-2xl font-bold text-primary mb-8 text-center">项目背景</h3>
+                <h3 class="text-2xl font-bold text-primary mb-8 text-center" data-i18n="solution.projectBackground">項目背景</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="text-secondary text-3xl mb-4">
                             <i class="fa fa-paint-brush"></i>
                         </div>
-                        <h4 class="font-bold text-primary text-lg mb-3">文化与数字融合</h4>
-                        <p class="text-gray-600">
-                            在文化产业与数字经济深度融合的时代浪潮下，敦华集团积累了丰富的优质资产。
+                        <h4 class="font-bold text-primary text-lg mb-3" data-i18n="solution.background1.title">文化與數字融合</h4>
+                        <p class="text-gray-600" data-i18n="solution.background1.desc">
+                            在文化產業與數字經濟深度融合的時代浪潮下，敦華集團積累了豐富的優質資產。
                         </p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="text-secondary text-3xl mb-4">
                             <i class="fa fa-unlock-alt"></i>
                         </div>
-                        <h4 class="font-bold text-primary text-lg mb-3">传统模式局限</h4>
-                        <p class="text-gray-600">
-                            传统资产运营模式在价值释放、股权激活等方面存在局限性，难以满足新时代需求。
+                        <h4 class="font-bold text-primary text-lg mb-3" data-i18n="solution.background2.title">傳統模式局限</h4>
+                        <p class="text-gray-600" data-i18n="solution.background2.desc">
+                            傳統資產運營模式在價值釋放、股權激活等方面存在局限性，難以滿足新時代需求。
                         </p>
                     </div>
                     
-                    <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                         <div class="text-secondary text-3xl mb-4">
                             <i class="fa fa-rocket"></i>
                         </div>
-                        <h4 class="font-bold text-primary text-lg mb-3">WEB3技术突破</h4>
-                        <p class="text-gray-600">
-                            WEB3 技术的引入，为集团突破发展瓶颈提供了契机，开启资产数字化新篇章。
+                        <h4 class="font-bold text-primary text-lg mb-3" data-i18n="solution.background3.title">WEB3技術突破</h4>
+                        <p class="text-gray-600" data-i18n="solution.background3.desc">
+                            WEB3 技術的引入，為集團突破發展瓶頸提供了契機，開啟資產數字化新篇章。
                         </p>
                     </div>
                 </div>
@@ -418,102 +485,102 @@
     <section id="assets" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">核心资产展示</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="assets.title">核心資產展示</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">多元化的真实资产构成BYB生态的价值基础</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="assets.subtitle">多元化的真實資產構成BYB生態的價值基礎</p>
             </div>
             
             <!-- 资产分类标签 -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="asset-tab active px-6 py-2 rounded-full bg-primary text-white font-medium" data-category="all">全部资产</button>
-                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="performance">演艺资产</button>
-                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="film">影视资产</button>
-                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="travel">康旅资产</button>
-                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="entertainment">文娱资产</button>
-                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="cultural">文创资产</button>
+                <button class="asset-tab active px-6 py-2 rounded-full bg-primary text-white font-medium" data-category="all" data-i18n="assets.tabs.all">全部資產</button>
+                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="performance" data-i18n="assets.tabs.performance">演藝資產</button>
+                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="film" data-i18n="assets.tabs.film">影視資產</button>
+                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="travel" data-i18n="assets.tabs.travel">康旅資產</button>
+                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="entertainment" data-i18n="assets.tabs.entertainment">文娛資產</button>
+                <button class="asset-tab px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-medium" data-category="cultural" data-i18n="assets.tabs.cultural">文創資產</button>
             </div>
             
             <!-- 资产卡片 -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 演艺资产1 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="performance">
-                    <img src="https://picsum.photos/id/96/600/400" alt="东江泉之夜2025演唱会" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="performance">
+                    <img src="https://picsum.photos/id/96/600/400" alt="東江泉之夜2025演唱會" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">演艺资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">东江泉之夜2025演唱会</h3>
-                        <p class="text-gray-600 mb-4">采用拼盤演艺，票房及品牌效益双收，为参与者带来丰富收益。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.performance">演藝資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.concert1.title">東江泉之夜2025演唱會</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.concert1.desc">採用拼盤演藝，票房及品牌效益雙收，為參與者帶來豐富收益。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">高收益潜力</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.highYield">高收益潛力</span>
                             <i class="fa fa-ticket text-primary"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 演艺资产2 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="performance">
-                    <img src="https://picsum.photos/id/1035/600/400" alt="蔡琴2026告别演唱会" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="performance">
+                    <img src="https://picsum.photos/id/1035/600/400" alt="蔡琴2026告別演唱會" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">演艺资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">蔡琴2026告别演唱会</h3>
-                        <p class="text-gray-600 mb-4">票务收益权稀缺性保障高增长，具有极高的收藏和投资价值。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.performance">演藝資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.concert2.title">蔡琴2026告別演唱會</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.concert2.desc">票務收益權稀缺性保障高增長，具有極高的收藏和投資價值。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">稀缺性资产</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.scarce">稀缺性資產</span>
                             <i class="fa fa-ticket text-primary"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 影视资产 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="film">
-                    <img src="https://picsum.photos/id/111/600/400" alt="《羊角水堡》电影" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="film">
+                    <img src="https://picsum.photos/id/111/600/400" alt="《羊角水堡》電影" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">影视资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">《羊角水堡》电影</h3>
-                        <p class="text-gray-600 mb-4">全球发行影视库版权池收益权。收益来源覆盖票房、网络播放、衍生品开发等多元渠道。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.film">影視資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.movie.title">《羊角水堡》電影</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.movie.desc">全球發行影視庫版權池收益權。收益來源覆蓋票房、網路播放、衍生品開發等多元渠道。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">多元收益</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.diversified">多元收益</span>
                             <i class="fa fa-film text-primary"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 康旅资产 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="travel">
-                    <img src="https://picsum.photos/id/1031/600/400" alt="瑞金市根源红色文化教育培训基地" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="travel">
+                    <img src="https://picsum.photos/id/1031/600/400" alt="瑞金市根源紅色文化教育培訓基地" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">康旅资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">红色文化教育基地</h3>
-                        <p class="text-gray-600 mb-4">具备强大接待能力，可同时容纳1000人开展活动，已接待超20万人次参与研学旅行与培训活动。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.travel">康旅資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.travel.title">紅色文化教育基地</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.travel.desc">具備強大接待能力，可同時容納1000人開展活動，已接待超20萬人次參與研學旅行與培訓活動。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">稳定现金流</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.stable">穩定現金流</span>
                             <i class="fa fa-building text-primary"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 文娱资产1 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="entertainment">
-                    <img src="https://picsum.photos/id/163/600/400" alt="青花瓷乐团" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="entertainment">
+                    <img src="https://picsum.photos/id/163/600/400" alt="青花瓷樂團" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">文娱资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">青花瓷乐团</h3>
-                        <p class="text-gray-600 mb-4">将景德镇陶瓷文化与音乐艺术深度融合，以青花瓷器乐器奏响瓷韵乐章，每年承接多场高端演出。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.entertainment">文娛資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.band.title">青花瓷樂團</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.band.desc">將景德鎮陶瓷文化與音樂藝術深度融合，以青花瓷器樂器奏響瓷韻樂章，每年承接多場高端演出。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">独特IP价值</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.unique">獨特IP價值</span>
                             <i class="fa fa-music text-primary"></i>
                         </div>
                     </div>
                 </div>
                 
                 <!-- 文创资产 -->
-                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="cultural">
-                    <img src="https://picsum.photos/id/131/600/400" alt="东江泉品牌" class="w-full h-56 object-cover">
+                <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover border border-gray-100" data-category="cultural">
+                    <img src="https://picsum.photos/id/131/600/400" alt="東江泉品牌" class="w-full h-56 object-cover">
                     <div class="p-6">
-                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">文创资产</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">东江泉 2025</h3>
-                        <p class="text-gray-600 mb-4">敦华集团荣誉出品，深耕食品饮料领域，以香港及大湾区为销售重心，预计未来3年销售额年增长率超15%。</p>
+                        <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full" data-i18n="assets.categories.cultural">文創資產</span>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2" data-i18n="assets.items.brand.title">東江泉 2025</h3>
+                        <p class="text-gray-600 mb-4" data-i18n="assets.items.brand.desc">敦華集團榮譽出品，深耕食品飲料領域，以香港及大灣區為銷售重心，預計未來3年銷售額年增長率超15%。</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-secondary font-bold">高增长潜力</span>
+                            <span class="text-secondary font-bold" data-i18n="assets.labels.growth">高增長潛力</span>
                             <i class="fa fa-tint text-primary"></i>
                         </div>
                     </div>
@@ -526,14 +593,14 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">技术架构</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="tech.title">技術架構</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">安全、高效、可扩展的技术架构支撑BYB生态系统</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="tech.subtitle">安全、高效、可擴展的技術架構支撐BYB生態系統</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://picsum.photos/id/0/600/500" alt="BYB技术架构图示" class="rounded-2xl shadow-xl w-full">
+                    <img src="https://picsum.photos/id/0/600/500" alt="BYB技術架構圖示" class="rounded-2xl shadow-xl w-full border border-gray-100">
                 </div>
                 
                 <div>
@@ -541,30 +608,30 @@
                         <div>
                             <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                 <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
-                                主合约部署
+                                <span data-i18n="tech.point1.title">主合約部署</span>
                             </h3>
-                            <p class="text-gray-600 pl-11">
-                                部署于 BSC（Binance Smart Chain），具备低 Gas、高效的特性，已为未来多链兼容（Ethereum、Polygon、zkEVM）预留接口。
+                            <p class="text-gray-600 pl-11" data-i18n="tech.point1.desc">
+                                部署於 BSC（Binance Smart Chain），具備低 Gas、高效的特性，已為未來多鏈兼容（Ethereum、Polygon、zkEVM）預留接口。
                             </p>
                         </div>
                         
                         <div>
                             <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                 <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
-                                数据层
+                                <span data-i18n="tech.point2.title">數據層</span>
                             </h3>
-                            <p class="text-gray-600 pl-11">
-                                采用分布式存储技术对生态内数据进行加密存储，利用零知识证明技术保证数据隐私。
+                            <p class="text-gray-600 pl-11" data-i18n="tech.point2.desc">
+                                採用分布式存儲技術對生態內數據進行加密存儲，利用零知識證明技術保證數據隱私。
                             </p>
                         </div>
                         
                         <div>
                             <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                 <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">3</span>
-                                智能合约
+                                <span data-i18n="tech.point3.title">智能合約</span>
                             </h3>
-                            <p class="text-gray-600 pl-11">
-                                NFT、激励、任务、DAO 提案等全部由智能合约驱动，核心金库采用多签钱包确保资金安全。
+                            <p class="text-gray-600 pl-11" data-i18n="tech.point3.desc">
+                                NFT、激勵、任務、DAO 提案等全部由智能合約驅動，核心金庫採用多簽錢包確保資金安全。
                             </p>
                         </div>
                     </div>
@@ -577,93 +644,93 @@
     <section id="token" class="py-20 bg-primary text-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">代币经济模型</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4" data-i18n="token.title">代幣經濟模型</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-300 max-w-3xl mx-auto">BYB代币是生态系统的核心价值载体与流通媒介</p>
+                <p class="text-gray-300 max-w-3xl mx-auto" data-i18n="token.subtitle">BYB代幣是生態系統的核心價值載體與流通媒介</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 border border-secondary/20">
                     <div class="flex items-center mb-8">
-                        <div class="bg-secondary text-primary p-3 rounded-lg mr-4">
+                        <div class="bg-secondary text-dark p-3 rounded-lg mr-4">
                             <span class="font-bold text-2xl">BYB</span>
                         </div>
-                        <h3 class="text-2xl font-bold">代币基本信息</h3>
+                        <h3 class="text-2xl font-bold" data-i18n="token.basicInfo">代幣基本信息</h3>
                     </div>
                     
                     <div class="space-y-6">
                         <div class="flex justify-between pb-4 border-b border-gray-700">
-                            <span class="text-gray-300">代币名称</span>
+                            <span class="text-gray-300" data-i18n="token.attributes.name">代幣名稱</span>
                             <span class="font-semibold">BYB</span>
                         </div>
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
-                            <span class="text-gray-300">总供应量</span>
-                            <span class="font-semibold">12 亿 BYB（永不增发）</span>
+                            <span class="text-gray-300" data-i18n="token.attributes.supply">總供應量</span>
+                            <span class="font-semibold" data-i18n="token.attributes.supplyValue">12 億 BYB（永不增發）</span>
                         </div>
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
-                            <span class="text-gray-300">链上部署</span>
-                            <span class="font-semibold">BSC 主网，兼容多链桥接</span>
+                            <span class="text-gray-300" data-i18n="token.attributes.chain">鏈上部署</span>
+                            <span class="font-semibold" data-i18n="token.attributes.chainValue">BSC 主網，兼容多鏈橋接</span>
                         </div>
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
-                            <span class="text-gray-300">交易手续费</span>
-                            <span class="font-semibold">买入 2%、卖出 2%</span>
+                            <span class="text-gray-300" data-i18n="token.attributes.fee">交易手續費</span>
+                            <span class="font-semibold" data-i18n="token.attributes.feeValue">買入 2%、賣出 2%</span>
                         </div>
                         
                         <div>
-                            <span class="text-gray-300 block mb-2">手续费用途</span>
+                            <span class="text-gray-300 block mb-2" data-i18n="token.feeUsage">手續費用途</span>
                             <div class="pl-4 space-y-2">
                                 <div class="flex justify-between">
-                                    <span>营销推广</span>
+                                    <span data-i18n="token.feeUsage.marketing">行銷推廣</span>
                                     <span class="font-semibold">1%</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span>回购销毁</span>
+                                    <span data-i18n="token.feeUsage.burn">回購銷毀</span>
                                     <span class="font-semibold">1%</span>
                                 </div>
                                 <div class="flex justify-between">
-                                    <span>DAO 激励</span>
+                                    <span data-i18n="token.feeUsage.dao">DAO 激勵</span>
                                     <span class="font-semibold">2%</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="pt-4 border-t border-gray-700">
-                            <span class="text-gray-300 block mb-2">核心价值支撑</span>
-                            <p>来自演唱会、东江泉、影视、小镇等的真实收益</p>
+                            <span class="text-gray-300 block mb-2" data-i18n="token.valueSupport">核心價值支撐</span>
+                            <p data-i18n="token.valueSupportDesc">來自演唱會、東江泉、影視、小鎮等的真實收益</p>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-                        <h3 class="text-2xl font-bold mb-6">代币分配方案</h3>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-secondary/20">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="token.allocation">代幣分配方案</h3>
                         <div class="h-64">
                             <canvas id="tokenAllocationChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">NFT 经济模型</h3>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 border border-secondary/20">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="token.nftModel">NFT 經濟模型</h3>
                         <div class="space-y-4 max-h-64 overflow-y-auto scrollbar-hide pr-2">
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">1. BYBNFT（1000张）</h4>
-                                <p class="text-sm text-gray-300 mt-1">稀缺治理 NFT，拥有平台 DAO 治理投票、所有激励获得权、质押矿池优待等权益</p>
-                                <p class="text-xs text-gray-400 mt-1">性质：功能型、治理型</p>
+                                <h4 class="font-bold text-secondary" data-i18n="token.nftTypes.type1">1. BYBNFT（1000張）</h4>
+                                <p class="text-sm text-gray-300 mt-1" data-i18n="token.nftTypes.type1Desc">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
+                                <p class="text-xs text-gray-400 mt-1" data-i18n="token.nftTypes.type1Nature">性質：功能型、治理型</p>
                             </div>
                             
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">2. 演唱会 NFT（10,000张）</h4>
-                                <p class="text-sm text-gray-300 mt-1">参与型 NFT，具备抢票权、本板块激励权、本板块投票权、粉丝见面会抽签等功能</p>
-                                <p class="text-xs text-gray-400 mt-1">性质：参与型、使用型</p>
+                                <h4 class="font-bold text-secondary" data-i18n="token.nftTypes.type2">2. 演唱會 NFT（10,000張）</h4>
+                                <p class="text-sm text-gray-300 mt-1" data-i18n="token.nftTypes.type2Desc">參與型 NFT，具備搶票權、本板塊激勵權、本板塊投票權、粉絲見面會抽籤等功能</p>
+                                <p class="text-xs text-gray-400 mt-1" data-i18n="token.nftTypes.type2Nature">性質：參與型、使用型</p>
                             </div>
                             
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">3. 影视短剧 NFT（10,000张）</h4>
-                                <p class="text-sm text-gray-300 mt-1">参与型 NFT，拥有首映礼、本板块激励权、本板块投票权、DAO 选片权等权益</p>
-                                <p class="text-xs text-gray-400 mt-1">性质：参与型、会员型</p>
+                                <h4 class="font-bold text-secondary" data-i18n="token.nftTypes.type3">3. 影視短劇 NFT（10,000張）</h4>
+                                <p class="text-sm text-gray-300 mt-1" data-i18n="token.nftTypes.type3Desc">參與型 NFT，擁有首映禮、本板塊激勵權、本板塊投票權、DAO 選片權等權益</p>
+                                <p class="text-xs text-gray-400 mt-1" data-i18n="token.nftTypes.type3Nature">性質：參與型、會員型</p>
                             </div>
                         </div>
                     </div>
@@ -676,15 +743,15 @@
     <section id="roadmap" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">资金用途与发展路线图</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="roadmap.title">資金用途與發展路線圖</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">透明的资金规划与清晰的发展路径</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="roadmap.subtitle">透明的資金規劃與清晰的發展路徑</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
                 <div>
-                    <h3 class="text-2xl font-bold text-primary mb-8">资金用途计划</h3>
-                    <div class="bg-white rounded-2xl shadow-md p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-8" data-i18n="roadmap.fundPlan">資金用途計劃</h3>
+                    <div class="bg-white rounded-2xl shadow-md p-6 border border-gray-100">
                         <div class="h-80">
                             <canvas id="fundAllocationChart"></canvas>
                         </div>
@@ -692,34 +759,34 @@
                         <div class="grid grid-cols-2 gap-4 mt-8">
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-primary rounded-full mr-2"></div>
-                                <span class="text-sm">RWA 真实资产投放 (35%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.rwa">RWA 真實資產投放 (35%)</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-secondary rounded-full mr-2"></div>
-                                <span class="text-sm">市场推广 (25%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.marketing">市場推廣 (25%)</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-accent rounded-full mr-2"></div>
-                                <span class="text-sm">技术开发 (20%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.dev">技術開發 (20%)</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-                                <span class="text-sm">流动做市 (10%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.liquidity">流動做市 (10%)</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-purple-500 rounded-full mr-2"></div>
-                                <span class="text-sm">合规牌照 (5%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.license">合規牌照 (5%)</span>
                             </div>
                             <div class="flex items-center">
                                 <div class="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
-                                <span class="text-sm">社区治理 (5%)</span>
+                                <span class="text-sm" data-i18n="roadmap.fundAllocation.community">社區治理 (5%)</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <h3 class="text-2xl font-bold text-primary mb-8">发展路线图</h3>
+                    <h3 class="text-2xl font-bold text-primary mb-8" data-i18n="roadmap.development">發展路線圖</h3>
                     <div class="relative">
                         <!-- 时间线 -->
                         <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-primary"></div>
@@ -727,26 +794,26 @@
                         <!-- 阶段1 -->
                         <div class="relative pl-16 pb-10">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">1</div>
-                            <h4 class="text-xl font-bold text-primary mb-2">第一阶段：文娱板块</h4>
-                            <p class="text-gray-600">
-                                推出演唱会票房 NFT、电影票房 NFT，开启真实票房季度激励，形成第一批链上粉丝经济。
+                            <h4 class="text-xl font-bold text-primary mb-2" data-i18n="roadmap.phase1.title">第一階段：文娛板塊</h4>
+                            <p class="text-gray-600" data-i18n="roadmap.phase1.desc">
+                                推出演唱會票房 NFT、電影票房 NFT，開啟真實票房季度激勵，形成第一批鏈上粉絲經濟。
                             </p>
                         </div>
                         
                         <!-- 阶段2 -->
                         <div class="relative pl-16 pb-10">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">2</div>
-                            <h4 class="text-xl font-bold text-primary mb-2">第二阶段：文创板块</h4>
-                            <p class="text-gray-600">
-                                启动东江泉矿泉水 NFT，推动康養小鎮房產 NFT、影視基地衍生產業落地，豐富生態場景。
+                            <h4 class="text-xl font-bold text-primary mb-2" data-i18n="roadmap.phase2.title">第二階段：文創板塊</h4>
+                            <p class="text-gray-600" data-i18n="roadmap.phase2.desc">
+                                啟動東江泉礦泉水 NFT，推動康養小鎮房產 NFT、影視基地衍生產業落地，豐富生態場景。
                             </p>
                         </div>
                         
                         <!-- 阶段3 -->
                         <div class="relative pl-16 pb-10">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">3</div>
-                            <h4 class="text-xl font-bold text-primary mb-2">第三阶段：社交资源平台</h4>
-                            <p class="text-gray-600">
+                            <h4 class="text-xl font-bold text-primary mb-2" data-i18n="roadmap.phase3.title">第三階段：社交資源平台</h4>
+                            <p class="text-gray-600" data-i18n="roadmap.phase3.desc">
                                 上線 Web3 社交資源，鏈上積分可兌換 NFT、代幣，用戶的社交數據積累可用於後續 DAO 加權。
                             </p>
                         </div>
@@ -754,8 +821,8 @@
                         <!-- 阶段4 -->
                         <div class="relative pl-16 pb-10">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">4</div>
-                            <h4 class="text-xl font-bold text-primary mb-2">第四阶段：链游 GameFi</h4>
-                            <p class="text-gray-600">
+                            <h4 class="text-xl font-bold text-primary mb-2" data-i18n="roadmap.phase4.title">第四階段：鏈遊 GameFi</h4>
+                            <p class="text-gray-600" data-i18n="roadmap.phase4.desc">
                                 BYBNFT、票房 NFT 可在鏈遊中進行產礦、探險等活動，打通鏈遊與真實消費場景。
                             </p>
                         </div>
@@ -763,8 +830,8 @@
                         <!-- 阶段5 -->
                         <div class="relative pl-16">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">5</div>
-                            <h4 class="text-xl font-bold text-primary mb-2">第五阶段：企业 RWA 孵化器</h4>
-                            <p class="text-gray-600">
+                            <h4 class="text-xl font-bold text-primary mb-2" data-i18n="roadmap.phase5.title">第五階段：企業 RWA 孵化器</h4>
+                            <p class="text-gray-600" data-i18n="roadmap.phase5.desc">
                                 輸出 DAO+NFT+GameFi +SocialFi一體化標準方案，BYBDAO 可投資更多 RWA 項目，形成多資產網絡。
                             </p>
                         </div>
@@ -778,91 +845,91 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">团队与顾问</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="team.title">團隊與顧問</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">专业的团队是项目成功的核心保障</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="team.subtitle">專業的團隊是項目成功的核心保障</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="bg-gray-50 rounded-2xl p-8">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
                             <i class="fa fa-users text-xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary">核心团队成员</h3>
+                        <h3 class="text-2xl font-bold text-primary" data-i18n="team.coreTeam">核心團隊成員</h3>
                     </div>
                     
-                    <p class="text-gray-600 mb-6">
-                        核心团队匯聚了來自公鏈、DeFi、品牌運營、影視投資、地產文旅等領域的頂尖人才。他们在區塊鏈技術、去中心化金融、市場拓展及RWA鏈上融合方面，具備豐富實戰經驗與專業知識，確保項目技術與市場的前瞻性。
+                    <p class="text-gray-600 mb-6" data-i18n="team.coreTeamDesc">
+                        核心團隊匯聚了來自公鏈、DeFi、品牌運營、影視投資、地產文旅等領域的頂尖人才。他們在區塊鏈技術、去中心化金融、市場拓展及RWA鏈上融合方面，具備豐富實戰經驗與專業知識，確保項目技術與市場的前瞻性。
                     </p>
                     
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         <div class="text-center">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
-                                <img src="https://picsum.photos/id/1005/200/200" alt="团队成员" class="w-full h-full object-cover">
+                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden border-2 border-secondary/30">
+                                <img src="https://picsum.photos/id/1005/200/200" alt="團隊成員" class="w-full h-full object-cover">
                             </div>
-                            <h4 class="font-semibold text-primary">张明</h4>
-                            <p class="text-sm text-gray-500">创始人</p>
+                            <h4 class="font-semibold text-primary" data-i18n="team.member1.name">張明</h4>
+                            <p class="text-sm text-gray-500" data-i18n="team.member1.title">創始人</p>
                         </div>
                         
                         <div class="text-center">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
-                                <img src="https://picsum.photos/id/1006/200/200" alt="团队成员" class="w-full h-full object-cover">
+                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden border-2 border-secondary/30">
+                                <img src="https://picsum.photos/id/1006/200/200" alt="團隊成員" class="w-full h-full object-cover">
                             </div>
-                            <h4 class="font-semibold text-primary">李华</h4>
-                            <p class="text-sm text-gray-500">技术总监</p>
+                            <h4 class="font-semibold text-primary" data-i18n="team.member2.name">李華</h4>
+                            <p class="text-sm text-gray-500" data-i18n="team.member2.title">技術總監</p>
                         </div>
                         
                         <div class="text-center">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden">
-                                <img src="https://picsum.photos/id/1010/200/200" alt="团队成员" class="w-full h-full object-cover">
+                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden border-2 border-secondary/30">
+                                <img src="https://picsum.photos/id/1010/200/200" alt="團隊成員" class="w-full h-full object-cover">
                             </div>
-                            <h4 class="font-semibold text-primary">王芳</h4>
-                            <p class="text-sm text-gray-500">运营总监</p>
+                            <h4 class="font-semibold text-primary" data-i18n="team.member3.name">王芳</h4>
+                            <p class="text-sm text-gray-500" data-i18n="team.member3.title">運營總監</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 rounded-2xl p-8">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
                             <i class="fa fa-lightbulb-o text-xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary">顾问团队</h3>
+                        <h3 class="text-2xl font-bold text-primary" data-i18n="team.advisors">顧問團隊</h3>
                     </div>
                     
-                    <p class="text-gray-600 mb-6">
-                        顾问团队提供全方位支持，包括香港持牌法務顧問保障區塊鏈合規；專業安全審計團隊確保智能合約與數據安全；以及資深票務與旅遊專家，為文娛文創板塊提供行業洞察與資源對接，推動RWA高效鏈上化。
+                    <p class="text-gray-600 mb-6" data-i18n="team.advisorsDesc">
+                        顧問團隊提供全方位支持，包括香港持牌法務顧問保障區塊鏈合規；專業安全審計團隊確保智能合約與數據安全；以及資深票務與旅遊專家，為文娛文創板塊提供行業洞察與資源對接，推動RWA高效鏈上化。
                     </p>
                     
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <div class="w-10 h-10 bg-secondary text-dark rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                                 <i class="fa fa-gavel"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">法律合规顾问</h4>
-                                <p class="text-sm text-gray-600">香港持牌律师团队，确保项目合规运营</p>
+                                <h4 class="font-semibold text-primary" data-i18n="team.advisor1.title">法律合規顧問</h4>
+                                <p class="text-sm text-gray-600" data-i18n="team.advisor1.desc">香港持牌律師團隊，確保項目合規運營</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <div class="w-10 h-10 bg-secondary text-dark rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                                 <i class="fa fa-shield"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">安全审计专家</h4>
-                                <p class="text-sm text-gray-600">专业区块链安全团队，保障智能合约安全</p>
+                                <h4 class="font-semibold text-primary" data-i18n="team.advisor2.title">安全審計專家</h4>
+                                <p class="text-sm text-gray-600" data-i18n="team.advisor2.desc">專業區塊鏈安全團隊，保障智能合約安全</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <div class="w-10 h-10 bg-secondary text-dark rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                                 <i class="fa fa-ticket"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-primary">行业资深顾问</h4>
-                                <p class="text-sm text-gray-600">文娱、文旅领域专家，提供资源对接与战略指导</p>
+                                <h4 class="font-semibold text-primary" data-i18n="team.advisor3.title">行業資深顧問</h4>
+                                <p class="text-sm text-gray-600" data-i18n="team.advisor3.desc">文娛、文旅領域專家，提供資源對接與戰略指導</p>
                             </div>
                         </div>
                     </div>
@@ -877,18 +944,18 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div>
                     <div class="text-center mb-10">
-                        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">社区与治理</h2>
+                        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="governance.title">社區與治理</h2>
                         <div class="w-20 h-1 bg-secondary mx-auto"></div>
                     </div>
                     
-                    <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-100">
                         <div class="space-y-8">
                             <div>
                                 <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                     <i class="fa fa-key text-secondary mr-3"></i>
-                                    核心治理
+                                    <span data-i18n="governance.coreGov">核心治理</span>
                                 </h3>
-                                <p class="text-gray-600 pl-8">
+                                <p class="text-gray-600 pl-8" data-i18n="governance.coreGovDesc">
                                     由持有 BYBNFT（1000 張稀缺治理 NFT）的用戶參與，確保治理的專業性和代表性。
                                 </p>
                             </div>
@@ -896,9 +963,9 @@
                             <div>
                                 <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                     <i class="fa fa-vote-yea text-secondary mr-3"></i>
-                                    链上投票
+                                    <span data-i18n="governance.onChainVoting">鏈上投票</span>
                                 </h3>
-                                <p class="text-gray-600 pl-8">
+                                <p class="text-gray-600 pl-8" data-i18n="governance.onChainVotingDesc">
                                     所有重大項目投放、收益分配及新孵化提案都將通過鏈上投票決定，保障社區成員的知情權和參與權。
                                 </p>
                             </div>
@@ -906,9 +973,9 @@
                             <div>
                                 <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                     <i class="fa fa-trophy text-secondary mr-3"></i>
-                                    社区激励
+                                    <span data-i18n="governance.communityIncentive">社區激勵</span>
                                 </h3>
-                                <p class="text-gray-600 pl-8">
+                                <p class="text-gray-600 pl-8" data-i18n="governance.communityIncentiveDesc">
                                     社區貢獻積分未來可兌換提案權重與新空投，激勵用戶積極參與社區建設。
                                 </p>
                             </div>
@@ -916,12 +983,12 @@
                             <div>
                                 <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
                                     <i class="fa fa-sitemap text-secondary mr-3"></i>
-                                    DAO治理机制
+                                    <span data-i18n="governance.daoMechanism">DAO治理機制</span>
                                 </h3>
-                                <ul class="text-gray-600 pl-8 space-y-2 list-disc">
-                                    <li>所有重大生態決策，如回購、合作、激勵等，需通過 DAO 提案，並由 NFT/BYB 持有者投票表決；</li>
-                                    <li>DAO 由社區選舉發起人，設有明確的提案標準、投票周期與通過率設定；</li>
-                                    <li>平台僅作為技術服務提供方，不干預治理結果。</li>
+                                <ul class="text-gray-600 pl-8 space-y-2 list-disc" data-i18n="governance.daoMechanismList">
+                                    <li data-i18n="governance.daoMechanism1">所有重大生態決策，如回購、合作、激勵等，需通過 DAO 提案，並由 NFT/BYB 持有者投票表決；</li>
+                                    <li data-i18n="governance.daoMechanism2">DAO 由社區選舉發起人，設有明確的提案標準、投票周期與通過率設定；</li>
+                                    <li data-i18n="governance.daoMechanism3">平台僅作為技術服務提供方，不干預治理結果。</li>
                                 </ul>
                             </div>
                         </div>
@@ -930,19 +997,19 @@
                 
                 <div>
                     <div class="text-center mb-10">
-                        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">合规结构</h2>
+                        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="compliance.title">合規結構</h2>
                         <div class="w-20 h-1 bg-secondary mx-auto"></div>
                     </div>
                     
-                    <div class="bg-white rounded-2xl shadow-md p-8">
+                    <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-100">
                         <div class="space-y-6">
                             <div class="flex items-start">
                                 <div class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                                     <i class="fa fa-id-card"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">NFT 功能</h4>
-                                    <p class="text-gray-600">僅限於平台訪問、任務解鎖、DAO 投票，不附加財務屬性</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.nftFunction">NFT 功能</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.nftFunctionDesc">僅限於平台訪問、任務解鎖、DAO 投票，不附加財務屬性</p>
                                 </div>
                             </div>
                             
@@ -951,8 +1018,8 @@
                                     <i class="fa fa-briefcase"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">RWA 资产归属</h4>
-                                    <p class="text-gray-600">由 SPV 接管現實收益，NFT 不直接代表股權或債權</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.rwaOwnership">RWA 資產歸屬</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.rwaOwnershipDesc">由 SPV 接管現實收益，NFT 不直接代表股權或債權</p>
                                 </div>
                             </div>
                             
@@ -961,8 +1028,8 @@
                                     <i class="fa fa-exchange"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">代币用途</h4>
-                                    <p class="text-gray-600">實用型功能通證，非金融投資品</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.tokenUsage">代幣用途</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.tokenUsageDesc">實用型功能通證，非金融投資品</p>
                                 </div>
                             </div>
                             
@@ -971,8 +1038,8 @@
                                     <i class="fa fa-money"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">收益分配机制</h4>
-                                    <p class="text-gray-600">由 DAO 治理決定，無固定承諾與回報預期</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.profitSharing">收益分配機制</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.profitSharingDesc">由 DAO 治理決定，無固定承諾與回報預期</p>
                                 </div>
                             </div>
                             
@@ -981,8 +1048,8 @@
                                     <i class="fa fa-shield"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">监管防线</h4>
-                                    <p class="text-gray-600">不公開募集、不構成證券、無永久收益屬性</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.regulatory">監管防線</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.regulatoryDesc">不公開募集、不構成證券、無永久收益屬性</p>
                                 </div>
                             </div>
                             
@@ -991,8 +1058,8 @@
                                     <i class="fa fa-user-plus"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">投资人进入机制</h4>
-                                    <p class="text-gray-600">合格投資者制度（白名單制）+ KYC + 私募合同（TPA）支持（如 RWA 擴展）</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="compliance.investorEntry">投資人進入機制</h4>
+                                    <p class="text-gray-600" data-i18n="compliance.investorEntryDesc">合格投資者制度（白名單制）+ KYC + 私募合同（TPA）支持（如 RWA 擴展）</p>
                                 </div>
                             </div>
                         </div>
@@ -1006,31 +1073,31 @@
     <section class="py-16 bg-primary text-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-2xl font-bold mb-4">风险提示与免责声明</h2>
+                <h2 class="text-2xl font-bold mb-4" data-i18n="risk.title">風險提示與免責聲明</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
             </div>
             
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 border border-secondary/20">
                 <ul class="space-y-4 text-gray-300">
                     <li class="flex items-start">
                         <i class="fa fa-exclamation-triangle text-secondary mt-1 mr-3"></i>
-                        <span>项目不對任何代幣、NFT 價格或潛在價值作出明示或暗示承諾；</span>
+                        <span data-i18n="risk.point1">項目不對任何代幣、NFT 價格或潛在價值作出明示或暗示承諾；</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-exclamation-triangle text-secondary mt-1 mr-3"></i>
-                        <span>BYB 及其衍生品均為功能型數字資產，非證券、非股票、非理財產品；</span>
+                        <span data-i18n="risk.point2">BYB 及其衍生品均為功能型數字資產，非證券、非股票、非理財產品；</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-exclamation-triangle text-secondary mt-1 mr-3"></i>
-                        <span>所有治理、回購、激勵由社區 DAO 決定，平台不負責保證執行或承諾結果；</span>
+                        <span data-i18n="risk.point3">所有治理、回購、激勵由社區 DAO 決定，平台不負責保證執行或承諾結果；</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-exclamation-triangle text-secondary mt-1 mr-3"></i>
-                        <span>用戶參與鏈上交互應自行承擔區塊鏈資產波動、合約風險、政策變化等不確定性；</span>
+                        <span data-i18n="risk.point4">用戶參與鏈上交互應自行承擔區塊鏈資產波動、合約風險、政策變化等不確定性；</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fa fa-exclamation-triangle text-secondary mt-1 mr-3"></i>
-                        <span>項目有權根據法律法規或運營需求調整 NFT / 代幣機制，並提前公示社區。</span>
+                        <span data-i18n="risk.point5">項目有權根據法律法規或運營需求調整 NFT / 代幣機制，並提前公示社區。</span>
                     </li>
                 </ul>
             </div>
@@ -1041,15 +1108,15 @@
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">联系我们</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4" data-i18n="contact.title">聯繫我們</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto">关注我们的社交媒体，获取最新动态</p>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-i18n="contact.subtitle">關注我們的社交媒體，獲取最新動態</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="bg-gray-50 rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-primary mb-6">联系方式与社交媒体</h3>
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-i18n="contact.contactInfo">聯繫方式與社交媒體</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-center">
@@ -1057,8 +1124,8 @@
                                     <i class="fa fa-globe text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">官网</h4>
-                                    <p class="text-gray-600">[待补充]</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="contact.website">官網</h4>
+                                    <p class="text-gray-600" data-i18n="contact.websitePlaceholder">[待補充]</p>
                                 </div>
                             </div>
                             
@@ -1067,8 +1134,8 @@
                                     <i class="fa fa-twitter text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">Twitter</h4>
-                                    <p class="text-gray-600">[待补充]</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="contact.twitter">Twitter</h4>
+                                    <p class="text-gray-600" data-i18n="contact.twitterPlaceholder">[待補充]</p>
                                 </div>
                             </div>
                             
@@ -1077,8 +1144,8 @@
                                     <i class="fa fa-telegram text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">Telegram</h4>
-                                    <p class="text-gray-600">[待补充]</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="contact.telegram">Telegram</h4>
+                                    <p class="text-gray-600" data-i18n="contact.telegramPlaceholder">[待補充]</p>
                                 </div>
                             </div>
                             
@@ -1087,53 +1154,53 @@
                                     <i class="fa fa-envelope text-xl"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-primary">邮箱</h4>
-                                    <p class="text-gray-600">[待补充]</p>
+                                    <h4 class="font-semibold text-primary" data-i18n="contact.email">郵箱</h4>
+                                    <p class="text-gray-600" data-i18n="contact.emailPlaceholder">[待補充]</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="mt-8 pt-8 border-t border-gray-200">
-                            <h3 class="text-xl font-bold text-primary mb-4">核心合约地址</h3>
-                            <p class="text-gray-600">
-                                将在主网部署后，通过官網、白皮書 v2.0 及鏈上流覽器公佈
+                            <h3 class="text-xl font-bold text-primary mb-4" data-i18n="contact.contractAddress">核心合約地址</h3>
+                            <p class="text-gray-600" data-i18n="contact.contractAddressDesc">
+                                將在主網部署後，通過官網、白皮書 v2.0 及鏈上流覽器公佈
                             </p>
                         </div>
                     </div>
                 </div>
                 
                 <div>
-                    <div class="bg-primary text-white rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">订阅最新资讯</h3>
-                        <p class="text-gray-300 mb-6">
-                            订阅我们的通讯，获取BYB项目的最新动态、活动信息和独家内容。
+                    <div class="bg-primary text-white rounded-2xl p-8 border border-secondary/20">
+                        <h3 class="text-2xl font-bold mb-6" data-i18n="contact.subscribe">訂閱最新資訊</h3>
+                        <p class="text-gray-300 mb-6" data-i18n="contact.subscribeDesc">
+                            訂閱我們的通訊，獲取BYB項目的最新動態、活動信息和獨家內容。
                         </p>
                         
                         <form class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium mb-2">姓名</label>
+                                <label for="name" class="block text-sm font-medium mb-2" data-i18n="contact.form.name">姓名</label>
                                 <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="您的姓名">
                             </div>
                             
                             <div>
-                                <label for="email" class="block text-sm font-medium mb-2">邮箱</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="您的邮箱地址">
+                                <label for="email" class="block text-sm font-medium mb-2" data-i18n="contact.form.email">郵箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="您的郵箱地址">
                             </div>
                             
                             <div>
-                                <label for="interest" class="block text-sm font-medium mb-2">您感兴趣的领域</label>
+                                <label for="interest" class="block text-sm font-medium mb-2" data-i18n="contact.form.interest">您感興趣的領域</label>
                                 <select id="interest" class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-10 border border-white border-opacity-20 text-white focus:outline-none focus:ring-2 focus:ring-secondary">
-                                    <option value="">请选择</option>
-                                    <option value="nft">NFT 收藏</option>
-                                    <option value="token">代币投资</option>
-                                    <option value="events">演唱会活动</option>
-                                    <option value="dao">DAO 治理</option>
-                                    <option value="other">其他</option>
+                                    <option value="" data-i18n="contact.form.select">請選擇</option>
+                                    <option value="nft" data-i18n="contact.form.options.nft">NFT 收藏</option>
+                                    <option value="token" data-i18n="contact.form.options.token">代幣投資</option>
+                                    <option value="events" data-i18n="contact.form.options.events">演唱會活動</option>
+                                    <option value="dao" data-i18n="contact.form.options.dao">DAO 治理</option>
+                                    <option value="other" data-i18n="contact.form.options.other">其他</option>
                                 </select>
                             </div>
                             
-                            <button type="submit" class="w-full bg-secondary text-primary font-semibold py-3 rounded-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1">
-                                订阅资讯
+                            <button type="submit" class="w-full bg-secondary text-dark font-semibold py-3 rounded-lg hover:bg-opacity-90 transition-all transform hover:-translate-y-1 tech-pulse">
+                                <span data-i18n="contact.form.submit">訂閱資訊</span>
                             </button>
                         </form>
                     </div>
@@ -1148,249 +1215,152 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
-                        <div class="bg-secondary text-primary p-2 rounded-lg">
+                        <div class="bg-secondary text-dark p-2 rounded-lg">
                             <span class="font-bold text-xl">BYB</span>
                         </div>
-                        <span class="font-bold text-xl">币友圈2025</span>
+                        <span class="font-bold text-xl" data-i18n="footer.byb">幣友圈2025</span>
                     </div>
-                    <p class="text-gray-400 mb-6">
-                        真实资产链上生态平台，以文化产业真实世界资产为锚定的多元化Web3数字应用生态。
+                    <p class="text-gray-400 mb-6" data-i18n="footer.description">
+                        真實資產鏈上生態平台，以文化產業真實世界資產為錨定的多元化Web3數字應用生態。
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-dark transition-all">
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-dark transition-all">
                             <i class="fa fa-telegram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-dark transition-all">
                             <i class="fa fa-medium"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-dark transition-all">
                             <i class="fa fa-discord"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-6">快速链接</h4>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer.quickLinks">快速鏈接</h4>
                     <ul class="space-y-3">
-                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition-colors">关于我们</a></li>
-                        <li><a href="#market" class="text-gray-400 hover:text-secondary transition-colors">市场分析</a></li>
-                        <li><a href="#solution" class="text-gray-400 hover:text-secondary transition-colors">解决方案</a></li>
-                        <li><a href="#assets" class="text-gray-400 hover:text-secondary transition-colors">资产展示</a></li>
-                        <li><a href="#token" class="text-gray-400 hover:text-secondary transition-colors">代币模型</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.about">關於我們</a></li>
+                        <li><a href="#market" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.market">市場分析</a></li>
+                        <li><a href="#solution" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.solution">解決方案</a></li>
+                        <li><a href="#assets" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.assets">資產展示</a></li>
+                        <li><a href="#token" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.token">代幣模型</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-6">更多信息</h4>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer.moreInfo">更多信息</h4>
                     <ul class="space-y-3">
-                        <li><a href="#roadmap" class="text-gray-400 hover:text-secondary transition-colors">发展路线图</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">常见问题</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">白皮书</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">隐私政策</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-secondary transition-colors">联系我们</a></li>
+                        <li><a href="#roadmap" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.roadmap">發展路線圖</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.faq">常見問題</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.whitepaper">白皮書</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.privacy">隱私政策</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.contact">聯繫我們</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-6">法律信息</h4>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer.legal">法律信息</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">服务条款</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">隐私政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">风险提示</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">合规声明</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.terms">服務條款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.privacy">隱私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.risk">風險提示</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors" data-i18n="footer.links.compliance">合規聲明</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-                <p>© 2025 币友圈BYB. 保留所有权利.</p>
+                <p data-i18n="footer.copyright">© 2025 幣友圈BYB. 保留所有權利.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // 导航栏滚动效果
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('mainNav');
-            const progressBar = document.getElementById('progressBar');
-            
-            // 导航栏样式变化
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-            
-            // 进度条更新
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
-        
-        // 移动端菜单切换
-        document.getElementById('menuBtn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // 资产标签切换
-        const assetTabs = document.querySelectorAll('.asset-tab');
-        const assetCards = document.querySelectorAll('.asset-card');
-        
-        assetTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // 移除所有标签的活跃状态
-                assetTabs.forEach(t => {
-                    t.classList.remove('active', 'bg-primary', 'text-white');
-                    t.classList.add('bg-gray-200', 'text-gray-700');
-                });
+        // 语言数据
+        const translations = {
+            'zh-Hant': {
+                // 英雄区域
+                'hero.subtitle': '幣友圈2025',
+                'hero.title1': '真實資產鏈上',
+                'hero.title2': '生態平台',
+                'hero.description': '以文化產業真實世界資產（RWA）為錨定的多元化 Web3 數字應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。',
+                'hero.btn1': '了解解決方案',
+                'hero.btn2': '代幣經濟模型',
                 
-                // 添加当前标签的活跃状态
-                tab.classList.add('active', 'bg-primary', 'text-white');
-                tab.classList.remove('bg-gray-200', 'text-gray-700');
+                // 核心优势
+                'advantages.title1': '真實資產錨定',
+                'advantages.desc1': '以文化產業真實世界資產(RWA)為價值支撐，確保生態穩定發展。',
+                'advantages.title2': '多元生態融合',
+                'advantages.desc2': '整合NFT、DAO治理、鏈遊、社交積分，構建完整Web3應用生態。',
+                'advantages.title3': '產業運營標桿',
+                'advantages.desc3': '通過自有產業成功運營樹立標桿，輸出專業行業孵化賦能解決方案。',
                 
-                const category = tab.getAttribute('data-category');
+                // 关于我们
+                'about.title': '關於幣友圈BYB',
+                'about.subtitle': '幣友圈系敦華集團旗下品牌',
+                'about.p1': '敦華集團是一家以文化創意產業為發展方向的投融資機構，總部位於香港屯門。公司在影視出品、演藝製作、康旅研學、文創商貿等領域全力拓展，成功投資主辦和承辦了數百場大型演出，創立"東江泉"品牌並出品多部院線電影和投資運營朱坊文旅康養小鎮。',
+                'about.p2': 'BYB 是一個鏈接現實世界資產（RWA）與 Web3 應用場景的多功能數字資產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數字資產平台。',
+                'about.p3': '數字貨幣與區塊鏈技術快速發展背景下，"幣友圈" 憑藉香港金融中心及獨特定位與創新理念脫穎而出，未來品牌價值潛力巨大。',
                 
-                // 筛选资产卡片
-                assetCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // 市场图表
-        const marketCtx = document.getElementById('marketChart').getContext('2d');
-        new Chart(marketCtx, {
-            type: 'bar',
-            data: {
-                labels: ['2020', '2021', '2022', '2023', '2024', '2025(预测)'],
-                datasets: [
-                    {
-                        label: '纯加密原生资产',
-                        data: [2000, 3500, 2800, 3200, 4000, 4500],
-                        backgroundColor: 'rgba(26, 115, 232, 0.7)',
-                    },
-                    {
-                        label: 'RWA数字资产',
-                        data: [100, 300, 800, 1500, 2500, 4000],
-                        backgroundColor: 'rgba(230, 179, 37, 0.7)',
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: '全球数字资产规模（十亿美元）'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-        
-        // 代币分配图表
-        const tokenAllocationCtx = document.getElementById('tokenAllocationChart').getContext('2d');
-        new Chart(tokenAllocationCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['生态发展', '团队激励', '市场推广', '私募轮', '公募轮', '储备金'],
-                datasets: [{
-                    data: [30, 15, 20, 15, 10, 10],
-                    backgroundColor: [
-                        'rgba(230, 179, 37, 0.8)',
-                        'rgba(26, 115, 232, 0.8)',
-                        'rgba(15, 52, 96, 0.8)',
-                        'rgba(76, 175, 80, 0.8)',
-                        'rgba(156, 39, 176, 0.8)',
-                        'rgba(244, 67, 54, 0.8)'
-                    ],
-                    borderColor: 'rgba(255, 255, 255, 0.3)',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: 'white',
-                            font: {
-                                size: 11
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        
-        // 资金分配图表
-        const fundAllocationCtx = document.getElementById('fundAllocationChart').getContext('2d');
-        new Chart(fundAllocationCtx, {
-            type: 'pie',
-            data: {
-                labels: ['RWA 真实资产投放', '市场推广', '技术开发', '流动做市', '合规牌照', '社区治理'],
-                datasets: [{
-                    data: [35, 25, 20, 10, 5, 5],
-                    backgroundColor: [
-                        'rgba(15, 52, 96, 0.8)',
-                        'rgba(230, 179, 37, 0.8)',
-                        'rgba(26, 115, 232, 0.8)',
-                        'rgba(76, 175, 80, 0.8)',
-                        'rgba(156, 39, 176, 0.8)',
-                        'rgba(244, 67, 54, 0.8)'
-                    ],
-                    borderColor: 'rgba(255, 255, 255, 0.3)',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                // 市场分析
+                'market.title': '市場分析與行業背景',
+                'market.subtitle': '全球數字資產市場正在經歷快速變革，真實資產鏈上化成為新的發展趨勢',
+                'market.chartTitle': '全球數字資產規模',
+                'market.dataSource': '數據來源：行業研究報告，2025年預測',
+                'market.opportunityTitle': '市場機遇與需求',
+                'market.p1': '純加密原生資產的現狀反映出市場對真實資產鏈上化的迫切需求尚未得到充分滿足。在此背景下，BYB 專案憑藉獨特的業務模式與創新理念應運而生。',
+                'market.p2': '通過將真實世界資產與區塊鏈技術深度融合，同時積極回應監管要求，為專案的長遠發展創造了有利條件。',
+                'market.advantage1.title': '填補市場空白',
+                'market.advantage1.desc': 'BYB融合了文娛強IP粉絲粘性、文創高頻消費及穩定的品牌收入，填補了市場中"真實收益支撐的鏈上數字生態"空白。',
+                'market.advantage2.title': '精准切入痛點',
+                'market.advantage2.desc': '滿足了用戶對真實資產鏈上化的迫切需求，順應了NFT功能多元化轉型趨勢。',
+                'market.advantage3.title': '合規創新並行',
+                'market.advantage3.desc': '在合規框架內推動創新，平衡監管要求與市場需求，為行業樹立新標準。',
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                // 使命与愿景
+                'missionVision.mission': '我們的使命',
+                'missionVision.missionDesc': '借助區塊鏈技術實現真實資產權益上鏈，讓用戶從單純消費者轉變為共治者與收益共享者。重塑用戶與資產的關係，構建基於區塊鏈技術的新型價值分配體系。',
+                'missionVision.vision': '我們的願景',
+                'missionVision.visionDesc': '成為全球領先的真實資產鏈上化（RWA）+NFT+DAO +GameFi+SocialFi平台，推動文娛、文創消費等更多場景數字化，並輸出專業的行業孵化服務。',
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // 关闭移动菜单（如果打开）
-                    document.getElementById('mobileMenu').classList.add('hidden');
-                }
-            });
-        });
-    </script>
-
-
-</body></html>
+                // 解决方案概述
+                'solution.title': '解決方案概述',
+                'solution.subtitle': 'BYB構建多元化業務模塊，打造覆蓋線上線下的完整生態閉環',
+                'solution.entertainment.title': '文娛領域',
+                'solution.entertainment.desc': '與頭部演唱會、電影、短劇、音樂競技等項目合作，將票房收益與NFT權益深度綁定，為粉絲創造更多價值。',
+                'solution.cultural.title': '文創板塊',
+                'solution.cultural.desc': '以東江泉品牌為起點，延伸至康養小鎮、影視基地等實體產業，構建虛實結合的價值網絡，實現資產數字化。',
+                'solution.diversified.title': '多元化業務模塊',
+                'solution.diversified.desc': '整合 NFT、DAO 治理、鏈遊（GameFi）、社交積分（SocialFi）及未來企業 RWA 孵化服務，構建完整生態。',
+                'solution.projectBackground': '項目背景',
+                'solution.background1.title': '文化與數字融合',
+                'solution.background1.desc': '在文化產業與數字經濟深度融合的時代浪潮下，敦華集團積累了豐富的優質資產。',
+                'solution.background2.title': '傳統模式局限',
+                'solution.background2.desc': '傳統資產運營模式在價值釋放、股權激活等方面存在局限性，難以滿足新時代需求。',
+                'solution.background3.title': 'WEB3技術突破',
+                'solution.background3.desc': 'WEB3 技術的引入，為集團突破發展瓶頸提供了契機，開啟資產數字化新篇章。',
+                
+                // 资产展示
+                'assets.title': '核心資產展示',
+                'assets.subtitle': '多元化的真實資產構成BYB生態的價值基礎',
+                'assets.tabs.all': '全部資產',
+                'assets.tabs.performance': '演藝資產',
+                'assets.tabs.film': '影視資產',
+                'assets.tabs.travel': '康旅資產',
+                'assets.tabs.entertainment': '文娛資產',
+                'assets.tabs.cultural': '文創資產',
+                'assets.categories.performance': '演藝資產',
+                'assets.categories.film': '影視資產',
+                'assets.categories.travel': '康旅資產',
+                'assets.categories.entertainment': '文娛資產',
+                'assets.categories.cultural': '文創資產',
+                'assets.labels.highYield': '高收益潛力',
+                'assets.labels.scarce': '稀缺性資產',
+                'assets.labels.diversified': '多元收益',
+                'assets.labels.stable': '穩定現金流',
+                'assets.labels.unique': '獨特IP價值',
+                'assets.labels.growth': '高增長潛力',
