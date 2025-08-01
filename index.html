@@ -1,0 +1,1062 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东江泉 - 饮用天然天然泉水官网</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E88E5',      // 主蓝色 - 代表水与纯净
+                        secondary: '#2E7D32',    // 绿色 - 代表自然与生态
+                        accent: '#FF9800',       // 橙色 - 用于强调和CTA
+                        dark: '#1A237E',         // 深蓝色 - 用于标题
+                        light: '#E3F2FD',        // 浅蓝色 - 用于背景
+                        gold: '#D4AF37',         // 金色 - 用于特殊文字效果
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .img-fade-in {
+                opacity: 0;
+                transition: opacity 0.8s ease-in-out;
+            }
+            .img-loaded {
+                opacity: 1;
+            }
+            .portrait-img {
+                aspect-ratio: 2/3; /* 竖版A4比例 */
+                object-fit: cover;
+            }
+            .golden-text {
+                color: #D4AF37;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3),
+                             0 0 10px rgba(212, 175, 55, 0.5),
+                             0 0 20px rgba(212, 175, 55, 0.3);
+                font-weight: bold;
+            }
+            .nav-shadow {
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 overflow-x-hidden">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- 导航栏LOGO -->
+            <a href="#" class="flex items-center">
+                <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6120f9be73a84a2caea011edac8df86b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754465018&amp;x-signature=Qea%2BZV%2BSsoSr02ZCIgKXh38QGpE%3D" alt="东江泉LOGO" class="h-12 w-auto">
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">主页</a>
+                <a href="#product" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">产品介绍</a>
+                <a href="#story" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">品牌故事</a>
+                <a href="#about" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">关于我们</a>
+                <a href="#partner" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">合伙招募</a>
+                <a href="#contact" class="text-white hover:text-accent transition-colors font-medium text-[clamp(0.9rem,1.2vw,1rem)] relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent after:transition-all hover:after:w-full">联系我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">主页</a>
+                <a href="#product" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">产品介绍</a>
+                <a href="#story" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">品牌故事</a>
+                <a href="#about" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">关于我们</a>
+                <a href="#partner" class="text-gray-800 hover:text-primary py-2 border-b border-gray-100">合伙招募</a>
+                <a href="#contact" class="text-gray-800 hover:text-primary py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/aaaf6dd4923c45d6be9504c378ff5e94~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754460900&amp;x-signature=PDwRUxp4ZQh8gLMZWpx%2F52ApXBU%3D" alt="东江泉水源地风景" class="w-full h-full object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark/80 to-primary/60"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10 text-center md:text-left md:max-w-3xl">
+            <h1 class="text-[clamp(1.8rem,4vw,2.8rem)] font-serif font-bold text-white leading-tight text-shadow-lg mb-6">
+                致力打造全球首款<br>
+                <span class="text-[60%]">WEB3生態應用RWA資產飲用天然泉水</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+                <a href="#story" class="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg text-[clamp(0.9rem,1.2vw,1rem)]">了解更多</a>
+                <a href="#partner" class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-full transition-all text-[clamp(0.9rem,1.2vw,1rem)]">合夥計劃</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#intro" class="flex flex-col items-center">
+                <span class="mb-2 text-sm">進入</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 品牌介绍 -->
+    <section id="intro" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold text-dark mb-4">
+                    2025精心打造<br>
+                    敦華集團推出<br>
+                    「東江泉」飲用天然泉水
+                </h2>
+                <!-- 竖版动态图片 -->
+                <div class="my-6 flex justify-center">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3f8eb3b4d19247b69b662a1ad9fd917f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754466568&amp;x-signature=kwwtiXSix4Cy%2BT9l2oMfsv1s2wo%3D" alt="东江泉竖版宣传图" class="portrait-img rounded-lg shadow-md animate-float max-w-[420px] w-[150%] img-fade-in" onload="this.classList.add('img-loaded')">
+                </div>
+                <!-- 重点文字 -->
+                <p class="text-primary max-w-3xl mx-auto text-[clamp(1.75rem,2.6vw,1.925rem)] font-bold">紀念東江水供港60週年</p>
+                <p class="text-primary max-w-3xl mx-auto text-[clamp(1.75rem,2.6vw,1.925rem)] font-bold mt-2">一瓶有故事的水！</p>
+                <h3 class="text-gray-600 max-w-3xl mx-auto text-[clamp(1.1rem,1.8vw,1.3rem)] font-medium mt-6">源自大自然的稀有饋贈</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://picsum.photos/id/1018/800/600" alt="会昌丹霞云海" class="w-full h-60 object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-[clamp(1.2rem,2vw,1.6rem)] text-dark mb-2">會昌丹霞雲海似仙境</h3>
+                        <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">水源地週邊的自然景觀，如詩如畫的生態環境孕育了純淨的東江泉。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://picsum.photos/id/1039/800/600" alt="石壁坑水库" class="w-full h-60 object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-[clamp(1.2rem,2vw,1.6rem)] text-dark mb-2">石壁坑水庫</h3>
+                        <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">波光粼粼，藍天白雲與澄淨湖水交相輝映，構成一幅綠色生態山水畫卷。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://picsum.photos/id/1043/800/600" alt="水源地生态" class="w-full h-60 object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-[clamp(1.2rem,2vw,1.6rem)] text-dark mb-2">水源地週邊生態</h3>
+                        <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">原生態環境保護，確保每一滴東江泉都來自純淨無污染的自然環境。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 相关证明文件 -->
+            <div class="mt-20">
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-10">相關證明文件</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4be374c4d3e9427dae8e21fbfe3b6033~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461343&amp;x-signature=danIw%2FDSUxFipec3CHBPOw9RZAQ%3D" alt="水质检测报告1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/96411859c7904aacba42ca51b69666b1~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461361&amp;x-signature=6N1SEzqkpJNTuZ7XX5%2BkXE8xRbE%3D" alt="原产地认证1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/14561b8b694c44759875e54b35c5ac0a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461372&amp;x-signature=H1p3OpHUnkc1cfP3PGjb1yNJ9dQ%3D" alt="STC正字认证1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1c27074ac4244a76899ea78526c4798c~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461385&amp;x-signature=D0%2Bg1eSkBHyuENrWkEq7ELxpKlg%3D" alt="国际条形码认证1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3c5e6dafdba04f4a87d3d7b9c3c2dc7d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461399&amp;x-signature=GtEIwuZEjzcNlaOzzJY%2FXjX7%2FqQ%3D" alt="香港检测部门认可1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3fb7fd340fcf456a9cde256d5a6c74b3~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461412&amp;x-signature=2nXmwYQWdqdeYrkGnWUTtDQCCH0%3D" alt="水质检测报告2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/c63898097fde4c398f7fbe30f570958d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461422&amp;x-signature=Mqpv64RdQKwW8MhTTrTMip9Uskc%3D" alt="原产地认证2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a9b42a42bea9439aa888d25f111e3d45~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461438&amp;x-signature=k%2BHZx2uknvCLYpV9h89K7T5r2G0%3D" alt="STC正字认证2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/a5883084259a4396bf76190e649e2cc2~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461451&amp;x-signature=Yyz62SzwENRWEnLsVgWBFu8M%2Boc%3D" alt="国际条形码认证2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6c7c54d9c8c24d1ca1887c4e83f84d37~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461462&amp;x-signature=WHPLoX3eJifARcIh5w7dDerN6gk%3D" alt="香港检测部门认可2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow img-fade-in w-full h-auto object-contain" onload="this.classList.add('img-loaded')">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品介绍 -->
+    <section id="product" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold text-dark mb-4">產品展示</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-[clamp(1rem,1.5vw,1.1rem)]">精心設計的包裝，呈現東江泉的純淨與高品質</p>
+            </div>
+            
+            <!-- 产品展示 - 2行2列布局 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="group">
+                    <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/1f238314e7b14025bc9befe54a3498b5~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461615&amp;x-signature=NF0WQ79pO6%2FemU3%2FAmTRM0iQtKk%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/654a69f9382d4f55853e27dad8f7783d~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461662&amp;x-signature=iT41jGAQoFeJ4EecEBG1TqfRcj0%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f35f23e6aaa04e4ba152e75afb562830~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461688&amp;x-signature=u6eL7xdo2RY4Wty2gasY4AnKIoU%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <div class="bg-light rounded-xl overflow-hidden mb-4 relative">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/baa5fb64aa814852aacb0c5361bf4584~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461711&amp;x-signature=kvgTzuUEG9kdFG3vIsyiUKNam28%3D" alt="" class="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110 img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 礼盒套装 - 2行2列布局 -->
+            <div class="mt-20">
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-10">禮盒套裝</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9a06ef58b4ff4b609f88975eaf9e1323~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461841&amp;x-signature=PJjJo1TyWXvWD8UyLoTzRwG5mbk%3D" alt="消费商礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">消費商</h4>
+                        <p class="text-gray-600 mb-2">以消費為主要定位</p>
+                        <p class="text-gray-600 mb-4">品質生活的入門之選</p>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6b12a9573b284f48b744222a6831a64f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461865&amp;x-signature=kz66o8GkbMyDbH%2BlCx0%2BbmEKB0Y%3D" alt="代理商礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">代理商</h4>
+                        <p class="text-gray-600 mb-2">以銷售為主要定位</p>
+                        <p class="text-gray-600 mb-4">銷售精英的理想選擇</p>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/13e8a35d697046fe88a025130f9e3806~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461879&amp;x-signature=RTftoIqAQTzqu9UzOSRITl0aGMc%3D" alt="合伙人礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">合夥人</h4>
+                        <p class="text-gray-600 mb-2">以事業為主要定位</p>
+                        <p class="text-gray-600 mb-4">強大的業務拓展基礎</p>
+                        <a href="#partner" class="bg-primary hover:bg-primary/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6 text-center transform transition-all hover:shadow-lg hover:-translate-y-1">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bb8698ec7cef4aa2b05479388d75858a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754461909&amp;x-signature=CSS9W%2FYys2Kqpyo161%2FuQxFaMZg%3D" alt="Web3限量版礼盒" class="w-40 h-40 mx-auto mb-4 rounded-lg object-cover img-fade-in" onload="this.classList.add('img-loaded')">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-2">Web3 限量版</h4>
+                        <p class="text-gray-600 mb-2">參與生態建設</p>
+                        <p class="text-gray-600 mb-4">數位收藏品權益</p>
+                        <a href="#partner" class="bg-accent hover:bg-accent/90 text-white py-2 px-6 rounded-full text-sm transition-colors inline-block">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section id="story" class="py-20 bg-gradient-to-b from-white to-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold text-dark mb-4">品牌故事</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-[clamp(1rem,1.5vw,1.1rem)]">
+                    每一滴水都承載著一段記憶，每一口甘甜都傳遞著一份情感
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="order-2 lg:order-1">
+                    <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-6">源自家鄉的甘甜回憶</h3>
+                    <p class="text-gray-700 mb-4 text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        在中國南方的江西贛南，有一處被譽為大自然恩賜的珍寶——東江源頭的泉水。這裡的泉水自古以來就被當地人所珍視,其清冽甘甜的味道承載著無數人的思鄉情懷。
+                    </p>
+                    <p class="text-gray-700 mb-4 text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        對於香港人而言,這份源自故鄉的東江水更是一種熟悉的滋味,喚起了許多溫馨的回憶。東江泉品牌正是為了將這份純淨的泉水與濃厚的鄉愁帶給更多人而誕生的。
+                    </p>
+                    <p class="text-gray-700 text-[clamp(0.95rem,1.3vw,1.1rem)]">讓我們一起走進東江泉的品牌故事,感受這份來自故鄉的純粹之美。</p>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/2d7d22228bfa4a93bb2b403257897933~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754462102&amp;x-signature=PPbZgLGpXnRdApKpIyOAE3ktmws%3D" alt="东江水源头" class="w-full h-auto rounded-xl shadow-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                </div>
+            </div>
+            
+            <!-- 东江泉的源头 -->
+            <div class="mb-20">
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-12">
+                    <span class="text-[130%]">東江泉的源頭</span><br>
+                    大自然的珍稀饋贈
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <!-- 统一图标风格 -->
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto overflow-hidden">
+                            <i class="fa fa-cubes text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-center font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">地質奇蹟</h4>
+                        <p class="text-gray-600 text-center text-[clamp(0.9rem,1.2vw,1rem)]">
+                            東江泉的水源來自地下280米的花崗岩裂縫，經過漫長的地質過濾，形成了獨特的礦物質成分。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa fa-filter text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-center font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">天然淨化</h4>
+                        <p class="text-gray-600 text-center text-[clamp(0.9rem,1.2vw,1rem)]">
+                            泉水在地下岩層中緩慢流動，自然過濾掉雜質，保留了豐富的礦物質，塑造出獨特的口感。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <i class="fa fa-tint text-primary text-2xl"></i>
+                        </div>
+                        <h4 class="text-center font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">湧出地表</h4>
+                        <p class="text-gray-600 text-center text-[clamp(0.9rem,1.2vw,1rem)]">
+                            經過漫長的地下旅程，通過開採泉水最終湧出地表，形成了東江泉的取水點。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <p class="text-gray-700 max-w-3xl mx-auto text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        這份來自大自然的珍稀饋贈，不僅滋潤了當地的土地和人民，更成為了東江泉品牌的靈魂所在。每一滴東江泉水都蘊含著大自然的智慧和恩典，為飲用者帶來純淨健康的體驗。
+                    </p>
+                </div>
+                
+                <div class="mt-10">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b06249ec79504f47a812864825138143~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754462308&amp;x-signature=mM4dJ6Sgzfv4lhlxokzLisg%2B25c%3D" alt="东江水源头风景" class="w-full h-auto rounded-xl shadow-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                </div>
+            </div>
+            
+            <!-- 品牌创始人 -->
+            <div class="mb-20">
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-12">
+                    <span class="text-[130%]">品牌創始人</span><br>
+                    懷鄉情深的文化使者
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/ed614c5eb70d4d8f838db389bc5340c8~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754462349&amp;x-signature=suMA7JUVRzhhsj5JHYeVwyr6EKQ%3D" alt="朱琴 - 敦华集团CEO" class="w-full h-auto rounded-xl shadow-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                    <div>
+                        <div class="mb-8">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-3 flex items-center">
+                                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-book text-primary"></i>
+                                </span>
+                                文化底蘊深厚
+                            </h4>
+                            <p class="text-gray-600 pl-11 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                朱琴敦華集團CEO，在文化品牌演藝行業擁有超過三十年的豐富經驗，培養了他獨特的藝術眼光和文化素養。
+                            </p>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-3 flex items-center">
+                                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-home text-primary"></i>
+                                </span>
+                                鄉愁情結濃厚
+                            </h4>
+                            <p class="text-gray-600 pl-11 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                身在繁華的粵港澳大灣區，朱琴心中始終牽掛著家鄉的自然之美，這份思鄉之情成為了創立東江泉品牌的動力。
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-3 flex items-center">
+                                <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fa fa-compass text-primary"></i>
+                                </span>
+                                使命感驅動
+                            </h4>
+                            <p class="text-gray-600 pl-11 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                朱琴希望通過東江泉品牌，將故鄉的清新回憶帶給更多人，傳遞「飲水思源」的理念，喚起人們對家鄉的感恩之情。
+                            </p>
+                        </div>
+                        
+                        <p class="mt-8 text-gray-700 text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                            朱琴的人生經歷和文化積澱，為東江泉品牌注入了深厚的文化內涵和情感底蘊。他不僅是一位成功的企業家，更是一位以水為媒介，傳遞文化和情感的使者。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 品质坚持 -->
+            <div class="mb-20">
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-12">
+                    <span class="text-[130%]">品質堅持</span><br>
+                    追求極致的完美主義
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="relative group">
+                        <div class="bg-white rounded-xl shadow-md p-6 h-full z-10 relative">
+                            <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa fa-map-marker text-secondary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">嚴格選源</h4>
+                            <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                東江泉堅持只選用最純淨的水源，確保每一滴水都來自深層岩層，經過天然過濾，保證水質的純淨和礦物質的均衡。
+                            </p>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-full h-full bg-secondary/20 rounded-xl -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-300"></div>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="bg-white rounded-xl shadow-md p-6 h-full z-10 relative">
+                            <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa fa-certificate text-secondary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">專業檢測</h4>
+                            <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                東江泉經過嚴格的專業檢測，不僅獲得香港檢測部門的認可，更申請了STC「正」字認證標籤，為消費者提供最高品質保證。
+                            </p>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-full h-full bg-secondary/20 rounded-xl -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-300"></div>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="bg-white rounded-xl shadow-md p-6 h-full z-10 relative">
+                            <div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa fa-globe text-secondary text-xl"></i>
+                            </div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">國際標準</h4>
+                            <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                東江泉申請了國際條形碼，產品質量符合國際標準，為進軍國際市場奠定了堅實基礎，讓更多人能品嚐到這份來自中國的純淨泉水。
+                            </p>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-full h-full bg-secondary/20 rounded-xl -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <p class="text-gray-700 max-w-3xl mx-auto text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        朱總對品質的執著追求，體現在東江泉產品的每一個細節中。從水源選擇到生產過程，再到包裝設計，每一步都力求完美，只為將最純淨、最健康的泉水呈現給消費者。
+                    </p>
+                </div>
+                
+                <div class="mt-10">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b09653cbc92a473183980cd35dc9c540~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755220861&amp;x-signature=7QyZ4JSUbKUNtyg7slUJjYwZc7w%3D" alt="品质检测过程" class="w-full h-auto rounded-xl shadow-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                </div>
+            </div>
+            
+            <!-- 健康价值 -->
+            <div>
+                <h3 class="text-center font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-12">
+                    <span class="text-[130%]">健康價值</span><br>
+                    純淨水源的養生之道
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
+                    <div>
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4a24a4a4549d48aea2dd7a585a0347c6~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754473892&amp;x-signature=Yecz8JDQvNTRJZbIkKpWEetPAlU%3D" alt="矿物质含量与健康益处" class="w-full h-auto rounded-xl shadow-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-[clamp(1.2rem,2vw,1.6rem)] mb-6">礦物質含量與健康益處</h4>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="font-bold text-primary">Ca</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)]">鈣</h5>
+                                    <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">強健骨骼，預防骨質疏鬆</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="font-bold text-primary">Mg</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)]">鎂</h5>
+                                    <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">調節神經系統，改善睡眠質量</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="font-bold text-primary">K</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)]">鉀</h5>
+                                    <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">平衡體內電解質，維護心臟健康</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <span class="font-bold text-primary">Si</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)]">硅</h5>
+                                    <p class="text-gray-600 text-[clamp(0.9rem,1.2vw,1rem)]">促進膠原蛋白生成，維持皮膚彈性</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <p class="text-gray-700 mb-4 text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        東江泉不僅僅是一種解渴飲品，更是一種天然的養生之水。源自280米深的花崗岩裂縫，東江泉富含多種人體所需的礦物質元素，能夠為身體帶來全方位的健康滋養。長期飲用東江泉，不僅能夠補充身體所需的礦物質，還能幫助調節身體機能，提升整體健康水平。
+                    </p>
+                    <p class="text-gray-700 text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                        此外，東江泉的純淨度極高，不含任何有害物質，是孕婦、兒童和老年人的理想飲用水選擇。它的口感清甜怡人，不僅能夠滿足日常飲水需求，還可以用於泡茶、煮粥，將健康融入生活的方方面面。
+                    </p>
+                </div>
+                
+                <!-- 矿物质含量图表 -->
+                <div class="mt-10 bg-white p-6 rounded-xl shadow-md">
+                    <h4 class="text-center font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-6">礦物質含量對比</h4>
+                    <div class="h-80">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/aac6a35e2f3a49ad9527749bb138dc6a~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754529537&amp;x-signature=U%2Fzp6x7oSsSt3eEMD2w4qTeePBA%3D" alt="东江泉矿物质含量对比图表" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold text-dark mb-4">關於我们</h2>
+            </div>
+            
+            <div class="bg-light rounded-2xl p-8 md:p-12 shadow-md mb-16">
+                <!-- 公司介绍 -->
+                <div class="text-center">
+                    <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-2">敦華集團</h3>
+                    <p class="text-gray-700 mb-8 text-[clamp(1rem,1.5vw,1.2rem)] font-medium">數 . 字 . 文 . 創 . 先 . 行 . 者</p>
+                    <p class="text-gray-700 mb-8 text-[clamp(0.95rem,1.3vw,1.1rem)] max-w-4xl mx-auto">敦華集團有限公司位于香港屯門偉昌工業中心，系一家專注於文化創意産業的投融資機構。透過整合海內外資本，以及中外文化交流項目合作，敦華集團致力於推動文化産業的發展。敦華集團旗下擁有多家專業子公司，業務覆蓋香港、深圳、北京、贛州等地，形成協同發展的產業格局。</p>
+                </div>
+                
+                <!-- 旗下公司板块 -->
+                <div class="mb-8">
+                    <h4 class="font-medium text-[clamp(1.2rem,2vw,1.6rem)] mb-6 text-center">旗下公司</h4>
+                    
+                    <!-- 公司排列 -->
+                    <div class="space-y-6">
+                        <!-- 第一行：2家公司 -->
+                        <div class="flex flex-wrap justify-center gap-6">
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[280px] text-center">
+                                <h5 class="font-medium mb-2">敦華文化</h5>
+                                <p class="text-gray-600 text-sm">文化項目策劃與執行</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[280px] text-center">
+                                <h5 class="font-medium mb-2">青花瓷樂團</h5>
+                                <p class="text-gray-600 text-sm">專業音樂演出團體</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 第二行：3家公司 -->
+                        <div class="flex flex-wrap justify-center gap-6">
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[220px] text-center">
+                                <h5 class="font-medium mb-2">朱坊康養小鎮</h5>
+                                <p class="text-gray-600 text-sm">康養旅遊綜合體</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[220px] text-center">
+                                <h5 class="font-medium mb-2">星媒娛樂</h5>
+                                <p class="text-gray-600 text-sm">藝人經紀與管理服務</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[220px] text-center">
+                                <h5 class="font-medium mb-2">朱坊文化旅遊</h5>
+                                <p class="text-gray-600 text-sm">文化旅遊項目開發</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 第三行：2家公司 -->
+                        <div class="flex flex-wrap justify-center gap-6">
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[280px] text-center">
+                                <h5 class="font-medium mb-2">東江泉(連鎖)便利店</h5>
+                                <p class="text-gray-600 text-sm">飲品食品土特產</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm flex-1 max-w-[280px] text-center">
+                                <h5 class="font-medium mb-2">東江泉(香港)食品飲料</h5>
+                                <p class="text-gray-600 text-sm">天然泉水生產與銷售</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 敦华官网链接 -->
+                <div class="mt-8 text-center">
+                    <a href="https://www.dunhuagroup.com" target="_blank" class="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors">
+                        <i class="fa fa-external-link mr-2"></i>
+                        访问敦华集团官网
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合伙招募 -->
+    <section id="partner" class="py-20 bg-gradient-to-br from-dark to-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold mb-4 golden-text">東江泉WEB3合夥人</h2>
+                <!-- 宣传图片 -->
+                <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/51f6102d53fd44e69e1d6080736b216b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755230269&amp;x-signature=o7V2YczRIVQUz5sbIm2zuKzwj2I%3D" alt="东江泉WEB3合伙人计划宣传图" class="my-6 mx-auto img-fade-in" onload="this.classList.add('img-loaded')">
+                
+                <!-- 添加两个小LOGO -->
+                <div class="flex justify-center gap-6 mt-4">
+                    <a href="https://opensea.io/collection/tkchk" target="_blank" class="transition-transform hover:scale-110">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/06c1580b79144ac491243725eeb6a161~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754633080&amp;x-signature=aoYUmaEVtrmE83iP8RUsXJxZgw4%3D" alt="OpenSea" class="h-12 w-auto rounded-md shadow-lg">
+                    </a>
+                    <a href="https://www.okx.com/ul/aXqLsFH" target="_blank" class="transition-transform hover:scale-110">
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/05559d72bfed4b28b80b628dae596314~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754633095&amp;x-signature=SHehIEfol28aIeysOqhi4COBn4o%3D" alt="OKX" class="h-12 w-auto rounded-md shadow-lg">
+                    </a>
+                </div>
+                
+                <p class="max-w-3xl mx-auto opacity-90 text-[clamp(1rem,1.5vw,1.1rem)]"></p>
+            </div>
+            
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4 flex items-center">
+                            <i class="fa fa-link mr-3 text-accent"></i>
+                            详情网络
+                        </h4>
+                        <p class="text-[clamp(0.95rem,1.3vw,1.1rem)]">Ethereum</p>
+                    </div>
+                    
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4 flex items-center">
+                            <i class="fa fa-shield mr-3 text-accent"></i>
+                            代币标准
+                        </h4>
+                        <p class="text-[clamp(0.95rem,1.3vw,1.1rem)]">1155</p>
+                    </div>
+                    
+                    <div class="bg-white/5 p-6 rounded-xl">
+                        <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4 flex items-center">
+                            <i class="fa fa-cubes mr-3 text-accent"></i>
+                            数量
+                        </h4>
+                        <p class="text-[clamp(0.95rem,1.3vw,1.1rem)]">9,999</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-white/5 p-6 rounded-xl">
+                    <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4 flex items-center">
+                        <i class="fa fa-code-fork mr-3 text-accent"></i>
+                        合约地址
+                    </h4>
+                    <p class="font-mono text-sm bg-black/30 p-3 rounded overflow-x-auto scrollbar-hide">
+                        0xf7ff0b0af9d4d7e968e159eea37cbd26ff6fb61b
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <p class="text-lg mb-8 text-center max-w-4xl mx-auto text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                    敦華集團2025年精心打造"東江泉"飲用天然泉水品牌，創新性地將其與Web3區塊鏈技術相結合，致力構建全球首個Web3生態區塊鏈飲用天然泉水體系。同時，整合集團旗下江西朱坊康養小鎮旅遊資源，推出東江泉尋源生態遊，並通過舉辦明星藝人參與的東江泉演唱會，提升品牌影響力。
+                </p>
+                
+                <p class="text-lg mb-8 text-center max-w-4xl mx-auto text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                    現面向市場招募WEB3合夥人，以開拓香港市場，並開發區塊鏈生態遊戲獎勵系統。
+                </p>
+                
+                <div class="flex justify-center">
+                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/118787a2da6342a6b680f260ed169eb1~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754462622&amp;x-signature=XdC0y5vXWNdCdMWoZm01TJiA9TE%3D" alt="Web3合伙人计划" class="rounded-xl shadow-lg max-w-full h-auto img-fade-in" onload="this.classList.add('img-loaded')">
+                </div>
+            </div>
+            
+            <!-- 市场分析 -->
+            <div class="mb-16">
+                <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] mb-8 text-center">市場分析</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/e9f9610e9f97471f890a1c9d84d782bc~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754529247&amp;x-signature=nRgIBdrHRFWklL3d0ESDKaE%2BXJo%3D" alt="饮用水市场分析" class="w-full h-40 object-cover rounded-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                        </div>
+                        <div class="md:w-2/3">
+                            <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa fa-tint text-accent text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">飲用水市場</h4>
+                            <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                隨著人們健康意識的提升，對天然飲用泉水的需求持續增長。香港作為國際化大都市，飲用泉水市場規模龐大，且消費者對高品質、創新性產品接受度較高，為"東江泉"進入香港市場提供了廣闊空間。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/468d3585952841c0b1d9de3b9606215f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754529280&amp;x-signature=g7xK0UWdrFvqcRD9CPoCOjKd%2BTg%3D" alt="Web3市场分析" class="w-full h-40 object-cover rounded-lg img-fade-in" onload="this.classList.add('img-loaded')">
+                        </div>
+                        <div class="md:w-2/3">
+                            <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6">
+                                <i class="fa fa-link text-accent text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">Web3與區塊鏈應用</h4>
+                            <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                Web3和區塊鏈技術在各行業的應用逐漸深入，消費者對具有區塊鏈屬性的產品興趣日益濃厚。將區塊鏈技術應用於飲用泉水領域，不僅能提升產品的溯源性和安全性，還能為消費者帶來全新的消費體驗，具有較大的市場潛力。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 项目亮点 -->
+            <div class="mb-16">
+                <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] mb-8 text-center">專案亮點</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="relative group overflow-hidden rounded-xl">
+                        <div class="bg-white/5 p-6 relative z-10 h-full">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/3401cbb2899548d484baa03e3d46f68f~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754474055&amp;x-signature=KkmjFntTsro0bwdcAGfSdQyLM%2FQ%3D" alt="创新产品模式" class="w-full h-40 object-cover rounded-lg mb-4 img-fade-in" onload="this.classList.add('img-loaded')">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">創新產品模式</h4>
+                            <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                "東江泉"打造全球首款融合Web3區塊鏈生態系統的天然飲用泉水，通過區塊鏈技術實現產品溯源、防偽，以及用戶激勵等功能，為消費者提供更安全、透明的消費環境。
+                            </p>
+                        </div>
+                        <div class="absolute inset-0 bg-accent/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                    </div>
+                    
+                    <div class="relative group overflow-hidden rounded-xl">
+                        <div class="bg-white/5 p-6 relative z-10 h-full">
+                            <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/9ab87a7f150f4ec6b035cc96def43449~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754474076&amp;x-signature=OkDdU7241dTL6pHJugaGqB0O4%2B0%3D" alt="多元化产业融合" class="w-full h-40 object-cover rounded-lg mb-4 img-fade-in" onload="this.classList.add('img-loaded')">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">多元化產業融合</h4>
+                            <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                整合旅遊、娛樂等產業資源，推出東江泉尋源生態遊和冠名演唱會等活動，為消費者打造全方位的品牌體驗，提升品牌粘性。
+                            </p>
+                        </div>
+                        <div class="absolute inset-0 bg-accent/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                    </div>
+                    
+                    <div class="relative group overflow-hidden rounded-xl">
+                        <div class="bg-white/5 p-6 relative z-10 h-full">
+                            <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/0cfd29ca409e40c59f04e2cf116d0323~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754474143&amp;x-signature=F%2F2qwyaeHtGXrjwNKYMI0T2bY%2Bc%3D" alt="创新激励机制" class="w-full h-40 object-cover rounded-lg mb-4 img-fade-in" onload="this.classList.add('img-loaded')">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-4">創新激勵機制</h4>
+                            <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                開發區塊鏈生態遊戲獎勵系統，用戶可通過參與遊戲獲得獎勵，增加用戶參與度和品牌互動性。
+                            </p>
+                        </div>
+                        <div class="absolute inset-0 bg-accent/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 合伙计划与福利 -->
+            <div class="mb-16">
+                <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] mb-12 text-center">合夥與福利</h3>
+                
+                <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                        <!-- 合伙计划 -->
+                        <div>
+                            <h4 class="font-medium text-[clamp(1.2rem,2vw,1.6rem)] mb-6 pb-3 border-b border-white/10">合夥計畫</h4>
+                            
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-bullseye text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">合夥目標</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            開拓香港市場與開發Web3區塊鏈生態系統
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-user text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">招募對象</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            具商業資源與投資經驗的企業或個人
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-money text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">融資機制</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            東江泉WEB3合夥人招募機制旨在匯集資源，用於開拓香港市場，包括市場推廣、管道建設、產品供應等方面，並開發區塊鏈生態遊戲獎勵系統，完善Web3生態體系。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 多元福利 -->
+                        <div>
+                            <h4 class="font-medium text-[clamp(1.2rem,2vw,1.6rem)] mb-6 pb-3 border-b border-white/10">多元福利</h4>
+                            
+                            <div class="space-y-6">
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-trophy text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">共享發展紅利</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            NFT與Token獎勵，認購WEB3合夥人全球限量版NFT即擁有東江泉Token空投權益。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-gift text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">合夥人福利</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            每月按照合夥人份額可獲得相應數量的"東江泉"飲用天然泉水免費贈飲。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="mr-4 mt-1 flex-shrink-0">
+                                        <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                                            <i class="fa fa-leaf text-accent text-sm"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-2">生態權益</h5>
+                                        <p class="opacity-90 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                            合夥人可享受公司Web3生態系統內的各項權益，包括康養旅遊、演唱會、社區活動等。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 专案进度 -->
+            <div>
+                <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] mb-8 text-center">專案進度</h3>
+                
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white/5 rounded-xl p-6 border-l-4 border-accent">
+                            <h4 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-3">天使合夥</h4>
+                            <p class="mb-2 text-[clamp(0.9rem,1.2vw,1rem)]">1000份，售價99USDT</p>
+                            <p class="text-accent text-[clamp(0.9rem,1.2vw,1rem)]">進度：測試/即將開始</p>
+                        </div>
+                        
+                        
+                        <div class="bg-white/5 rounded-xl p-6 border-l-4 border-yellow-400">
+                            <h4 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-3">早鳥合夥</h4>
+                            <p class="mb-2 text-[clamp(0.9rem,1.2vw,1rem)]">2000份，售價128UDST</p>
+                            <p class="mb-2 text-yellow-400 text-[clamp(0.9rem,1.2vw,1rem)]">限1份/錢包</p>
+                            <p class="text-yellow-400 text-[clamp(0.9rem,1.2vw,1rem)]">進度：未開始</p>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-xl p-6 border-l-4 border-green-400">
+                            <h4 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-3">白單合夥</h4>
+                            <p class="mb-2 text-[clamp(0.9rem,1.2vw,1rem)]">5000份，售價158UDST</p>
+                            <p class="mb-2 text-green-400 text-[clamp(0.9rem,1.2vw,1rem)]">限10份/錢包</p>
+                            <p class="text-green-400 text-[clamp(0.9rem,1.2vw,1rem)]">進度：未開始</p>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-xl p-6 border-l-4 border-blue-400">
+                            <h4 class="font-medium text-[clamp(1rem,1.3vw,1.1rem)] mb-3">公開合夥</h4>
+                            <p class="mb-2 text-[clamp(0.9rem,1.2vw,1rem)]">1999份，售價198USDT</p>
+                            <p class="mb-2 text-blue-400 text-[clamp(0.9rem,1.2vw,1rem)]">限1份/錢包</p>
+                            <p class="text-blue-400 text-[clamp(0.9rem,1.2vw,1rem)]">進度：未開始</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <p class="opacity-90 text-[clamp(0.95rem,1.3vw,1.1rem)]">每個階段均有明確目標與具體措施，確保項目按計畫順利進行，達成預期成果。</p>
+                        
+                        <div class="mt-10">
+                            <h4 class="font-medium text-[clamp(1.1rem,1.8vw,1.3rem)] mb-6">加入合夥，共創美好未來！</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                                <div class="bg-white/5 rounded-xl p-6 text-center">
+                                    <div class="text-4xl font-bold text-accent mb-2">60</div>
+                                    <p class="text-[clamp(0.9rem,1.2vw,1rem)]">週年里程碑<br>東江水供港60週年紀念</p>
+                                </div>
+                                
+                                <div class="bg-white/5 rounded-xl p-6 text-center">
+                                    <div class="text-4xl font-bold text-accent mb-2">2025</div>
+                                    <p class="text-[clamp(0.9rem,1.2vw,1rem)]">品牌元年<br>東江泉正式進入香港市場</p>
+                                </div>
+                                
+                                <div class="bg-white/5 rounded-xl p-6 text-center">
+                                    <div class="text-4xl font-bold text-accent mb-2">&amp;</div>
+                                    <p class="text-[clamp(0.9rem,1.2vw,1rem)]">無限可能<br>與您共同開創品牌輝煌</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.7rem,3.5vw,2.4rem)] font-serif font-bold text-dark mb-4">聯絡我們</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-[clamp(1rem,1.5vw,1.1rem)]">若有任何疑問，歡迎聯絡我們會盡快回應</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="rounded-xl overflow-hidden h-96 mb-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470.0587555188881!2d113.96838952808916!3d22.40047493048445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403fb7faa8edd4d%3A0xcd9e46fc5bc8fa08!2z5p2x5rGf5rOJ!5e0!3m2!1szh-TW!2shk!4v1753844938977!5m2!1szh-TW!2shk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <div class="bg-light rounded-xl p-6">
+                        <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-6">联系方式</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                    <i class="fa fa-map-marker text-primary"></i>
+                                </div>
+                                <p class="text-gray-700 text-[clamp(0.9rem,1.2vw,1rem)]">
+                                    東江泉(香港)食品飲料有限公司<br>
+                                    FLAT I,G/F,WAI CHEUNG INDUSTRIAL CENTRE<br>
+                                    5 SHEK PAI TAU ROAD,TUEN MUN<br>
+                                    NEW TERRITORIES,HONG KONG
+                                </p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-phone text-primary"></i>
+                                </div>
+                                <p class="text-gray-700 text-[clamp(0.9rem,1.2vw,1rem)]">+852-3590 5187</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-envelope text-primary"></i>
+                                </div>
+                                <p class="text-gray-700 text-[clamp(0.9rem,1.2vw,1rem)]">tungkongchuen@gmail.com</p>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-globe text-primary"></i>
+                                </div>
+                                <p class="text-gray-700 text-[clamp(0.9rem,1.2vw,1rem)]">https://www.tungkongchuen.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <!-- 嵌入谷歌表单 -->
+                    <div class="bg-light rounded-xl p-8">
+                        <h3 class="font-serif font-bold text-[clamp(1.5rem,2.5vw,2rem)] text-dark mb-6">在線訂購</h3>
+                        <div class="w-full rounded-lg overflow-hidden shadow-md">
+                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdM-fayONtourDV0MvTR4gcZe45bQ2ouwNAfU_Z4VCGu5Fn0Q/viewform?embedded=true" width="340" height="680" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-4 text-center">
+                            填写表单进行订购咨询，我们将尽快与您联系
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <!-- 整体居中的页脚内容 -->
+            <div class="text-center max-w-3xl mx-auto">
+                <!-- 品牌信息 -->
+                <div class="mb-10">
+                    <div class="flex items-center justify-center mb-6">
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/6120f9be73a84a2caea011edac8df86b~tplv-a9rns2rl98-image.image?rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754465018&amp;x-signature=Qea%2BZV%2BSsoSr02ZCIgKXh38QGpE%3D" alt="东江泉LOGO" class="h-10 w-auto">
+                    </div>
+                    <a href="https://www.dunhuagroup.com/" target="_blank" class="text-white hover:text-accent transition-colors mb-4 inline-block text-lg font-medium">敦华出品</a>
+                    <p class="text-gray-300 mb-6 text-lg">一脉相連 . 飲水思源</p>
+                    <p class="text-gray-300 mb-8 text-lg">做一瓶有故事的好泉水</p>
+                    
+                    <!-- 版权信息 -->
+                    <div class="border-t border-white/10 pt-8">
+                        <p class="text-gray-400 text-sm">東江泉 © 版權所有</p>
+                        <p class="text-gray-400 text-sm mt-2">Copyright © 2024-2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/90', 'bg-blur', 'nav-shadow');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-dark/90', 'bg-blur', 'nav-shadow');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+        
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+        
+        menuBtn.addEventListener('click', ()</script></body></html>
