@@ -1,7 +1,7 @@
 <html lang="zh-CN"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>币友圈BYB2025-真实资产链上生态平台</title>
+    <title>币友圈BYB-真实资产链上生态平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
@@ -100,6 +100,13 @@
             z-index: 100;
             transition: width 0.2s ease;
         }
+
+        /* LOGO样式 */
+        .byb-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
     </style>
 </head>
 
@@ -111,9 +118,10 @@
     <nav id="mainNav" class="fixed w-full z-50 transition-all duration-300 py-4">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center">
-                <!-- 顶部LOGO替换为图片 -->
-                <a href="#" class="flex items-center">
-                    <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f2ae8647af0f4ef0b209fdf424e4de5f~tplv-a9rns2rl98-image.image?rcl=202508021936032CF5302782514213C3C9&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754739363&amp;x-signature=6EbOHtxVMx5Nu8WFoeru5dKgvVQ%3D" alt="币友圈BYB LOGO" class="h-10">
+                <a href="#" class="flex items-center space-x-2">
+                    <!-- 替换为LOGO图片，删除绿色底框 -->
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/d4b6b97d67f74cb482406787dd3ac568~tplv-a9rns2rl98-image.image?rcl=2025080220205910A0FBCBE92FB9069B62&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754742059&amp;x-signature=v38UI67rGOhPpBQ%2BGPiC3Ka9JeQ%3D" alt="BYB Logo" class="byb-logo">
+                    <span class="text-white font-bold text-xl">币友圈</span>
                 </a>
                 
                 <!-- 桌面导航 -->
@@ -153,14 +161,12 @@
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-12 md:mb-0">
-                    <h5 class="text-secondary font-semibold mb-4 animate-fade-in">币友圈BYB2025</h5>
+                    <h5 class="text-secondary font-semibold mb-4 animate-fade-in">BYB2025</h5>
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight mb-6">
                         真实资产链上<br>
                         <span class="text-secondary">应用生态平台</span>
                     </h1>
-                    <p class="text-gray-300 text-lg mb-8 max-w-lg">
-                        以文化产业真实世界资产（RWA）为锚定的多元化 Web3 数字应用生态，整合 NFT、DAO 治理、链游、社交积分。
-                    </p>
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg">以文化产业真实世界资产（RWA）为锚定的多元化 Web3 数字应用生态，整合 NFT、DAO 治理、链游、社交积分。</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#solution" class="bg-secondary text-primary px-8 py-3 rounded-full font-semibold text-center hover:bg-opacity-90 transition-all transform hover:-translate-y-1">
                             了解解决方案
@@ -583,9 +589,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="flex items-center mb-8">
-                        <div class="bg-secondary text-primary p-3 rounded-lg mr-4">
-                            <span class="font-bold text-2xl">BYB</span>
-                        </div>
+                        <!-- 替换为LOGO图片，删除绿色底框 -->
+                        <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/141da929d110480d9ff307ba379a50fe~tplv-a9rns2rl98-image.image?rcl=20250802202148516358FE643DF013217B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754742109&amp;x-signature=2LDrZkzdvPwsDR8Z%2FCVXgrSJ%2FkI%3D" alt="BYB Logo" class="byb-logo mr-4">
                         <h3 class="text-2xl font-bold">代币基本信息</h3>
                     </div>
                     
@@ -1056,7 +1061,8 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-primary">官网</h4>
-                                    <p class="text-gray-600">https://byb2025.com/</p>
+                                    <!-- 更新官网链接 -->
+                                    <p class="text-gray-600"><a href="https://byb2025.com/" class="text-accent hover:underline" target="_blank">https://byb2025.com/</a></p>
                                 </div>
                             </div>
                             
@@ -1155,9 +1161,10 @@
         <div class="container mx-auto px-4 md:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <!-- 底部LOGO替换为图片 -->
-                    <div class="mb-6">
-                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/4326eef61676486a8987bbc93a5af375~tplv-a9rns2rl98-image.image?rcl=202508021936559E99C25FC4BE8306616D&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754739415&amp;x-signature=uW7QYKifya6KRKdXA%2BEVn%2Bf7YTI%3D" alt="币友圈BYB LOGO" class="h-12">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <!-- 替换为LOGO图片，删除绿色底框 -->
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/bcb5b6f0f0d941a898f4c239f3e6b8e6~tplv-a9rns2rl98-image.image?rcl=2025080220221486104766CA2E94FC474F&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754742135&amp;x-signature=9NqYD3oQl4MMtnajxbcg%2FQdVVSc%3D" alt="BYB Logo" class="byb-logo">
+                        <span class="font-bold text-xl">币友圈2025</span>
                     </div>
                     <p class="text-gray-400 mb-6">
                         真实资产链上生态平台，以文化产业真实世界资产为锚定的多元化Web3数字应用生态。
@@ -1166,8 +1173,11 @@
                         <a href="https://x.com/DunhuaGroup" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all" target="_blank">
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="https://www.telegram.com/" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
+                        <a href="https://www.telegram.com" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all">
                             <i class="fa fa-telegram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tungkongchuen/" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all" target="_blank">
+                            <i class="fa fa-instagram"></i>
                         </a>
                         <a href="https://www.facebook.com/profile.php?id=61574551334213" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-secondary hover:text-primary transition-all" target="_blank">
                             <i class="fa fa-facebook"></i>
@@ -1397,7 +1407,5 @@
             });
         });
     </script>
-
-
 
 </body></html>
