@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <!-- 引入Google翻译API -->
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
     <script>
         tailwind.config = {
@@ -107,6 +109,40 @@
             height: 40px;
             object-fit: contain;
         }
+        
+        /* 翻譯按鈕和選擇器樣式 */
+        .translate-button {
+            transition: all 0.3s ease;
+        }
+        .translate-button:hover {
+            transform: translateY(-2px);
+        }
+        #google_translate_element {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 10px;
+            z-index: 1000;
+            display: none;
+        }
+        #google_translate_element.show {
+            display: block;
+        }
+        .goog-te-combo {
+            padding: 5px 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-family: 'Inter', sans-serif;
+        }
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
     </style>
 </head>
 
@@ -133,12 +169,25 @@
                     <a href="#token" class="text-white hover:text-secondary transition-colors">代幣模型</a>
                     <a href="#roadmap" class="text-white hover:text-secondary transition-colors">路線圖</a>
                     <a href="#contact" class="bg-secondary text-primary px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all">聯繫我們</a>
+                    
+                    <!-- Google翻譯按鈕 -->
+                    <button id="translateBtn" class="translate-button bg-white text-primary p-2 rounded-full hover:bg-gray-100 flex items-center justify-center">
+                        <i class="fa fa-language"></i>
+                    </button>
+                    <!-- Google翻譯選擇器容器 -->
+                    <div id="google_translate_element"></div>
                 </div>
                 
                 <!-- 移動端菜單按鈕 -->
-                <button id="menuBtn" class="md:hidden text-white text-2xl">
-                    <i class="fa fa-bars"></i>
-                </button>
+                <div class="md:hidden flex items-center space-x-4">
+                    <!-- 移動端Google翻譯按鈕 -->
+                    <button id="mobileTranslateBtn" class="translate-button bg-white text-primary p-2 rounded-full hover:bg-gray-100 flex items-center justify-center">
+                        <i class="fa fa-language"></i>
+                    </button>
+                    <button id="menuBtn" class="text-white text-2xl">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -239,7 +288,7 @@
                         敦華集團是一家以文化創意產業為發展方向的投融資機構，總部位於香港屯門。公司在影視出品、演藝製作、康旅研學、文創商貿等領域全力拓展，成功投資主辦和承辦了數百場大型演出，創立"東江泉"品牌並出品多部院線電影和投資運營朱坊文旅康養小鎮。
                     </p>
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        BYB 是一個鏈接現實世界資產（RWA）與 Web3 應用場景的多功能數位資產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。
+                        BYB 是一個鏈接現實世界資產（RWA）與 Web3 應用場景的多功能數位資產產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。
                     </p>
                     <p class="text-gray-700 leading-relaxed">
                         數位貨幣與區塊鏈技術快速發展背景下，"幣友圈" 憑藉香港金融中心及獨特定位與創新理念脫穎而出，未來品牌價值潛力巨大。
@@ -1188,6 +1237,36 @@
     <script>
         // 等待DOM加載完成後執行
         document.addEventListener('DOMContentLoaded', function() {
+            // Google翻譯初始化
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'zh-TW',
+                    includedLanguages: 'en,ja,ko,zh-CN,zh-TW',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+            }
+            
+            // 翻譯按鈕切換
+            const translateBtn = document.getElementById('translateBtn');
+            const mobileTranslateBtn = document.getElementById('mobileTranslateBtn');
+            const translateElement = document.getElementById('google_translate_element');
+            
+            function toggleTranslate() {
+                translateElement.classList.toggle('show');
+            }
+            
+            if (translateBtn) translateBtn.addEventListener('click', toggleTranslate);
+            if (mobileTranslateBtn) mobileTranslateBtn.addEventListener('click', toggleTranslate);
+            
+            // 點擊頁面其他區域關閉翻譯選擇器
+            document.addEventListener('click', function(event) {
+                if (!translateElement.contains(event.target) && 
+                    event.target !== translateBtn && 
+                    event.target !== mobileTranslateBtn) {
+                    translateElement.classList.remove('show');
+                }
+            });
+            
             // 導航欄滾動效果
             window.addEventListener('scroll', function() {
                 const nav = document.getElementById('mainNav');
@@ -1362,6 +1441,8 @@
                         
                         // 關閉移動菜單（如果打開）
                         document.getElementById('mobileMenu').classList.add('hidden');
+                        // 關閉翻譯選擇器（如果打開）
+                        translateElement.classList.remove('show');
                     }
                 });
             });
