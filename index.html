@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <!-- 引入Google翻译API -->
+    <!-- 引入Google翻譯API -->
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
     <script>
@@ -113,6 +113,7 @@
         /* 翻譯按鈕和選擇器樣式 */
         .translate-button {
             transition: all 0.3s ease;
+            cursor: pointer; /* 新增：確保按鈕顯示為可點擊狀態 */
         }
         .translate-button:hover {
             transform: translateY(-2px);
@@ -127,6 +128,13 @@
             padding: 10px;
             z-index: 1000;
             display: none;
+        }
+        /* 新增：移動端翻譯選擇器位置調整 */
+        @media (max-width: 768px) {
+            #google_translate_element {
+                top: 60px;
+                right: 10px;
+            }
         }
         #google_translate_element.show {
             display: block;
@@ -215,7 +223,7 @@
                         真實資產鏈上<br>
                         <span class="text-secondary">應用生態平台</span>
                     </h1>
-                    <p class="text-gray-300 text-lg mb-8 max-w-lg">以文化產業真實世界資產（RWA）為錨定的多元化 Web3 數位應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。</p>
+                    <p class="text-gray-300 text-lg mb-8 max-w-lg">以文化產業真實世界資產 “RWA” 為錨定的多元化 Web3 數位應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。</p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#solution" class="bg-secondary text-primary px-8 py-3 rounded-full font-semibold text-center hover:bg-opacity-90 transition-all transform hover:-translate-y-1">
                             了解解決方案
@@ -248,7 +256,7 @@
                         <i class="fa fa-shield text-primary text-xl"></i>
                     </div>
                     <h3 class="text-white text-xl font-semibold mb-2">真實資產錨定</h3>
-                    <p class="text-gray-300">以文化產業真實世界資產(RWA)為價值支撐，確保生態穩定發展。</p>
+                    <p class="text-gray-300">以文化產業真實世界資產 “RWA” 為價值支撐，確保生態穩定發展。</p>
                 </div>
                 
                 <div class="bg-white bg-opacity-10 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-20 transform transition-all hover:-translate-y-2">
@@ -287,9 +295,7 @@
                     <p class="text-gray-700 mb-6 leading-relaxed">
                         敦華集團是一家以文化創意產業為發展方向的投融資機構，總部位於香港屯門。公司在影視出品、演藝製作、康旅研學、文創商貿等領域全力拓展，成功投資主辦和承辦了數百場大型演出，創立"東江泉"品牌並出品多部院線電影和投資運營朱坊文旅康養小鎮。
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        BYB 是一個鏈接現實世界資產（RWA）與 Web3 應用場景的多功能數位資產產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。
-                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">BYB 是一個鏈接現實世界資產 “RWA” 與 Web3 應用場景的多功能數位資產產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。</p>
                     <p class="text-gray-700 leading-relaxed">
                         數位貨幣與區塊鏈技術快速發展背景下，"幣友圈" 憑藉香港金融中心及獨特定位與創新理念脫穎而出，未來品牌價值潛力巨大。
                     </p>
@@ -380,9 +386,7 @@
                         <i class="fa fa-lightbulb-o text-2xl"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-6">我們的願景</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        成為全球領先的真實資產鏈上化（RWA）+NFT+DAO +GameFi+SocialFi平台，推動文娛、文創消費等更多場景數位化，並輸出專業的行業孵化服務。
-                    </p>
+                    <p class="text-gray-300 leading-relaxed">成為全球領先的真實資產鏈上化 “RWA” +NFT+DAO +GameFi+SocialFi平台，推動文娛、文創消費等更多場景數位化，並輸出專業的行業孵化服務。</p>
                 </div>
             </div>
         </div>
@@ -423,9 +427,7 @@
                         <i class="fa fa-cubes text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-4">多元化業務模組</h3>
-                    <p class="text-gray-600">
-                        整合 NFT、DAO 治理、鏈遊（GameFi）、社交積分（SocialFi）及未來企業 RWA 孵化服務，構建完整生態。
-                    </p>
+                    <p class="text-gray-600">整合 NFT、DAO 治理、鏈遊（GameFi）、社交積分（SocialFi）及未來企業 “RWA” 孵化服務，構建完整生態。</p>
                 </div>
             </div>
             
@@ -816,9 +818,7 @@
                         <div class="relative pl-16">
                             <div class="absolute left-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">5</div>
                             <h4 class="text-xl font-bold text-primary mb-2">第五階段：企業 RWA 孵化器</h4>
-                            <p class="text-gray-600">
-                                輸出 DAO+NFT+GameFi +SocialFi一體化標準方案，BYBDAO 可投資更多 RWA 項目，形成多資產網路。
-                            </p>
+                            <p class="text-gray-600">輸出 DAO+NFT+GameFi +SocialFi一體化標準方案，BYBDAO 可投資更多 “RWA” 項目，形成多資產網路。</p>
                         </div>
                     </div>
                 </div>
@@ -1239,30 +1239,52 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Google翻譯初始化
             function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'zh-TW',
-                    includedLanguages: 'en,ja,ko,zh-CN,zh-TW',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
+                // 檢查是否已初始化，避免重複創建
+                if (!window.googleTranslateInstance) {
+                    window.googleTranslateInstance = new google.translate.TranslateElement({
+                        pageLanguage: 'zh-TW',
+                        includedLanguages: 'en,ja,ko,zh-CN,zh-TW',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
             }
             
-            // 翻譯按鈕切換
+            // 確保Google翻譯API加載完成
+            if (typeof google === 'undefined' || !google.translate) {
+                // 重新加載翻譯腳本
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                document.head.appendChild(script);
+            } else {
+                googleTranslateElementInit();
+            }
+            
+            // 翻譯按鈕切換 - 使用箭頭函數確保this上下文正確
             const translateBtn = document.getElementById('translateBtn');
             const mobileTranslateBtn = document.getElementById('mobileTranslateBtn');
             const translateElement = document.getElementById('google_translate_element');
             
-            function toggleTranslate() {
+            const toggleTranslate = (e) => {
+                // 阻止事件冒泡，避免點擊按鈕後立即關閉
+                e.stopPropagation();
                 translateElement.classList.toggle('show');
-            }
+            };
             
-            if (translateBtn) translateBtn.addEventListener('click', toggleTranslate);
-            if (mobileTranslateBtn) mobileTranslateBtn.addEventListener('click', toggleTranslate);
+            if (translateBtn) {
+                translateBtn.addEventListener('click', toggleTranslate);
+            }
+            if (mobileTranslateBtn) {
+                mobileTranslateBtn.addEventListener('click', toggleTranslate);
+            }
             
             // 點擊頁面其他區域關閉翻譯選擇器
             document.addEventListener('click', function(event) {
                 if (!translateElement.contains(event.target) && 
                     event.target !== translateBtn && 
-                    event.target !== mobileTranslateBtn) {
+                    !translateBtn?.contains(event.target) &&
+                    event.target !== mobileTranslateBtn &&
+                    !mobileTranslateBtn?.contains(event.target)) {
                     translateElement.classList.remove('show');
                 }
             });
@@ -1448,6 +1470,7 @@
             });
         });
     </script>
+
 
 
 </body></html>
