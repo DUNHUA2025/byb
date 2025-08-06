@@ -1239,57 +1239,111 @@
     <script>
         // 等待DOM加載完成後執行
         document.addEventListener('DOMContentLoaded', function() {
-            // Google翻譯初始化
-            function googleTranslateElementInit() {
+            // 初始化Google翻譯功能的包裝函數
+            function initGoogleTranslate() {
                 // 檢查是否已初始化，避免重複創建
                 if (!window.googleTranslateInstance) {
-                    window.googleTranslateInstance = new google.translate.TranslateElement({
-                        pageLanguage: 'zh-TW',
-                        includedLanguages: 'en,ja,ko,zh-CN,zh-TW',
-                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                    }, 'google_translate_element');
+                    try {
+                        window.googleTranslateInstance = new google.translate.TranslateElement({
+                            pageLanguage: 'zh-TW',
+                            includedLanguages: 'en,ja,ko,zh-CN,zh-TW',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        }, 'google_translate_element');
+                        console.log('Google翻譯初始化成功');
+                    } catch (error) {
+                        console.error('Google翻譯初始化失敗:', error);
+                        // 延遲重試初始化
+                        setTimeout(initGoogleTranslate, 1000);
+                    }
                 }
             }
             
             // 確保Google翻譯API加載完成
             function loadGoogleTranslate() {
+                // 檢查google對象是否加載
                 if (typeof google === 'undefined' || !google.translate) {
+                    console.log('Google翻譯API未加載，嘗試加載...');
+                    
                     // 清除現有腳本避免重複加載
                     const existingScripts = document.querySelectorAll('script[src*="translate.google.com"]');
                     existingScripts.forEach(script => script.remove());
                     
-                    // 重新加載翻譯腳本
+                    // 創建新的腳本標籤加載翻譯API
                     var script = document.createElement('script');
                     script.type = 'text/javascript';
                     script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    
+                    // 腳本加載完成後的回調
+                    script.onload = function() {
+                        console.log('Google翻譯API加載完成');
+                        initGoogleTranslate();
+                    };
+                    
+                    // 腳本加載失敗的處理
+                    script.onerror = function() {
+                        console.error('Google翻譯API加載失敗，將在3秒後重試');
+                        setTimeout(loadGoogleTranslate, 3000);
+                    };
+                    
                     document.head.appendChild(script);
                 } else {
-                    googleTranslateElementInit();
+                    // API已加載，直接初始化
+                    initGoogleTranslate();
                 }
             }
             
-            // 初始化翻譯功能
+            // 全局Google翻譯初始化函數，供API回調使用
+            window.googleTranslateElementInit = function() {
+                initGoogleTranslate();
+            };
+            
+            // 初始加載Google翻譯
             loadGoogleTranslate();
             
-            // 翻譯按鈕切換 - 增強兼容性處理
+            // 獲取DOM元素
             const translateBtn = document.getElementById('translateBtn');
             const mobileTranslateBtn = document.getElementById('mobileTranslateBtn');
             const translateElement = document.getElementById('google_translate_element');
             
-            // 確保元素存在再添加事件
+            // 移動端翻譯按鈕點擊事件 - 增強版
             if (mobileTranslateBtn) {
-                // 移動端翻譯按鈕點擊事件
-                mobileTranslateBtn.addEventListener('click', function(e) {
+                // 使用箭頭函數確保this指向正確
+                const handleMobileTranslateClick = (e) => {
                     e.stopPropagation();
-                    // 顯示翻譯選擇器前確保已初始化
+                    e.preventDefault();
+                    
+                    console.log('移動端翻譯按鈕點擊');
+                    
+                    // 確保翻譯API已加載
                     loadGoogleTranslate();
+                    
                     // 切換顯示狀態
-                    translateElement.classList.toggle('show');
-                });
+                    const isShown = translateElement.classList.contains('show');
+                    
+                    if (isShown) {
+                        translateElement.classList.remove('show');
+                    } else {
+                        // 顯示前確保元素位置正確
+                        translateElement.style.top = (mobileTranslateBtn.offsetTop + mobileTranslateBtn.offsetHeight + 10) + 'px';
+                        translateElement.style.right = (window.innerWidth - mobileTranslateBtn.offsetLeft - mobileTranslateBtn.offsetWidth) + 'px';
+                        translateElement.classList.add('show');
+                    }
+                };
+                
+                // 添加事件監聽器
+                mobileTranslateBtn.addEventListener('click', handleMobileTranslateClick);
+                
+                // 增加額外的touch事件支持，解決某些移動設備點擊問題
+                mobileTranslateBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    handleMobileTranslateClick(e);
+                }, { passive: false });
+            } else {
+                console.warn('移動端翻譯按鈕未找到');
             }
             
+            // 桌面端翻譯按鈕點擊事件
             if (translateBtn) {
-                // 桌面端翻譯按鈕點擊事件
                 translateBtn.addEventListener('click', function(e) {
                     e.stopPropagation();
                     loadGoogleTranslate();
