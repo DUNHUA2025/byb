@@ -113,27 +113,29 @@
         /* 翻譯按鈕和選擇器樣式 */
         .translate-button {
             transition: all 0.3s ease;
-            cursor: pointer; /* 新增：確保按鈕顯示為可點擊狀態 */
+            cursor: pointer;
+            z-index: 1001; /* 確保按鈕在最上層 */
         }
         .translate-button:hover {
             transform: translateY(-2px);
         }
         #google_translate_element {
             position: absolute;
-            top: 50px;
-            right: 20px;
+            top: 60px; /* 調整手機端位置 */
+            right: 10px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             padding: 10px;
             z-index: 1000;
             display: none;
+            min-width: 200px; /* 確保足夠寬度顯示語言選擇器 */
         }
-        /* 新增：移動端翻譯選擇器位置調整 */
-        @media (max-width: 768px) {
+        /* 調整桌面端翻譯選擇器位置 */
+        @media (min-width: 768px) {
             #google_translate_element {
-                top: 60px;
-                right: 10px;
+                top: 50px;
+                right: 20px;
             }
         }
         #google_translate_element.show {
@@ -144,12 +146,17 @@
             border-radius: 4px;
             border: 1px solid #ddd;
             font-family: 'Inter', sans-serif;
+            width: 100%; /* 確保下拉框充滿容器 */
         }
         .goog-te-banner-frame.skiptranslate {
             display: none !important;
         }
         body {
             top: 0px !important;
+        }
+        /* 解決移動菜單覆蓋翻譯選擇器的問題 */
+        #mobileMenu {
+            z-index: 900;
         }
     </style>
 </head>
@@ -163,7 +170,6 @@
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center">
                 <a href="#" class="flex items-center space-x-2">
-                    <!-- 替換為LOGO圖片，刪除綠色底框 -->
                     <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/57c638badbcf438388553d901f5562a6~tplv-a9rns2rl98-image.image?rcl=20250805001321E8F66FDDCC2C5AD18F80&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754928801&amp;x-signature=psT%2F5lsZqy0IB0s4Breip%2F5cPzM%3D" alt="BYB Logo" class="byb-logo">
                     <span class="text-white font-bold text-xl">幣友圈</span>
                 </a>
@@ -562,7 +568,7 @@
                 
                 <!-- 文創資產 -->
                 <div class="asset-card bg-white rounded-xl overflow-hidden shadow-md card-hover" data-category="cultural">
-                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/167da709ce19492cb487bdd849741407~tplv-a9rns2rl98-image.image?rcl=20250802190749F5D6A48019B37C0354FC&amp;rk3s=8e244e95&amp;rrcfp=2609e108&amp;x-expires=1754737673&amp;x-signature=eQXs9kZz1K1cCdAd4ZWKB3gIpg8%3D" alt="東江泉品牌" class="w-full h-56 object-cover">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/f0d3512add694ecdb834ce814f844076~tplv-a9rns2rl98-image.image?rcl=202508061021504346B1862D6AADA25C83&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1755051711&amp;x-signature=RA9z06RKNMDMDY%2FtFwh4USwMuJ0%3D" alt="東江泉品牌" class="w-full h-56 object-cover">
                     <div class="p-6">
                         <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">文創資產</span>
                         <h3 class="text-xl font-bold text-primary mt-3 mb-2">東江泉 天然飲用泉水</h3>
@@ -640,7 +646,6 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
                     <div class="flex items-center mb-8">
-                        <!-- 替換為LOGO圖片，刪除綠色底框 -->
                         <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/141da929d110480d9ff307ba379a50fe~tplv-a9rns2rl98-image.image?rcl=20250802202148516358FE643DF013217B&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754742109&amp;x-signature=2LDrZkzdvPwsDR8Z%2FCVXgrSJ%2FkI%3D" alt="BYB Logo" class="byb-logo mr-4">
                         <h3 class="text-2xl font-bold">代幣基本信息</h3>
                     </div>
@@ -1110,7 +1115,6 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-primary">官網</h4>
-                                    <!-- 更新官網鏈接 -->
                                     <p class="text-gray-600"><a href="https://byb2025.com/" class="text-accent hover:underline" target="_blank">https://byb2025.com/</a></p>
                                 </div>
                             </div>
@@ -1158,7 +1162,6 @@
                 <div>
                     <div class="bg-primary text-white rounded-2xl p-8">
                         <h3 class="text-2xl font-bold mb-6">訂閱最新資訊</h3>
-                        <!-- 替換為谷歌表單iframe -->
                         <div class="rounded-lg overflow-hidden">
                             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScsBp96dPkplW4k6Kd6Rqd6wjYGuiMBqI7hzZkGH_8FysVuWw/viewform?embedded=true" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
                         </div>
@@ -1174,7 +1177,6 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
-                        <!-- 替換為LOGO圖片，刪除綠色底框 -->
                         <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/edbe2e9905f24376b7932e377b5e6ecb~tplv-a9rns2rl98-image.image?rcl=20250805001257CEECDBFF574CE2D2FEA2&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1754928777&amp;x-signature=edYboPE77I4ZjAJAICX5SMrohbc%3D" alt="BYB Logo" class="byb-logo">
                         <span class="font-bold text-xl">幣友圈</span>
                     </div>
@@ -1250,41 +1252,59 @@
             }
             
             // 確保Google翻譯API加載完成
-            if (typeof google === 'undefined' || !google.translate) {
-                // 重新加載翻譯腳本
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-                document.head.appendChild(script);
-            } else {
-                googleTranslateElementInit();
+            function loadGoogleTranslate() {
+                if (typeof google === 'undefined' || !google.translate) {
+                    // 清除現有腳本避免重複加載
+                    const existingScripts = document.querySelectorAll('script[src*="translate.google.com"]');
+                    existingScripts.forEach(script => script.remove());
+                    
+                    // 重新加載翻譯腳本
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                    document.head.appendChild(script);
+                } else {
+                    googleTranslateElementInit();
+                }
             }
             
-            // 翻譯按鈕切換 - 使用箭頭函數確保this上下文正確
+            // 初始化翻譯功能
+            loadGoogleTranslate();
+            
+            // 翻譯按鈕切換 - 增強兼容性處理
             const translateBtn = document.getElementById('translateBtn');
             const mobileTranslateBtn = document.getElementById('mobileTranslateBtn');
             const translateElement = document.getElementById('google_translate_element');
             
-            const toggleTranslate = (e) => {
-                // 阻止事件冒泡，避免點擊按鈕後立即關閉
-                e.stopPropagation();
-                translateElement.classList.toggle('show');
-            };
+            // 確保元素存在再添加事件
+            if (mobileTranslateBtn) {
+                // 移動端翻譯按鈕點擊事件
+                mobileTranslateBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // 顯示翻譯選擇器前確保已初始化
+                    loadGoogleTranslate();
+                    // 切換顯示狀態
+                    translateElement.classList.toggle('show');
+                });
+            }
             
             if (translateBtn) {
-                translateBtn.addEventListener('click', toggleTranslate);
-            }
-            if (mobileTranslateBtn) {
-                mobileTranslateBtn.addEventListener('click', toggleTranslate);
+                // 桌面端翻譯按鈕點擊事件
+                translateBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    loadGoogleTranslate();
+                    translateElement.classList.toggle('show');
+                });
             }
             
             // 點擊頁面其他區域關閉翻譯選擇器
             document.addEventListener('click', function(event) {
-                if (!translateElement.contains(event.target) && 
-                    event.target !== translateBtn && 
-                    !translateBtn?.contains(event.target) &&
-                    event.target !== mobileTranslateBtn &&
-                    !mobileTranslateBtn?.contains(event.target)) {
+                // 檢查是否點擊了翻譯元素或按鈕
+                const isClickOnTranslate = translateElement.contains(event.target) ||
+                                          (translateBtn && (translateBtn === event.target || translateBtn.contains(event.target))) ||
+                                          (mobileTranslateBtn && (mobileTranslateBtn === event.target || mobileTranslateBtn.contains(event.target)));
+                                          
+                if (!isClickOnTranslate) {
                     translateElement.classList.remove('show');
                 }
             });
@@ -1312,6 +1332,8 @@
             document.getElementById('menuBtn').addEventListener('click', function() {
                 const mobileMenu = document.getElementById('mobileMenu');
                 mobileMenu.classList.toggle('hidden');
+                // 關閉翻譯選擇器（如果打開）
+                translateElement.classList.remove('show');
             });
             
             // 資產標籤切換
@@ -1470,7 +1492,5 @@
             });
         });
     </script>
-
-
 
 </body></html>
