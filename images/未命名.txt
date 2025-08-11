@@ -1,0 +1,20 @@
+网站根目录/
+├── index.html
+└── images/
+    ├── byb-logo.png
+    ├── blockchain-asset-illustration.png
+    ├── byb-office.jpg
+    ├── concert-2025.jpg
+    ├── tsai-chin-concert.jpg
+    ├── movie-yangjiaoshui.jpg
+    ├── resort-town.jpg
+    ├── blue-porcelain-orchestra.jpg
+    ├── dongjiangquan-water.jpg
+    ├── tech-architecture.png
+    ├── byb-token-logo.png
+    ├── byb-logo-footer.png
+    └── team/
+        ├── liuming.jpg
+        ├── ouyanghua.jpg
+        ├── wangluo.jpg
+        └── chencheng.jpg
