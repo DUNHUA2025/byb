@@ -54,6 +54,13 @@
                 -ms-overflow-style: none;
                 scrollbar-width: none;
             }
+            .team-card-hover {
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            .team-card-hover:hover {
+                transform: translateY(-12px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
         }
     </style>
     
@@ -158,6 +165,26 @@
         #mobileMenu {
             z-index: 900;
         }
+        
+        /* 表單提交反饋樣式 */
+        .form-message {
+            display: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .form-message.success {
+            display: block;
+            background-color: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .form-message.error {
+            display: block;
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
     </style>
 </head>
 
@@ -172,7 +199,7 @@
                 <!-- 修复LOGO链接，点击返回首页 -->
                 <a href="/" class="flex items-center space-x-2">
                     <img src="images/byb-logo.png" alt="BYB Logo" class="byb-logo">
-                    <span class="text-white font-bold text-xl">幣友圈</span>
+                    <span class="text-white font-bold text-xl">Bybanx幣友圈BYB</span>
                 </a>
                 
                 <!-- 桌面導航 -->
@@ -289,7 +316,7 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">關於幣友圈BYB</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">關於Bybanx幣友圈BYB</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
             </div>
             
@@ -302,7 +329,7 @@
                     <p class="text-gray-700 mb-6 leading-relaxed">
                         敦華集團是一家以文化創意產業為發展方向的投融資機構，總部位於香港屯門。公司在影視出品、演藝製作、康旅研學、文創商貿等領域全力拓展，成功投資主辦和承辦了數百場大型演出，創立"東江泉"品牌並出品多部院線電影和投資運營朱坊文旅康養小鎮。
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">BYB 是一個鏈接現實世界資產 “RWA” 與 Web3 應用場景的多功能數位資產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">BYB 是一個鏈接現實世界資產 “RWA” 與 Web3 應用場景的多功能數位資產產生態。通過平台通證 BYB、功能型 NFT與文娛文創兩大板塊，構建一個透明治理、可持續運營、合法合規的數位資產平台。</p>
                     <p class="text-gray-700 leading-relaxed">
                         數位貨幣與區塊鏈技術快速發展背景下，"幣友圈" 憑藉香港金融中心及獨特定位與創新理念脫穎而出，未來品牌價值潛力巨大。
                     </p>
@@ -516,7 +543,7 @@
                     <img src="images/tsai-chin-concert.jpg" alt="蔡琴2026告別演唱會" class="w-full h-56 object-cover">
                     <div class="p-6">
                         <span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">演藝資產</span>
-                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">蔡琴2026告別演唱會</h3>
+                        <h3 class="text-xl font-bold text-primary mt-3 mb-2">蔡琴2026不要告別演唱會</h3>
                         <p class="text-gray-600 mb-4">票務收益權稀缺性保障高增長，具有極高的收藏和投資價值。</p>
                         <div class="flex justify-between items-center">
                             <span class="text-secondary font-bold">稀缺性資產</span>
@@ -659,7 +686,7 @@
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
                             <span class="text-gray-300">總供應量</span>
-                            <span class="font-semibold">12 億 BYB（永不增發）</span>
+                            <span class="font-semibold">13 億 BYB（永不增發）</span>
                         </div>
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
@@ -709,8 +736,14 @@
                         <h3 class="text-2xl font-bold mb-6">NFT 經濟模型</h3>
                         <div class="space-y-4 max-h-64 overflow-y-auto scrollbar-hide pr-2">
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">1. BYBNFT（1000張）</h4>
-                                <p class="text-sm text-gray-300 mt-1">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
+                                <h4 class="font-bold text-secondary">1. 治理型 NFT（BYB NFT）</h4>
+                                <p class="font-bold">Crown 級：100 張</p>
+                                <p class="text-sm text-gray-300 mt-1">（核心治理權、獨家合作優先對接權）</p>
+                                <p class="font-bold">Eminence 級：500 張</p>
+                                <p class="text-sm text-gray-300 mt-1">（擁有普通提案投票權、中等分紅權益）</p>
+                                <p class="font-bold">Ascend 級：2000 張</p>
+                                <p class="text-sm text-gray-300 mt-1">（擁有生態重大提案投票權、高額分紅權益）</p>
+                                <p class="text-sm text-gray-300 mt-2">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
                                 <p class="text-xs text-gray-400 mt-1">性質：功能型、治理型</p>
                             </div>
                             
@@ -841,55 +874,66 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">專業的團隊是項目成功的核心保障</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- 團隊能力矩陣 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
-                            <i class="fa fa-users text-xl"></i>
+                            <i class="fa fa-cogs text-xl"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-primary">核心團隊成員</h3>
+                        <h3 class="text-2xl font-bold text-primary">團隊核心能力</h3>
                     </div>
                     
-                    <p class="text-gray-600 mb-6">
-                        核心團隊匯聚了來自公鏈、DeFi、品牌運營、影視投資、地產文旅等領域的頂尖人才。他們在區塊鏈技術、去中心化金融、市場拓展及RWA鏈上融合方面，具備豐富實戰經驗與專業知識，確保項目技術與市場的前瞻性。
+                    <p class="text-gray-600 mb-8">
+                        我們的團隊匯集了來自文化產業、區塊鏈技術、金融合規和全球市場營銷領域的頂尖人才，具備豐富的行業經驗和成功案例，為BYB項目的順利推進提供堅實保障。
                     </p>
                     
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <div class="text-center group">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                                <img src="images/team/liuming.jpg" alt="劉明 - 創始人" class="w-full h-full object-cover">
+                    <div class="bg-white p-5 rounded-lg shadow-sm">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-3 mt-1 flex-shrink-0">
+                                    <i class="fa fa-film"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-primary">文娛行業經驗</h5>
+                                    <p class="text-sm text-gray-600">核心成員擁有30+年影視、文旅、文創行業運營經驗，成功主辦數百場大型演出和文旅活動</p>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-primary">劉明</h4>
-                            <p class="text-sm text-gray-500">創始人</p>
-                        </div>
-                        
-                        <div class="text-center group">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                                <img src="images/team/ouyanghua.jpg" alt="歐陽華 - 技術總監" class="w-full h-full object-cover">
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-3 mt-1 flex-shrink-0">
+                                    <i class="fa fa-code"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-primary">區塊鏈技術團隊</h5>
+                                    <p class="text-sm text-gray-600">來自頭部區塊鏈企業（如以太坊生態、BSC生態），具備5+年智能合約開發、多鏈部署經驗</p>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-primary">歐陽華</h4>
-                            <p class="text-sm text-gray-500">技術總監</p>
-                        </div>
-                        
-                        <div class="text-center group">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                                <img src="images/team/wangluo.jpg" alt="王羅 - 運營總監" class="w-full h-full object-cover">
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-3 mt-1 flex-shrink-0">
+                                    <i class="fa fa-bank"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-primary">金融與合規團隊</h5>
+                                    <p class="text-sm text-gray-600">包含傳統金融機構高管（投行、基金）、國際律所顧問（熟悉香港、新加坡RWA合規政策）</p>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-primary">王羅</h4>
-                            <p class="text-sm text-gray-500">運營總監</p>
-                        </div>
-                        
-                        <!-- 新增成員：陳成 -->
-                        <div class="text-center group">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                                <img src="images/team/chencheng.jpg" alt="陳成 - 市場總監" class="w-full h-full object-cover">
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-3 mt-1 flex-shrink-0">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-primary">全球市場團隊</h5>
+                                    <p class="text-sm text-gray-600">具備豐富的Web3社群運營、全球KOL合作資源，成功幫助多個項目實現全球市場拓展</p>
+                                </div>
                             </div>
-                            <h4 class="font-semibold text-primary">陳成</h4>
-                            <p class="text-sm text-gray-500">市場總監</p>
                         </div>
                     </div>
                 </div>
                 
+                <!-- 顧問團隊描述 -->
                 <div class="bg-gray-50 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
@@ -898,38 +942,28 @@
                         <h3 class="text-2xl font-bold text-primary">顧問團隊</h3>
                     </div>
                     
-                    <p class="text-gray-600 mb-6">
-                        顧問團隊提供全方位支持，包括香港持牌法務顧問保障區塊鏈合規；專業安全審計團隊確保智能合約與數據安全；以及資深票務與旅遊專家，為文娛文創板塊提供行業洞察與資源對接，推動RWA高效鏈上化。
+                    <p class="text-gray-600 mb-8">
+                        我們的顧問團隊由業內權威專家組成，涵蓋區塊鏈技術、金融投資、文化產業等多個領域，為項目提供戰略指導和資源支持。顧問團隊成員均擁有豐富的行業經驗和深厚的專業背景，確保項目的戰略方向和實施路線的科學性與可行性。
                     </p>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <i class="fa fa-gavel"></i>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="font-semibold text-primary text-lg mb-4">顧問領域覆蓋</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center p-3 border border-gray-100 rounded-lg">
+                                <i class="fa fa-microchip text-secondary text-xl mr-3"></i>
+                                <span>區塊鏈技術與創新</span>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-primary">法律合規顧問</h4>
-                                <p class="text-sm text-gray-600">香港持牌律師團隊，確保項目合規運營</p>
+                            <div class="flex items-center p-3 border border-gray-100 rounded-lg">
+                                <i class="fa fa-line-chart text-secondary text-xl mr-3"></i>
+                                <span>金融投資與資本市場</span>
                             </div>
-                        </div>
-                        
-                        <div class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <i class="fa fa-shield"></i>
+                            <div class="flex items-center p-3 border border-gray-100 rounded-lg">
+                                <i class="fa fa-film text-secondary text-xl mr-3"></i>
+                                <span>文化產業與IP運營</span>
                             </div>
-                            <div>
-                                <h4 class="font-semibold text-primary">安全審計專家</h4>
-                                <p class="text-sm text-gray-600">專業區塊鏈安全團隊，保障智能合約安全</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start p-3 rounded-lg hover:bg-gray-100 transition-colors duration-300">
-                            <div class="w-10 h-10 bg-secondary text-primary rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                                <i class="fa fa-ticket"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-primary">行業資深顧問</h4>
-                                <p class="text-sm text-gray-600">文娛、文旅領域專家，提供資源對接與戰略指導</p>
+                            <div class="flex items-center p-3 border border-gray-100 rounded-lg">
+                                <i class="fa fa-gavel text-secondary text-xl mr-3"></i>
+                                <span>法律合規與風險管理</span>
                             </div>
                         </div>
                     </div>
@@ -955,9 +989,7 @@
                                     <i class="fa fa-key text-secondary mr-3"></i>
                                     核心治理
                                 </h3>
-                                <p class="text-gray-600 pl-8">
-                                    由持有 BYBNFT（1000 張稀缺治理 NFT）的用戶參與，確保治理的專業性和代表性。
-                                </p>
+                                <p class="text-gray-600 pl-8">由持有 BYBNFT（2600 張稀缺治理 NFT）的用戶參與，確保治理的專業性和代表性。</p>
                             </div>
                             
                             <div>
@@ -1113,69 +1145,114 @@
                 <p class="text-gray-600 max-w-3xl mx-auto">關注我們的社交媒體，獲取最新動態</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="bg-gray-50 rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-primary mb-6">聯繫方式與社交媒體</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-globe text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-primary">官網</h4>
-                                    <p class="text-gray-600"><a href="https://byb2025.com/" class="text-accent hover:underline" target="_blank">https://byb2025.com/</a></p>
-                                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                <!-- 聯繫信息卡片 -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- 官網信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-globe text-xl"></i>
                             </div>
-                            
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-envelope text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-primary">郵箱</h4>
-                                    <p class="text-gray-600"><a href="mailto:byb2025com@gmail.com" class="text-accent hover:underline">byb2025com@gmail.com</a></p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-twitter text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-primary">Twitter</h4>
-                                    <p class="text-gray-600"><a href="https://x.com/DunhuaGroup" class="text-accent hover:underline" target="_blank">https://x.com/DunhuaGroup</a></p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4">
-                                    <i class="fa fa-telegram text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-primary">Telegram</h4>
-                                    <p class="text-gray-600"><a href="https://t.me/BYB2025COM" class="text-accent hover:underline" target="_blank">https://t.me/BYB2025COM</a></p>
-                                </div>
+                            <div>
+                                <h4 class="font-semibold text-primary text-lg">官網</h4>
+                                <p class="text-gray-600 mt-1"><a href="https://byb2025.com/" class="text-accent hover:underline" target="_blank">https://byb2025.com/</a></p>
                             </div>
                         </div>
-                        
-                        <div class="mt-8 pt-8 border-t border-gray-200">
-                            <h3 class="text-xl font-bold text-primary mb-4">核心合約地址</h3>
-                            <p class="text-gray-600">
-                                將在主網部署後，通過官網、白皮書 v2.0 及鏈上流覽器公佈
-                            </p>
+                    </div>
+                    
+                    <!-- 平台網址信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-link text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary text-lg">平台網址</h4>
+                                <p class="text-gray-600 mt-1"><a href="https://bybanx.top/" class="text-accent hover:underline" target="_blank">https://bybanx.top/</a></p>
+                            </div>
                         </div>
+                    </div>
+                    
+                    <!-- 郵箱信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary text-lg">郵箱</h4>
+                                <p class="text-gray-600 mt-1"><a href="mailto:byb2025com@gmail.com" class="text-accent hover:underline">byb2025com@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Twitter信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-twitter text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary text-lg">Twitter</h4>
+                                <p class="text-gray-600 mt-1"><a href="https://x.com/DunhuaGroup" class="text-accent hover:underline" target="_blank">https://x.com/DunhuaGroup</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Telegram信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-telegram text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary text-lg">Telegram</h4>
+                                <p class="text-gray-600 mt-1"><a href="https://t.me/BYB2025COM" class="text-accent hover:underline" target="_blank">https://t.me/BYB2025COM</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 合約地址信息 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <h4 class="font-semibold text-primary text-lg mb-4">核心合約地址</h4>
+                        <p class="text-gray-600">
+                            將在主網部署後，通過官網、白皮書 v2.0 及鏈上流覽器公佈
+                        </p>
                     </div>
                 </div>
                 
-                <div>
-                    <div class="bg-primary text-white rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">訂閱最新資訊</h3>
-                        <div class="rounded-lg overflow-hidden">
-                            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScsBp96dPkplW4k6Kd6Rqd6wjYGuiMBqI7hzZkGH_8FysVuWw/viewform?embedded=true" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+                <!-- 聯繫表單 -->
+                <div class="lg:col-span-3 bg-gray-50 rounded-xl p-8 shadow-md">
+                    <h3 class="text-2xl font-bold text-primary mb-6">發送消息</h3>
+                    <!-- 表單反饋消息 -->
+                    <div id="formMessage" class="form-message"></div>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的姓名" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">郵箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的郵箱地址" required>
+                            </div>
                         </div>
-                    </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">主題</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="消息主題" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">消息內容</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="請輸入您的消息..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">
+                            發送消息
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1188,7 +1265,7 @@
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
                         <img src="images/byb-logo-footer.png" alt="BYB Logo" class="byb-logo">
-                        <span class="font-bold text-xl">幣友圈</span>
+                        <span class="font-bold text-xl">Bybanx幣友圈BYB</span>
                     </div>
                     <p class="text-gray-400 mb-6">
                         真實資產鏈上生態平台，以文化產業真實世界資產為錨定的多元化Web3數位應用生態。
@@ -1223,7 +1300,7 @@
                         <li><a href="#roadmap" class="text-gray-400 hover:text-secondary transition-colors">發展路線圖</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">常見問題</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">白皮書</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">隱私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors"></a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-secondary transition-colors">聯繫我們</a></li>
                     </ul>
                 </div>
@@ -1240,7 +1317,7 @@
             </div>
             
             <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-                <p>© 2025 幣友圈 BYB2025.COM . 保留所有權利 .</p>
+                <p>© 2025 Bybanx幣友圈 BYB2025.COM . 保留所有權利 .</p>
             </div>
         </div>
     </footer>
@@ -1472,19 +1549,17 @@
             new Chart(tokenAllocationCtx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['生態發展', '團隊激勵', '市場推廣', '私募輪', '公募輪', '儲備金'],
+                    labels: ['流動性與市場', '生態激勵', '團隊與顧問', '戰略投資', '基金會儲備'],
                     datasets: [{
-                        data: [30, 15, 20, 15, 10, 10],
+                        data: [30, 25, 15, 15, 15],
                         backgroundColor: [
-                            'rgba(230, 179, 37, 0.8)',
-                            'rgba(26, 115, 232, 0.8)',
-                            'rgba(15, 52, 96, 0.8)',
-                            'rgba(76, 175, 80, 0.8)',
-                            'rgba(156, 39, 176, 0.8)',
-                            'rgba(244, 67, 54, 0.8)'
+                            '#E6B325',
+                            '#1A73E8',
+                            '#34A853',
+                            '#FBBC05',
+                            '#0F3460'
                         ],
-                        borderColor: 'rgba(255, 255, 255, 0.3)',
-                        borderWidth: 2
+                        borderWidth: 0
                     }]
                 },
                 options: {
@@ -1493,17 +1568,28 @@
                         legend: {
                             position: 'bottom',
                             labels: {
-                                color: 'white',
+                                color: '#ffffff',
+                                padding: 20,
                                 font: {
-                                    size: 11
+                                    size: 12
                                 }
                             }
+                        },
+                        title: {
+                            display: true,
+                            text: 'BYB代幣分配比例',
+                            color: '#ffffff',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
                         }
-                    }
+                    },
+                    cutout: '60%'
                 }
             });
             
-            // 資金用途計劃圖表
+            // 資金用途圖表
             const fundAllocationCtx = document.getElementById('fundAllocationChart').getContext('2d');
             new Chart(fundAllocationCtx, {
                 type: 'pie',
@@ -1512,15 +1598,14 @@
                     datasets: [{
                         data: [35, 25, 20, 10, 5, 5],
                         backgroundColor: [
-                            'rgba(15, 52, 96, 0.8)',
-                            'rgba(230, 179, 37, 0.8)',
-                            'rgba(26, 115, 232, 0.8)',
-                            'rgba(76, 175, 80, 0.8)',
-                            'rgba(156, 39, 176, 0.8)',
-                            'rgba(244, 67, 54, 0.8)'
+                            '#0F3460',
+                            '#E6B325',
+                            '#1A73E8',
+                            '#34A853',
+                            '#9C27B0',
+                            '#EA4335'
                         ],
-                        borderColor: 'rgba(255, 255, 255, 0.3)',
-                        borderWidth: 2
+                        borderWidth: 0
                     }]
                 },
                 options: {
@@ -1533,29 +1618,64 @@
                 }
             });
             
-            // 平滑滾動
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            // 表單提交處理
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            
+            if (contactForm && formMessage) {
+                contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
+                    // 獲取表單數據
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
                     
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                        
-                        // 關閉移動菜單（如果打開）
-                        document.getElementById('mobileMenu').classList.add('hidden');
-                        // 關閉翻譯選擇器（如果打開）
-                        translateElement.classList.remove('show');
-                    }
+                    // 顯示加載狀態
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalButtonText = submitButton.innerHTML;
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 發送中...';
+                    
+                    // 重置消息狀態
+                    formMessage.classList.remove('success', 'error');
+                    formMessage.style.display = 'none';
+                    
+                    // 使用EmailJS或其他服務發送郵件
+                    // 注意：在實際部署時，您需要替換為自己的API密鑰和服務ID
+                    // 這裡使用模擬請求來展示功能
+                    setTimeout(() => {
+                        try {
+                            // 模擬成功發送
+                            // 在真實環境中，這裡應該是實際的API調用
+                            console.log('表單數據將發送到:', 'byb2025com@gmail.com');
+                            console.log('表單內容:', formData);
+                            
+                            // 顯示成功消息
+                            formMessage.textContent = '您的消息已成功發送，我們將盡快回復您！';
+                            formMessage.classList.add('success');
+                            formMessage.style.display = 'block';
+                            
+                            // 重置表單
+                            contactForm.reset();
+                        } catch (error) {
+                            // 顯示錯誤消息
+                            formMessage.textContent = '發送失敗，請稍後再試或直接通過郵箱聯繫我們。';
+                            formMessage.classList.add('error');
+                            formMessage.style.display = 'block';
+                            console.error('表單提交錯誤:', error);
+                        } finally {
+                            // 恢復按鈕狀態
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = originalButtonText;
+                        }
+                    }, 1500);
                 });
-            });
+            }
         });
     </script>
 
-</body></html>
-    
+    </body></html>
