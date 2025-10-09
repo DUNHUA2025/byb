@@ -1,10 +1,12 @@
 <html lang="zh-TW"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>幣友圈BYB-真實資產鏈上生態平台</title>
+    <title>幣友圈</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- 引入EmailJS库用于邮件发送 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -199,7 +201,7 @@
                 <!-- 修复LOGO链接，点击返回首页 -->
                 <a href="/" class="flex items-center space-x-2">
                     <img src="images/byb-logo.png" alt="BYB Logo" class="byb-logo">
-                    <span class="text-white font-bold text-xl">Bybanx幣友圈BYB</span>
+                    <span class="text-white font-bold text-xl">幣友圈</span>
                 </a>
                 
                 <!-- 桌面導航 -->
@@ -696,7 +698,7 @@
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
                             <span class="text-gray-300">交易手續費</span>
-                            <span class="font-semibold">買入 2%、賣出 2%</span>
+                            <span class="font-semibold">買入 2%、賣出 2%，一年後歸零</span>
                         </div>
                         
                         <div>
@@ -737,24 +739,24 @@
                         <div class="space-y-4 max-h-64 overflow-y-auto scrollbar-hide pr-2">
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
                                 <h4 class="font-bold text-secondary">1. 治理型 NFT（BYB NFT）</h4>
-                                <p class="font-bold">Crown 級：100 張</p>
+                                <p class="font-bold">Crown 級：500 張</p>
                                 <p class="text-sm text-gray-300 mt-1">（核心治理權、獨家合作優先對接權）</p>
-                                <p class="font-bold">Eminence 級：500 張</p>
+                                <p class="font-bold">Eminence 級：2000 張</p>
                                 <p class="text-sm text-gray-300 mt-1">（擁有普通提案投票權、中等分紅權益）</p>
-                                <p class="font-bold">Ascend 級：2000 張</p>
+                                <p class="font-bold">Ascend 級：10000 張</p>
                                 <p class="text-sm text-gray-300 mt-1">（擁有生態重大提案投票權、高額分紅權益）</p>
                                 <p class="text-sm text-gray-300 mt-2">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
                                 <p class="text-xs text-gray-400 mt-1">性質：功能型、治理型</p>
                             </div>
                             
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">2. 文娛 NFT（10,000張）</h4>
+                                <h4 class="font-bold text-secondary">2. 文娛 NFT（1,000張）</h4>
                                 <p class="text-sm text-gray-300 mt-1">參與型 NFT，具備搶票權、本板塊激勵權、本板塊投票權、粉絲見面會抽籤擁有首映禮、本板塊激勵權、本板塊投票權、DAO 選片權、可用於鏈遊 / 積分兌換等功能</p>
                                 <p class="text-xs text-gray-400 mt-1">性質：參與型、使用型</p>
                             </div>
                             
                             <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">3. 文創 NFT（10,000張）</h4>
+                                <h4 class="font-bold text-secondary">3. 文創 NFT（1,000張）</h4>
                                 <p class="text-sm text-gray-300 mt-1">具有本板块激励权、本板块投票权、房产住宿折扣、影视探班、康养服务、产品品鉴、限量定制水兑换、抽奖新品体验、本板块激励权、本板块投票权、代言人出镜等权益</p>
                                 <p class="text-xs text-gray-400 mt-1">性質：參與型、會員型</p>
                             </div>
@@ -989,7 +991,7 @@
                                     <i class="fa fa-key text-secondary mr-3"></i>
                                     核心治理
                                 </h3>
-                                <p class="text-gray-600 pl-8">由持有 BYBNFT（2600 張稀缺治理 NFT）的用戶參與，確保治理的專業性和代表性。</p>
+                                <p class="text-gray-600 pl-8">由持有 BYBNFT（治理 NFT）的用戶參與，確保治理的專業性和代表性。</p>
                             </div>
                             
                             <div>
@@ -1231,22 +1233,22 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
-                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的姓名" required>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的姓名" required="">
                             </div>
                             <div>
                                 <label for="email" class="block text-gray-700 font-medium mb-2">郵箱</label>
-                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的郵箱地址" required>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="您的郵箱地址" required="">
                             </div>
                         </div>
                         
                         <div>
                             <label for="subject" class="block text-gray-700 font-medium mb-2">主題</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="消息主題" required>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="消息主題" required="">
                         </div>
                         
                         <div>
                             <label for="message" class="block text-gray-700 font-medium mb-2">消息內容</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="請輸入您的消息..." required></textarea>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" placeholder="請輸入您的消息..." required=""></textarea>
                         </div>
                         
                         <button type="submit" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg">
@@ -1261,11 +1263,11 @@
     <!-- 頁腳 -->
     <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4 md:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
                         <img src="images/byb-logo-footer.png" alt="BYB Logo" class="byb-logo">
-                        <span class="font-bold text-xl">Bybanx幣友圈BYB</span>
+                        <span class="font-bold text-xl">幣友圈</span>
                     </div>
                     <p class="text-gray-400 mb-6">
                         真實資產鏈上生態平台，以文化產業真實世界資產為錨定的多元化Web3數位應用生態。
@@ -1299,19 +1301,9 @@
                     <ul class="space-y-3">
                         <li><a href="#roadmap" class="text-gray-400 hover:text-secondary transition-colors">發展路線圖</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">常見問題</a></li>
-                        <li><a href="https://patch-parcel-83f.notion.site/BYB-28348b182d8a80c1b09bc1d2e33c45da?source=copy_link" class="text-gray-400 hover:text-secondary transition-colors">白皮書</a></li>
+                        <li><a href="https://patch-parcel-83f.notion.site/BYB-28348b182d8a80c1b09bc1d2e33c45da?source=copy_link" class="text-gray-400 hover:text-secondary transition-colors" target="_blank">白皮書</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors"></a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-secondary transition-colors">聯繫我們</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg mb-6">法律信息</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">服務條款</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">隱私政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">風險提示</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-secondary transition-colors">合規聲明</a></li>
                     </ul>
                 </div>
             </div>
@@ -1618,6 +1610,12 @@
                 }
             });
             
+            // 初始化EmailJS
+            (function() {
+                // 替換為您的EmailJS用戶ID
+                emailjs.init('YOUR_USER_ID'); // 請在此處替換為您的實際用戶ID
+            })();
+            
             // 表單提交處理
             const contactForm = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
@@ -1644,15 +1642,11 @@
                     formMessage.classList.remove('success', 'error');
                     formMessage.style.display = 'none';
                     
-                    // 使用EmailJS或其他服務發送郵件
-                    // 注意：在實際部署時，您需要替換為自己的API密鑰和服務ID
-                    // 這裡使用模擬請求來展示功能
-                    setTimeout(() => {
-                        try {
-                            // 模擬成功發送
-                            // 在真實環境中，這裡應該是實際的API調用
-                            console.log('表單數據將發送到:', 'byb2025com@gmail.com');
-                            console.log('表單內容:', formData);
+                    // 使用EmailJS發送郵件
+                    // 替換為您的服務ID和模板ID
+                    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                        .then(function(response) {
+                            console.log('郵件發送成功:', response.status, response.text);
                             
                             // 顯示成功消息
                             formMessage.textContent = '您的消息已成功發送，我們將盡快回復您！';
@@ -1661,21 +1655,23 @@
                             
                             // 重置表單
                             contactForm.reset();
-                        } catch (error) {
+                        }, function(error) {
+                            console.error('郵件發送失敗:', error);
+                            
                             // 顯示錯誤消息
                             formMessage.textContent = '發送失敗，請稍後再試或直接通過郵箱聯繫我們。';
                             formMessage.classList.add('error');
                             formMessage.style.display = 'block';
-                            console.error('表單提交錯誤:', error);
-                        } finally {
+                        })
+                        .finally(function() {
                             // 恢復按鈕狀態
                             submitButton.disabled = false;
                             submitButton.innerHTML = originalButtonText;
-                        }
-                    }, 1500);
+                        });
                 });
             }
         });
     </script>
 
     </body></html>
+    
