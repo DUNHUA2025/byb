@@ -256,7 +256,7 @@
                 <div class="md:w-1/2 mb-12 md:mb-0">
                     <h5 class="text-secondary font-semibold mb-4 animate-fade-in">BYB2025.COM</h5>
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight mb-6">
-                        真實資產鏈上<br>
+                        文化创意产业<br>
                         <span class="text-secondary">應用生態平台</span>
                     </h1>
                     <p class="text-gray-300 text-lg mb-8 max-w-lg">以文化產業真實世界資產 “RWA” 為錨定的多元化 Web3 數位應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。</p>
@@ -674,8 +674,9 @@
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
-                    <div class="flex items-center mb-8">
+                <!-- 代幣基本信息 -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <div class="flex items-center mb-8 border-b border-gray-700 pb-4">
                         <img src="images/byb-token-logo.png" alt="BYB Logo" class="byb-logo mr-4">
                         <h3 class="text-2xl font-bold">代幣基本信息</h3>
                     </div>
@@ -701,9 +702,10 @@
                             <span class="font-semibold">買、賣各 2%，一年後歸零便上所</span>
                         </div>
                         
-                        <div>
-                            <span class="text-gray-300 block mb-2">手續費用途</span>
-                            <div class="pl-4 space-y-2">
+                        <!-- 手續費用途部分 -->
+                        <div class="pt-4">
+                            <span class="text-gray-300 block mb-3 font-medium">手續費用途</span>
+                            <div class="bg-white bg-opacity-5 rounded-lg p-4 space-y-3">
                                 <div class="flex justify-between">
                                     <span>行銷推廣</span>
                                     <span class="font-semibold">1%</span>
@@ -719,46 +721,68 @@
                             </div>
                         </div>
                         
-                        <div class="pt-4 border-t border-gray-700">
-                            <span class="text-gray-300 block mb-2">核心價值支撐</span>
+                        <!-- 核心價值支撐 -->
+                        <div class="pt-4 border-t border-gray-700 mt-4">
+                            <span class="text-gray-300 block mb-2 font-medium">核心價值支撐</span>
                             <p>來自演唱會、東江泉、影視、康養小鎮等的真實收益</p>
                         </div>
                     </div>
                 </div>
                 
+                <!-- 代幣分配和NFT經濟模型 -->
                 <div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-                        <h3 class="text-2xl font-bold mb-6">代幣分配方案</h3>
+                    <!-- 代幣分配方案 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-700">代幣分配方案</h3>
                         <div class="h-64">
                             <canvas id="tokenAllocationChart"></canvas>
                         </div>
                     </div>
                     
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold mb-6">NFT 經濟模型</h3>
-                        <div class="space-y-4 max-h-64 overflow-y-auto scrollbar-hide pr-2">
-                            <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">1. 治理型 NFT（BYB NFT）</h4>
-                                <p class="font-bold">Crown 級：500 張</p>
-                                <p class="text-sm text-gray-300 mt-1">（核心治理權、獨家合作優先對接權）</p>
-                                <p class="font-bold">Eminence 級：2000 張</p>
-                                <p class="text-sm text-gray-300 mt-1">（擁有普通提案投票權、中等分紅權益）</p>
-                                <p class="font-bold">Ascend 級：10000 張</p>
-                                <p class="text-sm text-gray-300 mt-1">（擁有生態重大提案投票權、高額分紅權益）</p>
-                                <p class="text-sm text-gray-300 mt-2">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
+                    <!-- NFT經濟模型 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-700">NFT 經濟模型</h3>
+                        <div class="space-y-6 max-h-64 overflow-y-auto scrollbar-hide pr-2">
+                            <!-- 治理型NFT -->
+                            <div class="bg-white bg-opacity-5 p-5 rounded-lg">
+                                <h4 class="font-bold text-secondary mb-3">1. 治理型 NFT（BYB NFT）</h4>
+                                <ul class="space-y-3">
+                                    <li>
+                                        <p class="font-bold">Crown 級：500 張</p>
+                                        <p class="text-sm text-gray-300 mt-1">（核心治理權、獨家合作優先對接權）</p>
+                                    </li>
+                                    <li>
+                                        <p class="font-bold">Eminence 級：2000 張</p>
+                                        <p class="text-sm text-gray-300 mt-1">（擁有普通提案投票權、中等分紅權益）</p>
+                                    </li>
+                                    <li>
+                                        <p class="font-bold">Ascend 級：10000 張</p>
+                                        <p class="text-sm text-gray-300 mt-1">（擁有生態重大提案投票權、高額分紅權益）</p>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-300 mt-3">稀缺治理 NFT，擁有平台 DAO 治理投票、所有激勵獲得權、質押礦池優待等權益</p>
                                 <p class="text-xs text-gray-400 mt-1">性質：功能型、治理型</p>
                             </div>
                             
-                            <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">2. 文娛 NFT（1,000張）</h4>
-                                <p class="text-sm text-gray-300 mt-1">參與型 NFT，具備搶票權、本板塊激勵權、本板塊投票權、粉絲見面會抽籤擁有首映禮、本板塊激勵權、本板塊投票權、DAO 選片權、可用於鏈遊 / 積分兌換等功能</p>
-                                <p class="text-xs text-gray-400 mt-1">性質：參與型、使用型</p>
+                            <!-- 文娛NFT -->
+                            <div class="bg-white bg-opacity-5 p-5 rounded-lg">
+                                <h4 class="font-bold text-secondary mb-3">2. 文娛 NFT（1,000張）</h4>
+                                <p class="text-sm text-gray-300">
+                                    參與型 NFT，具備搶票權、本板塊激勵權、本板塊投票權、粉絲見面會抽籤
+                                    擁有首映禮、本板塊激勵權、本板塊投票權、DAO 選片權、可用於鏈遊 / 積分兌換等功能
+                                </p>
+                                <p class="text-xs text-gray-400 mt-2">性質：參與型、使用型</p>
                             </div>
                             
-                            <div class="bg-white bg-opacity-5 p-4 rounded-lg">
-                                <h4 class="font-bold text-secondary">3. 文創 NFT（1,000張）</h4>
-                                <p class="text-sm text-gray-300 mt-1">具有本板块激励权、本板块投票权、房产住宿折扣、影视探班、康养服务、产品品鉴、限量定制水兑换、抽奖新品体验、本板块激励权、本板块投票权、代言人出镜等权益</p>
-                                <p class="text-xs text-gray-400 mt-1">性質：參與型、會員型</p>
+                            <!-- 文創NFT -->
+                            <div class="bg-white bg-opacity-5 p-5 rounded-lg">
+                                <h4 class="font-bold text-secondary mb-3">3. 文創 NFT（1,000張）</h4>
+                                <p class="text-sm text-gray-300">
+                                    具有本板块激励权、本板块投票权、房产住宿折扣、影视探班、康养服务、
+                                    产品品鉴、限量定制水兑换、抽奖新品体验、本板块激励权、本板块投票权、
+                                    代言人出镜等权益
+                                </p>
+                                <p class="text-xs text-gray-400 mt-2">性質：參與型、會員型</p>
                             </div>
                         </div>
                     </div>
@@ -1557,14 +1581,13 @@
                 }
             });
             
-            // 代幣分配圖表 - 修改为水平条形图
+            // 代幣分配圖表 - 修改为环形图
             const tokenAllocationCtx = document.getElementById('tokenAllocationChart').getContext('2d');
             new Chart(tokenAllocationCtx, {
-                type: 'bar',
+                type: 'doughnut',
                 data: {
                     labels: ['生態基金', '社群激勵', 'GameFi', '流動性', '團隊', 'DAO', '戰略合作', '技術'],
                     datasets: [{
-                        label: '分配比例 (%)',
                         data: [30, 15, 10, 10, 10, 10, 10, 5],
                         backgroundColor: [
                             '#E6B325',
@@ -1576,15 +1599,23 @@
                             '#EA4335',
                             '#4285F4'
                         ],
-                        borderWidth: 0
+                        borderWidth: 2,
+                        borderColor: 'rgba(26, 26, 46, 0.8)',
+                        hoverOffset: 15 // 鼠标悬停时的偏移效果
                     }]
                 },
                 options: {
-                    indexAxis: 'y', // 水平条形图
                     responsive: true,
+                    cutout: '60%', // 环形图的内圈大小
                     plugins: {
                         legend: {
-                            display: false
+                            position: 'right',
+                            labels: {
+                                color: '#ffffff',
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
                         },
                         title: {
                             display: true,
@@ -1598,33 +1629,16 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return `${context.raw}%`;
+                                    return `${context.label}: ${context.raw}%`;
                                 }
                             }
                         }
                     },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            max: 40,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.1)'
-                            },
-                            ticks: {
-                                color: '#ffffff',
-                                callback: function(value) {
-                                    return value + '%';
-                                }
-                            }
-                        },
-                        y: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#ffffff'
-                            }
-                        }
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 2000,
+                        easing: 'easeOutQuart'
                     }
                 }
             });
