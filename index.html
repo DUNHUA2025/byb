@@ -1,7 +1,7 @@
 <html lang="zh-TW"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>幣友圈</title>
+    <title>幣友圈HONGKONG</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
@@ -187,6 +187,45 @@
             color: #b91c1c;
             border: 1px solid #fecaca;
         }
+
+        /* 图表提示框样式优化 */
+        .chart-tooltip {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+            padding: 10px 15px !important;
+            border: none !important;
+        }
+
+        /* 图表动画容器 */
+        .chart-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* 图表悬停效果容器 */
+        .chart-hover-container {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-hover-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 图表信息卡片 */
+        .chart-info-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-info-card:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
     </style>
 </head>
 
@@ -318,7 +357,7 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">關於Bybanx幣友圈BYB</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-primary mb-4">關於幣友圈</h2>
                 <div class="w-20 h-1 bg-secondary mx-auto"></div>
             </div>
             
@@ -352,7 +391,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                 <div>
                     <h3 class="text-2xl font-bold text-primary mb-6">全球數位資產規模</h3>
-                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg mb-6 chart-hover-container">
                         <canvas id="marketChart" height="300"></canvas>
                     </div>
                     <p class="text-gray-600 text-sm italic">數據來源：行業研究報告，2025年預測</p>
@@ -727,10 +766,16 @@
                 </div>
                 
                 <div>
-                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8 chart-hover-container">
                         <h3 class="text-2xl font-bold mb-6">代幣分配方案</h3>
-                        <div class="h-64">
+                        <div class="h-64 chart-container">
                             <canvas id="tokenAllocationChart"></canvas>
+                        </div>
+                        <div class="chart-info-card">
+                            <p class="text-sm text-gray-300">
+                                <i class="fa fa-info-circle text-secondary mr-1"></i>
+                                點擊各區域查看詳細分配說明
+                            </p>
                         </div>
                     </div>
                     
@@ -779,7 +824,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
                 <div>
                     <h3 class="text-2xl font-bold text-primary mb-8">資金用途計劃</h3>
-                    <div class="bg-white rounded-2xl shadow-md p-6">
+                    <div class="bg-white rounded-2xl shadow-md p-6 chart-hover-container">
                         <div class="h-80">
                             <canvas id="fundAllocationChart"></canvas>
                         </div>
@@ -1532,19 +1577,41 @@
                             label: '純加密原生資產',
                             data: [2000, 3500, 2800, 3200, 4000, 4500],
                             backgroundColor: 'rgba(26, 115, 232, 0.7)',
+                            borderColor: 'rgba(26, 115, 232, 1)',
+                            borderWidth: 1
                         },
                         {
                             label: 'RWA數位資產',
                             data: [100, 300, 800, 1500, 2500, 4000],
                             backgroundColor: 'rgba(230, 179, 37, 0.7)',
+                            borderColor: 'rgba(230, 179, 37, 1)',
+                            borderWidth: 1
                         }
                     ]
                 },
                 options: {
                     responsive: true,
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    },
                     plugins: {
                         legend: {
                             position: 'top',
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#0F3460',
+                            bodyColor: '#333',
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + ' 十億美元';
+                                }
+                            }
                         },
                         title: {
                             display: true,
@@ -1553,14 +1620,32 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
                         }
                     }
                 }
             });
             
-            // 代幣分配圖表
+            // 代幣分配圖表 - 优化版本
             const tokenAllocationCtx = document.getElementById('tokenAllocationChart').getContext('2d');
+            
+            // 代币分配详细说明
+            const tokenAllocationDetails = [
+                "流動性與市場 (30%)：用於提供初始流動性，確保市場穩定，支持用戶交易需求",
+                "生態激勵 (25%)：用於激勵早期參與者、內容創作者和社區建設者",
+                "團隊與顧問 (15%)：團隊成員與顧問激勵，分期釋放確保長期承諾",
+                "戰略投資 (15%)：戰略合作夥伴與機構投資者，支持項目生態拓展",
+                "基金會儲備 (15%)：用於應對市場波動、緊急情況及未來發展機遇"
+            ];
+            
             new Chart(tokenAllocationCtx, {
                 type: 'doughnut',
                 data: {
@@ -1574,11 +1659,25 @@
                             '#FBBC05',
                             '#0F3460'
                         ],
-                        borderWidth: 0
+                        borderWidth: 0,
+                        hoverOffset: 15, // 悬停时的偏移效果
+                        hoverBackgroundColor: [
+                            '#f0c130',
+                            '#3a88f0',
+                            '#4fc36c',
+                            '#ffce35',
+                            '#1a498a'
+                        ]
                     }]
                 },
                 options: {
                     responsive: true,
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 2000,
+                        easing: 'easeOutCubic'
+                    },
                     plugins: {
                         legend: {
                             position: 'bottom',
@@ -1587,6 +1686,22 @@
                                 padding: 20,
                                 font: {
                                     size: 12
+                                },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            titleColor: '#0F3460',
+                            bodyColor: '#333',
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: true,
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    return tokenAllocationDetails[context.dataIndex];
                                 }
                             }
                         },
@@ -1600,7 +1715,8 @@
                             }
                         }
                     },
-                    cutout: '60%'
+                    cutout: '60%',
+                    radius: '90%'
                 }
             });
             
@@ -1620,14 +1736,32 @@
                             '#9C27B0',
                             '#EA4335'
                         ],
-                        borderWidth: 0
+                        borderWidth: 0,
+                        hoverOffset: 10
                     }]
                 },
                 options: {
                     responsive: true,
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    },
                     plugins: {
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#0F3460',
+                            bodyColor: '#333',
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            padding: 12,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
                         }
                     }
                 }
@@ -1660,41 +1794,4 @@
                     const originalButtonText = submitButton.innerHTML;
                     submitButton.disabled = true;
                     submitButton.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 發送中...';
-                    
-                    // 重置消息狀態
-                    formMessage.classList.remove('success', 'error');
-                    formMessage.style.display = 'none';
-                    
-                    // 使用EmailJS發送郵件
-                    // 替換為您的服務ID和模板ID
-                    emailjs.send('service_0vg6o4w', 'template_g5i47tb', formData)
-                        .then(function(response) {
-                            console.log('郵件發送成功:', response.status, response.text);
-                            
-                            // 顯示成功消息
-                            formMessage.textContent = '您的消息已成功發送，我們將盡快回復您！';
-                            formMessage.classList.add('success');
-                            formMessage.style.display = 'block';
-                            
-                            // 重置表單
-                            contactForm.reset();
-                        }, function(error) {
-                            console.error('郵件發送失敗:', error);
-                            
-                            // 顯示錯誤消息
-                            formMessage.textContent = '發送失敗，請稍後再試或直接通過郵箱聯繫我們。';
-                            formMessage.classList.add('error');
-                            formMessage.style.display = 'block';
-                        })
-                        .finally(function() {
-                            // 恢復按鈕狀態
-                            submitButton.disabled = false;
-                            submitButton.innerHTML = originalButtonText;
-                        });
-                });
-            }
-        });
-    </script>
-
-    </body></html>
-    
+                    </script></body></html>
