@@ -256,7 +256,7 @@
                 <div class="md:w-1/2 mb-12 md:mb-0">
                     <h5 class="text-secondary font-semibold mb-4 animate-fade-in">BYB2025.COM</h5>
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white leading-tight mb-6">
-                        文化创意产业<br>
+                        文化創意產業<br>
                         <span class="text-secondary">應用生態平台</span>
                     </h1>
                     <p class="text-gray-300 text-lg mb-8 max-w-lg">以文化產業真實世界資產 “RWA” 為錨定的多元化 Web3 數位應用生態，整合 NFT、DAO 治理、鏈遊、社交積分。</p>
@@ -699,7 +699,7 @@
                         
                         <div class="flex justify-between pb-4 border-b border-gray-700">
                             <span class="text-gray-300">交易手續費</span>
-                            <span class="font-semibold">買、賣各 2%，一年後歸零便上所</span>
+                            <span class="font-semibold">買賣各 2%,一年後歸零便上所</span>
                         </div>
                         
                         <!-- 手續費用途部分 -->
@@ -734,8 +734,9 @@
                     <!-- 代幣分配方案 -->
                     <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 mb-8 shadow-lg">
                         <h3 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-700">代幣分配方案</h3>
-                        <div class="h-64">
-                            <canvas id="tokenAllocationChart"></canvas>
+                        <!-- 扩展宽度，移除右侧空白 -->
+                        <div class="h-64 w-full">
+                            <canvas id="tokenAllocationChart" class="w-full"></canvas>
                         </div>
                     </div>
                     
@@ -1581,7 +1582,7 @@
                 }
             });
             
-            // 代幣分配圖表 - 修改为环形图
+            // 代幣分配圖表 - 环形图
             const tokenAllocationCtx = document.getElementById('tokenAllocationChart').getContext('2d');
             new Chart(tokenAllocationCtx, {
                 type: 'doughnut',
@@ -1606,6 +1607,7 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false, // 允许图表根据容器大小调整宽高比例
                     cutout: '60%', // 环形图的内圈大小
                     plugins: {
                         legend: {
