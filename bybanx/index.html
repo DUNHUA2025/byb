@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByBanx | 幣友圈 BYB — 你進入Web3世界的通道</title>
+  <meta name="description" content="ByBanx (BYB025) — 結合RWA現實資產、人類節點挖礦、全球加密支付與文娛NFT生態的下一代Web3平台" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="url(#hexGrad)" opacity="0.9"/>
+          <polygon points="20,8 34,15 34,27 20,34 6,27 6,15" fill="none" stroke="rgba(255,200,50,0.6)" stroke-width="1"/>
+          <text x="20" y="25" text-anchor="middle" fill="white" font-size="11" font-weight="800" font-family="Inter">BYB</text>
+          <defs>
+            <linearGradient id="hexGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0%" stop-color="#1a3a6b"/>
+              <stop offset="100%" stop-color="#0d1f3c"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">ByBanx <em>BYB</em></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features">功能特色</a></li>
+      <li><a href="#rwa">RWA生態</a></li>
+      <li><a href="#network">人類節點</a></li>
+      <li><a href="#roadmap">路線圖</a></li>
+      <li><a href="#whitepaper">白皮書</a></li>
+      <li><a href="#download" class="nav-cta">下載APP</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <canvas id="particleCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      BYB025 主網即將上線 · 搶先預挖
+    </div>
+    <h1 class="hero-title">
+      你進入<br/>
+      <span class="gradient-text">Web3世界</span><br/>
+      的通道
+    </h1>
+    <p class="hero-subtitle">
+      ByBanx 幣友圈 BYB — 結合人類節點挖礦、RWA現實資產代幣化、<br class="desktop-br"/>
+      全球加密支付與文娛NFT生態的下一代 Web3 平台
+    </p>
+    <div class="hero-actions">
+      <a href="#download" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v13M7 10l5 5 5-5"/><path d="M3 19h18"/></svg>
+        立即下載 APP
+      </a>
+      <a href="#whitepaper" class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h3M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+        查看白皮書
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="16">0</span>
+        <span class="stat-unit">萬億</span>
+        <span class="stat-label">全球RWA市場規模（美元）</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2.5">0</span>
+        <span class="stat-unit">萬億</span>
+        <span class="stat-label">消費級資產市場（美元）</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="42">0</span>
+        <span class="stat-unit">%</span>
+        <span class="stat-label">場景化NFT佔比</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="phone-wrapper">
+      <div class="phone-glow"></div>
+      <img src="https://www.genspark.ai/api/files/s/NDaFzQLM?cache_control=3600" alt="ByBanx App" class="phone-img" />
+      <div class="floating-card card-1">
+        <div class="card-icon">⛏️</div>
+        <div class="card-info">
+          <span class="card-label">今日挖礦收益</span>
+          <span class="card-value">+12.85 BYB</span>
+        </div>
+      </div>
+      <div class="floating-card card-2">
+        <div class="card-icon">🌐</div>
+        <div class="card-info">
+          <span class="card-label">節點數量</span>
+          <span class="card-value">128,496</span>
+        </div>
+      </div>
+      <div class="floating-card card-3">
+        <div class="card-icon">💎</div>
+        <div class="card-info">
+          <span class="card-label">RWA總鎖定值</span>
+          <span class="card-value">$4.2M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+    <span>向下探索</span>
+  </div>
+</section>
+
+<!-- ===== APP FEATURES ===== -->
+<section class="features" id="features">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">核心功能</span>
+      <h2>一款 App，<span class="gradient-text">解鎖全部 Web3 體驗</span></h2>
+      <p>從挖礦賺幣、加密支付到NFT投資，ByBanx將所有功能整合於一</p>
+    </div>
+    <div class="features-grid">
+
+      <!-- Feature 1 -->
+      <div class="feature-card" data-aos="fade-up" data-delay="0">
+        <div class="feature-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/OIumX94y?cache_control=3600" alt="人類節點挖礦" />
+          <div class="feature-tag">核心</div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-icon-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              <circle cx="12" cy="8" r="7" stroke-dasharray="3 2" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3>人類節點挖礦</h3>
+          <p>通過身份驗證，成為全球最大區塊鏈網絡的人類節點，每日免費賺取 BYB 代幣。每個真實用戶即是一個重要節點。</p>
+          <ul class="feature-list">
+            <li>✦ 免費參與，零門檻挖礦</li>
+            <li>✦ 邀請好友，提升挖礦速率</li>
+            <li>✦ 人性化防Sybil驗證機制</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card" data-aos="fade-up" data-delay="100">
+        <div class="feature-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/YjFlMuBO?cache_control=3600" alt="全球支付轉帳" />
+        </div>
+        <div class="feature-body">
+          <div class="feature-icon-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+            </svg>
+          </div>
+          <h3>全球支付 & 轉帳</h3>
+          <p>一個QR碼即可完成加密貨幣支付。繳費、購物、跨境轉帳，支持多鏈資產，費率極低，到帳極速。</p>
+          <ul class="feature-list">
+            <li>✦ 掃碼即付，秒到帳</li>
+            <li>✦ 支持BYB、BTC、ETH等主流資產</li>
+            <li>✦ 跨境轉帳手續費近乎為零</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card" data-aos="fade-up" data-delay="200">
+        <div class="feature-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/zBdtFH6l?cache_control=3600" alt="RWA NFT生態" />
+          <div class="feature-tag hot">熱門</div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-icon-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="15" rx="2"/>
+              <path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 00-4 0v2"/>
+              <path d="M12 12v5M9.5 14.5l2.5-2.5 2.5 2.5"/>
+            </svg>
+          </div>
+          <h3>RWA 文娛 NFT 生態</h3>
+          <p>演唱會票房NFT、電影收益NFT、文創商品NFT，將現實資產收益上鏈。消費即投資，持幣享分紅。</p>
+          <ul class="feature-list">
+            <li>✦ 頭部演唱會票房NFT</li>
+            <li>✦ 電影院線收益分潤</li>
+            <li>✦ 東江泉品牌IP授權NFT</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card" data-aos="fade-up" data-delay="300">
+        <div class="feature-img-wrap feature-img-dark">
+          <div class="mini-app-showcase">
+            <div class="mini-app-grid">
+              <div class="mini-app-item">🎮 鏈游</div>
+              <div class="mini-app-item">💬 社交</div>
+              <div class="mini-app-item">🎵 音樂</div>
+              <div class="mini-app-item">🎪 活動</div>
+              <div class="mini-app-item">📊 行情</div>
+              <div class="mini-app-item">🛒 商城</div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-icon-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3>Mini App 生態系統</h3>
+          <p>ByBanx Chat、鏈游、NFT市場、積分商城，全在一個App內。無需多次下載，Web3社交資源一網打盡。</p>
+          <ul class="feature-list">
+            <li>✦ 原生Web3社交聊天</li>
+            <li>✦ GameFi鏈游，邊玩邊賺</li>
+            <li>✦ 積分換NFT、代幣獎勵</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== RWA SECTION ===== -->
+<section class="rwa-section" id="rwa">
+  <div class="section-container">
+    <div class="rwa-grid">
+      <div class="rwa-text" data-aos="fade-right">
+        <span class="section-tag">什麼是 RWA?</span>
+        <h2>現實資產上鏈，<br/><span class="gradient-text">打通虛實兩界</span></h2>
+        <p class="rwa-desc">
+          RWA（Real World Assets）是將現實世界中的實體資產，通過區塊鏈技術進行代幣化的過程。
+          ByBanx 以文娛文創雙核驅動，將演唱會、電影、文旅等真實資產的收益權益深度上鏈。
+        </p>
+        <div class="rwa-stats-row">
+          <div class="rwa-stat">
+            <span class="rwa-stat-num">16<em>萬億</em></span>
+            <span class="rwa-stat-label">全球RWA市場規模</span>
+          </div>
+          <div class="rwa-stat">
+            <span class="rwa-stat-num">2.5<em>萬億</em></span>
+            <span class="rwa-stat-label">消費級資產市場</span>
+          </div>
+        </div>
+        <div class="rwa-pillars">
+          <div class="pillar-item">
+            <div class="pillar-icon">🎭</div>
+            <div class="pillar-text">
+              <strong>文娛板塊</strong>
+              <span>演唱會・電影・短劇・音樂競技</span>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🏛️</div>
+            <div class="pillar-text">
+              <strong>文創板塊</strong>
+              <span>東江泉品牌・康養小鎮・影視基地</span>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🎮</div>
+            <div class="pillar-text">
+              <strong>GameFi板塊</strong>
+              <span>NFT挖礦・鏈游探險・真實消費打通</span>
+            </div>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-icon">🏢</div>
+            <div class="pillar-text">
+              <strong>企業RWA孵化器</strong>
+              <span>DAO+NFT+GameFi一體化標準方案</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rwa-visual" data-aos="fade-left">
+        <img src="https://www.genspark.ai/api/files/s/a1SeGxiX?cache_control=3600" alt="RWA Ecosystem" class="rwa-img" />
+        <div class="rwa-card-overlay">
+          <div class="rwa-overlay-item">
+            <span class="overlay-icon">🎵</span>
+            <div>
+              <strong>演唱會票房NFT</strong>
+              <span>季度票房收益上鏈分配</span>
+            </div>
+          </div>
+          <div class="rwa-overlay-item">
+            <span class="overlay-icon">🎬</span>
+            <div>
+              <strong>電影收益NFT</strong>
+              <span>院線分潤，持幣即享</span>
+            </div>
+          </div>
+          <div class="rwa-overlay-item">
+            <span class="overlay-icon">🏡</span>
+            <div>
+              <strong>康養小鎮房產NFT</strong>
+              <span>實體資產數字化確權</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NETWORK SECTION ===== -->
+<section class="network-section" id="network">
+  <div class="network-bg">
+    <img src="https://www.genspark.ai/api/files/s/JbDzsdUg?cache_control=3600" alt="Blockchain Network" class="network-bg-img" />
+    <div class="network-overlay"></div>
+  </div>
+  <div class="section-container">
+    <div class="section-header light">
+      <span class="section-tag light">什麼是人類網絡？</span>
+      <h2>每個人都是<br/><span class="gradient-text-light">最大區塊鏈網絡</span>的節點</h2>
+      <p>一個身份，無限通道。成為人類節點，共建去中心化未來。</p>
+    </div>
+    <div class="network-flow">
+      <div class="flow-step" data-aos="fade-up" data-delay="0">
+        <div class="flow-num">01</div>
+        <div class="flow-icon">📱</div>
+        <h4>下載 ByBanx App</h4>
+        <p>前往 Google Play 或 App Store 免費下載，使用邀請碼加入網絡</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" data-aos="fade-up" data-delay="100">
+        <div class="flow-num">02</div>
+        <div class="flow-icon">🪪</div>
+        <h4>完成身份驗證</h4>
+        <p>通過人臉識別及KYC認證，證明你是真實人類，獲得唯一節點身份</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" data-aos="fade-up" data-delay="200">
+        <div class="flow-num">03</div>
+        <div class="flow-icon">⛏️</div>
+        <h4>開始免費挖礦</h4>
+        <p>每日點擊開啟挖礦，邀請好友提升算力，積累BYB代幣</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" data-aos="fade-up" data-delay="300">
+        <div class="flow-num">04</div>
+        <div class="flow-icon">💰</div>
+        <h4>兌換 & 投資</h4>
+        <p>BYB上交易所後可變現，或投入RWA NFT享受資產增值分紅</p>
+      </div>
+    </div>
+    <div class="network-identity">
+      <div class="identity-card">
+        <div class="identity-left">
+          <div class="identity-avatar">
+            <div class="avatar-rings">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+            </div>
+            <div class="avatar-core">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="15" r="7" fill="rgba(255,200,50,0.8)"/>
+                <path d="M6 35c0-7.7 6.3-14 14-14s14 6.3 14 14" fill="rgba(255,200,50,0.6)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="identity-info">
+            <h4>人類節點 #BYB025</h4>
+            <span class="identity-status active">● 挖礦中</span>
+            <p>節點等級：黃金 ⭐⭐⭐</p>
+          </div>
+        </div>
+        <div class="identity-right">
+          <div class="identity-metric">
+            <span class="metric-val">+12.85</span>
+            <span class="metric-label">今日BYB</span>
+          </div>
+          <div class="identity-metric">
+            <span class="metric-val">2,847</span>
+            <span class="metric-label">累積BYB</span>
+          </div>
+          <div class="identity-metric">
+            <span class="metric-val">34</span>
+            <span class="metric-label">直邀人數</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CORE INDUSTRIES ===== -->
+<section class="industries" id="industries">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">平台核心產業</span>
+      <h2>深耕行業 <span class="gradient-text">30 載</span>，奮進再創輝煌</h2>
+      <p>敦華集團旗下 ByBanx，以文化創意產業為核心，融合 Web3 技術構建全新價值網絡</p>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-card" data-aos="zoom-in" data-delay="0">
+        <div class="industry-icon">🏔️</div>
+        <h4>康旅研學</h4>
+        <p>康旅和學習結合的體驗式教育，戶外活動與文化學習融合，提供身心健康與知識增長的沉浸式體驗</p>
+        <div class="industry-badge">NFT 研學通行證</div>
+      </div>
+      <div class="industry-card" data-aos="zoom-in" data-delay="100">
+        <div class="industry-icon">🎨</div>
+        <h4>文創商貿</h4>
+        <p>文化藝術、設計、傳媒、數字內容領域，創意產品設計、文化藝術展覽、知識產權經營全面覆蓋</p>
+        <div class="industry-badge">IP 版權 NFT</div>
+      </div>
+      <div class="industry-card" data-aos="zoom-in" data-delay="200">
+        <div class="industry-icon">🎬</div>
+        <h4>影視出品</h4>
+        <p>院線電影、電視劇、紀錄片等影視作品，從選題籌資到宣傳推廣，票房收益與NFT權益深度綁定</p>
+        <div class="industry-badge">票房收益 NFT</div>
+      </div>
+      <div class="industry-card" data-aos="zoom-in" data-delay="300">
+        <div class="industry-icon">🎭</div>
+        <h4>演藝製作</h4>
+        <p>音樂劇、舞蹈表演、戲劇演出等各種演藝，承辦大型演出，演出票房收益透明上鏈分配</p>
+        <div class="industry-badge">演出票房 NFT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ECOSYSTEM ADVANTAGES ===== -->
+<section class="ecosystem" id="ecosystem">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">生態優勢</span>
+      <h2>為什麼選擇 <span class="gradient-text">ByBanx?</span></h2>
+    </div>
+    <div class="eco-grid">
+      <div class="eco-card eco-large" data-aos="fade-right">
+        <div class="eco-number">01</div>
+        <h3>虛實結合，雙輪驅動</h3>
+        <p>文娛引流量，文創錨價值。線上Token與線下實體資產深度打通，形成真實的價值閉環，避免純空氣幣的陷阱。</p>
+        <div class="eco-visual">
+          <div class="eco-loop">
+            <span>實體資產</span>
+            <div class="loop-arrows">⇄</div>
+            <span>數字代幣</span>
+          </div>
+        </div>
+      </div>
+      <div class="eco-card" data-aos="fade-up" data-delay="100">
+        <div class="eco-number">02</div>
+        <h3>合規架構護航</h3>
+        <p>嚴格KYC+AML合規運營，透明治理為基石，資產安全有保障。</p>
+        <div class="eco-icon-lg">🛡️</div>
+      </div>
+      <div class="eco-card" data-aos="fade-up" data-delay="200">
+        <div class="eco-number">03</div>
+        <h3>多維權益體系</h3>
+        <p>消費與共建生態發展紅利，持幣即享多元收入，平台代幣價值清晰。</p>
+        <div class="eco-icon-lg">💎</div>
+      </div>
+      <div class="eco-card eco-large eco-right" data-aos="fade-left">
+        <div class="eco-number">04</div>
+        <h3>開放平台垂直生態</h3>
+        <p>發展路徑清晰，未來價值無限。作為企業RWA孵化器，ByBanx DAO 可投資更多RWA項目，形成多資產網絡，輸出DAO+NFT+GameFi一體化標準方案。</p>
+        <div class="eco-visual">
+          <div class="eco-ecosystem-tags">
+            <span>DAO治理</span>
+            <span>NFT市場</span>
+            <span>GameFi</span>
+            <span>RWA孵化</span>
+            <span>Web3社交</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROADMAP ===== -->
+<section class="roadmap" id="roadmap">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">路線圖</span>
+      <h2>以 NFT 為紐帶，<span class="gradient-text">構建生態階段目標</span></h2>
+    </div>
+    <div class="roadmap-timeline">
+
+      <div class="timeline-item active" data-aos="fade-up">
+        <div class="timeline-marker">
+          <div class="marker-dot active"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Phase 1</div>
+          <h4>文娛板塊啟動</h4>
+          <ul>
+            <li>✅ 推出演唱會票房 NFT、電影票房 NFT</li>
+            <li>✅ 開啟真實票房季度激勵</li>
+            <li>✅ 形成第一批鏈上粉絲經濟</li>
+            <li>🔄 ByBanx App 公測上線</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-delay="100">
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Phase 2</div>
+          <h4>文創板塊落地</h4>
+          <ul>
+            <li>⏳ 啟動東江泉礦泉水 NFT</li>
+            <li>⏳ 逐步銷毀回購 BYB，提升代幣價值</li>
+            <li>⏳ 康養小鎮房產 NFT 上線</li>
+            <li>⏳ 影視基地衍生產業落地</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-delay="200">
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Phase 3</div>
+          <h4>Web3 社交資源整合</h4>
+          <ul>
+            <li>⏳ 上線 Web3 社交資源</li>
+            <li>⏳ 鏈上積分可換 NFT、代幣</li>
+            <li>⏳ 數據積累用於後續 DAO 加權</li>
+            <li>⏳ ByBanx Chat 正式推出</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-delay="300">
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Phase 4</div>
+          <h4>鏈游 GameFi 生態</h4>
+          <ul>
+            <li>⏳ ByBanx NFT 可在鏈游中產礦/探險</li>
+            <li>⏳ 票房 NFT 融入鏈游玩法</li>
+            <li>⏳ 進一步打通鏈游與真實消費</li>
+            <li>⏳ 遊戲積分⇄BYB代幣互換</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-delay="400">
+        <div class="timeline-marker">
+          <div class="marker-dot final"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-phase">Phase 5</div>
+          <h4>企業 RWA 孵化器</h4>
+          <ul>
+            <li>⏳ 輸出 DAO+NFT+GameFi 一體化標準</li>
+            <li>⏳ ByBanx DAO 投資更多 RWA 項目</li>
+            <li>⏳ 形成多資產跨鏈網絡</li>
+            <li>⏳ BYB025 主網正式上線</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOKENOMICS ===== -->
+<section class="tokenomics" id="tokenomics">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">代幣經濟</span>
+      <h2>BYB <span class="gradient-text">代幣分配</span></h2>
+      <p>公平、透明、可持續的代幣設計，保障每位持幣者的長期權益</p>
+    </div>
+    <div class="token-grid">
+      <div class="token-chart-wrap">
+        <canvas id="tokenChart" width="320" height="320"></canvas>
+        <div class="chart-center">
+          <span class="chart-symbol">BYB</span>
+          <span class="chart-total">10億</span>
+          <span class="chart-label">總供應量</span>
+        </div>
+      </div>
+      <div class="token-legend">
+        <div class="legend-item" style="--color:#f0c040">
+          <span class="legend-dot"></span>
+          <span class="legend-name">社區挖礦</span>
+          <span class="legend-pct">40%</span>
+          <span class="legend-desc">人類節點挖礦獎勵</span>
+        </div>
+        <div class="legend-item" style="--color:#3a7bd5">
+          <span class="legend-dot"></span>
+          <span class="legend-name">RWA 生態</span>
+          <span class="legend-pct">25%</span>
+          <span class="legend-desc">NFT/RWA資產綁定</span>
+        </div>
+        <div class="legend-item" style="--color:#00d2d3">
+          <span class="legend-dot"></span>
+          <span class="legend-name">生態發展</span>
+          <span class="legend-pct">15%</span>
+          <span class="legend-desc">平台建設/合作夥伴</span>
+        </div>
+        <div class="legend-item" style="--color:#5f27cd">
+          <span class="legend-dot"></span>
+          <span class="legend-name">團隊 & 顧問</span>
+          <span class="legend-pct">10%</span>
+          <span class="legend-desc">24個月線性釋放</span>
+        </div>
+        <div class="legend-item" style="--color:#ee5a24">
+          <span class="legend-dot"></span>
+          <span class="legend-name">流動性儲備</span>
+          <span class="legend-pct">10%</span>
+          <span class="legend-desc">CEX/DEX流動性</span>
+        </div>
+        <div class="token-note">
+          <div class="note-icon">🔥</div>
+          <p>ByBanx 採用通縮機制，每季度從NFT收益中回購並銷毀 BYB，持續提升代幣稀缺性</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOWNLOAD ===== -->
+<section class="download-section" id="download">
+  <div class="download-bg">
+    <div class="download-blob b1"></div>
+    <div class="download-blob b2"></div>
+  </div>
+  <div class="section-container">
+    <div class="download-content">
+      <div class="download-text" data-aos="fade-right">
+        <span class="section-tag">立即開始</span>
+        <h2>下載 ByBanx App<br/><span class="gradient-text">今日開始免費挖礦</span></h2>
+        <p>挖礦免費、安全、可靠。使用邀請碼加入網絡，邀請好友一起提升算力，共享生態增長紅利。</p>
+        <div class="invite-tip">
+          <span class="invite-icon">🎁</span>
+          <div>
+            <strong>邀請碼：BYB025</strong>
+            <span>使用邀請碼註冊，雙方各獲贈挖礦加速獎勵</span>
+          </div>
+        </div>
+        <div class="download-buttons">
+          <a href="#" class="store-btn google">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 001.85-.21L16.2 17l-3.4-3.4-9.62 9.62v.54zM.24 2.4A2 2 0 000 3.33v17.34a2 2 0 00.24.93l.12.12 9.72-9.72v-.23L.36 2.28.24 2.4zM20.35 10.5l-2.77-1.58-3.84 3.84 3.84 3.84 2.8-1.6a2 2 0 000-4.5zM5.03.45a2 2 0 00-1.85-.2l9.66 9.65v.23l-9.66 9.65z"/></svg>
+            <div>
+              <span>下載於</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+          <a href="#" class="store-btn apple">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div>
+              <span>下載於</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+        </div>
+        <p class="download-note">* App 目前正在內測中，敬請關注官方公告</p>
+      </div>
+      <div class="download-qr" data-aos="fade-left">
+        <div class="qr-card">
+          <div class="qr-box">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="qr-svg">
+              <!-- QR decorative pattern -->
+              <rect x="10" y="10" width="60" height="60" fill="none" stroke="#f0c040" stroke-width="4"/>
+              <rect x="20" y="20" width="40" height="40" fill="#f0c040" rx="4"/>
+              <rect x="130" y="10" width="60" height="60" fill="none" stroke="#f0c040" stroke-width="4"/>
+              <rect x="140" y="20" width="40" height="40" fill="#f0c040" rx="4"/>
+              <rect x="10" y="130" width="60" height="60" fill="none" stroke="#f0c040" stroke-width="4"/>
+              <rect x="20" y="140" width="40" height="40" fill="#f0c040" rx="4"/>
+              <!-- data modules -->
+              <g fill="#f0c040" opacity="0.8">
+                <rect x="85" y="10" width="10" height="10"/><rect x="100" y="10" width="10" height="10"/>
+                <rect x="85" y="25" width="10" height="10"/><rect x="115" y="25" width="10" height="10"/>
+                <rect x="100" y="40" width="10" height="10"/><rect x="85" y="55" width="10" height="10"/>
+                <rect x="115" y="55" width="10" height="10"/><rect x="100" y="70" width="10" height="10"/>
+                <rect x="85" y="85" width="10" height="10"/><rect x="115" y="85" width="10" height="10"/>
+                <rect x="10" y="85" width="10" height="10"/><rect x="25" y="85" width="10" height="10"/>
+                <rect x="55" y="85" width="10" height="10"/><rect x="130" y="85" width="10" height="10"/>
+                <rect x="160" y="85" width="10" height="10"/><rect x="185" y="85" width="10" height="10"/>
+                <rect x="10" y="100" width="10" height="10"/><rect x="40" y="100" width="10" height="10"/>
+                <rect x="70" y="100" width="10" height="10"/><rect x="100" y="100" width="10" height="10"/>
+                <rect x="130" y="100" width="10" height="10"/><rect x="160" y="100" width="10" height="10"/>
+                <rect x="85" y="130" width="10" height="10"/><rect x="115" y="130" width="10" height="10"/>
+                <rect x="100" y="145" width="10" height="10"/><rect x="85" y="160" width="10" height="10"/>
+                <rect x="115" y="160" width="10" height="10"/><rect x="100" y="175" width="10" height="10"/>
+                <rect x="130" y="130" width="10" height="10"/><rect x="160" y="145" width="10" height="10"/>
+                <rect x="145" y="160" width="10" height="10"/><rect x="175" y="175" width="10" height="10"/>
+              </g>
+              <!-- Center logo -->
+              <rect x="85" y="85" width="30" height="30" fill="#0d1f3c" rx="4"/>
+              <text x="100" y="105" text-anchor="middle" fill="#f0c040" font-size="10" font-weight="800">BYB</text>
+            </svg>
+          </div>
+          <p class="qr-label">掃碼下載 ByBanx App</p>
+          <p class="qr-sub">bybanx.com · byb025.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHITEPAPER ===== -->
+<section class="whitepaper-section" id="whitepaper">
+  <div class="section-container">
+    <div class="wp-grid">
+      <div class="wp-text" data-aos="fade-right">
+        <span class="section-tag">白皮書</span>
+        <h2>深度了解<br/><span class="gradient-text">BYB 技術架構</span></h2>
+        <p>詳閱 ByBanx 技術白皮書，深入了解：人類節點網絡協議、RWA資產上鏈機制、BYB代幣設計、DAO治理架構及平台合規框架。</p>
+        <div class="wp-chapters">
+          <div class="wp-chapter">
+            <span class="ch-num">第一章</span>
+            <span class="ch-title">願景與使命——打通虛實兩界</span>
+          </div>
+          <div class="wp-chapter">
+            <span class="ch-num">第二章</span>
+            <span class="ch-title">人類節點協議——PoH 共識機制</span>
+          </div>
+          <div class="wp-chapter">
+            <span class="ch-num">第三章</span>
+            <span class="ch-title">RWA 上鏈技術與資產確權</span>
+          </div>
+          <div class="wp-chapter">
+            <span class="ch-num">第四章</span>
+            <span class="ch-title">BYB 代幣經濟與治理模型</span>
+          </div>
+          <div class="wp-chapter">
+            <span class="ch-num">第五章</span>
+            <span class="ch-title">合規架構與風險管理</span>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v13M7 10l5 5 5-5"/><path d="M3 19h18"/></svg>
+          下載完整白皮書 PDF
+        </a>
+      </div>
+      <div class="wp-visual" data-aos="fade-left">
+        <div class="wp-doc-preview">
+          <div class="doc-header">
+            <div class="doc-logo">
+              <svg viewBox="0 0 40 40" fill="none"><polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="#0d1f3c"/><text x="20" y="25" text-anchor="middle" fill="#f0c040" font-size="11" font-weight="800" font-family="Inter">BYB</text></svg>
+            </div>
+            <div>
+              <h5>ByBanx 技術白皮書</h5>
+              <span>v2.0 · 2025</span>
+            </div>
+          </div>
+          <div class="doc-abstract">
+            <h6>摘要</h6>
+            <p>ByBanx 幣友圈 (BYB025) 是一個以現實世界資產（RWA）為核心的 Web3 生態平台。通過人類節點挖礦（PoH）、RWA資產代幣化、文娛NFT和GameFi的深度融合，構建一個虛實結合、可持續發展的數字經濟體系...</p>
+          </div>
+          <div class="doc-toc">
+            <div class="toc-item"><span>01</span> 項目概覽</div>
+            <div class="toc-item"><span>02</span> 技術架構</div>
+            <div class="toc-item"><span>03</span> RWA機制</div>
+            <div class="toc-item"><span>04</span> 代幣設計</div>
+            <div class="toc-item"><span>05</span> 路線圖</div>
+          </div>
+          <div class="doc-watermark">BYBANX · BYB025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="url(#hexGrad2)" opacity="0.9"/>
+                <text x="20" y="25" text-anchor="middle" fill="white" font-size="11" font-weight="800" font-family="Inter">BYB</text>
+                <defs><linearGradient id="hexGrad2" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#1a3a6b"/><stop offset="100%" stop-color="#0d1f3c"/></linearGradient></defs>
+              </svg>
+            </div>
+            <span class="logo-text">ByBanx <em>BYB</em></span>
+          </a>
+          <p>你進入 Web3 世界的通道。<br/>結合RWA現實資產、人類節點挖礦與文娛NFT生態的下一代區塊鏈平台。</p>
+          <div class="social-links">
+            <a href="#" aria-label="Telegram" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter/X" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="Discord" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/></svg>
+            </a>
+            <a href="#" aria-label="Medium" class="social-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-col">
+          <h6>平台功能</h6>
+          <ul>
+            <li><a href="#">人類節點挖礦</a></li>
+            <li><a href="#">全球加密支付</a></li>
+            <li><a href="#">RWA NFT 市場</a></li>
+            <li><a href="#">GameFi 鏈游</a></li>
+            <li><a href="#">ByBanx Chat</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h6>生態資源</h6>
+          <ul>
+            <li><a href="#">白皮書下載</a></li>
+            <li><a href="#">代幣合約地址</a></li>
+            <li><a href="#">開發者文檔</a></li>
+            <li><a href="#">DAO 治理入口</a></li>
+            <li><a href="#">媒體資源包</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h6>關於我們</h6>
+          <ul>
+            <li><a href="#">敦華集團介紹</a></li>
+            <li><a href="#">東江泉品牌</a></li>
+            <li><a href="#">合作夥伴</a></li>
+            <li><a href="#">新聞公告</a></li>
+            <li><a href="#">聯繫我們</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="section-container">
+      <div class="footer-bottom-row">
+        <p>© 2025 ByBanx (BYB025) · bybanx.com · byb025.com · 保留所有權利</p>
+        <div class="footer-legal">
+          <a href="#">隱私政策</a>
+          <a href="#">服務條款</a>
+          <a href="#">免責聲明</a>
+          <a href="#">KYC/AML 政策</a>
+        </div>
+      </div>
+      <p class="footer-disclaimer">
+        風險提示：加密貨幣投資存在市場風險，NFT價值可能波動。本平台提供的所有信息僅供參考，不構成投資建議。請在充分了解風險的基礎上謹慎參與。
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MOBILE BOTTOM NAV ===== -->
+<div class="mobile-bottom-nav">
+  <a href="#hero" class="mb-nav-item active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+    <span>首頁</span>
+  </a>
+  <a href="#rwa" class="mb-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 00-4 0v2"/></svg>
+    <span>RWA</span>
+  </a>
+  <a href="#download" class="mb-nav-item mb-nav-center">
+    <div class="mb-center-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v13M7 10l5 5 5-5"/><path d="M3 19h18"/></svg>
+    </div>
+    <span>下載</span>
+  </a>
+  <a href="#roadmap" class="mb-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3l9 9-9 9"/></svg>
+    <span>路線圖</span>
+  </a>
+  <a href="#whitepaper" class="mb-nav-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h3M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+    <span>白皮書</span>
+  </a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
